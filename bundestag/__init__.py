@@ -14,7 +14,7 @@ sys.path.append(str(dashapp_rootdir))
 from .src.data.models import Dataset
 from .src.data.ensure_data import get_legislatures, get_polls, get_votes
 from .src.log_config import setup_logger
-from .src.viz.visualize import get_fig_votes
+from .src.viz.visualize import get_fig_dissenters, get_fig_votes
 
 
 setup_logger()
@@ -31,48 +31,67 @@ def init_dashboard(flask_app, route):
         external_stylesheets=[dbc.themes.FLATLY],
     )
 
-    legislatures = get_legislatures()
-    logger.info("legislatures: " + legislatures.__repr__())
+    df_fractions = get_votes()
+    logger.info(f"votes: {type(df_fractions)} {df_fractions.shape}")
 
-    polls = get_polls()
-    logger.info("polls: " + polls.__repr__())
+    #
+    # Fraction selection:
+    # we always just show one fraction, selected via a Dropdown menu:
+    #
 
-    votes = get_votes()
-    logger.info(f"votes: {type(votes)} {votes.shape}")
-
-    # we always just show one fraction; at the outset, let
-    fr = "AfD"
-    df_plot = df.loc[df.fraction.eq(fr)]
-
-    fig_polls = get_fig_votes()
-
-    app.layout = html.Div(
-        [
-            dbc.Container(
-                style={"paddingTop": "50px"},
-                children=[
-                    dcc.Store(id="keystore", data=[]),
-                    # Intro
-                    dbc.Row(
-                        [
-                            dbc.Col([
-
+    app.layout = html.Div([
+        dbc.Container(
+            style={"paddingTop": "50px"},
+            children=[
+                dcc.Store(id="keystore", data=[]),
+                dbc.Row([
+                    dbc.Col([
+                        dcc.Dropdown(
+                            id="fraction-dropdown",
+                            options=[
+                                {"label": f, "value": f}
+                                for f in df_fractions.fraction.unique()
                             ],
-                                xs={"size": 12},
-                                lg={"size": 8, "offset": 2},
-                            ),
-                        ],
-                        class_name="para",
-                    ),
-                ],
-            )
-        ]
-    )
+                            value=df_fractions.fraction.unique()[0],
+                            clearable=False,
+                        )],
+                        xs={"size": 12},
+                        lg={"size": 8, "offset": 2}
+                    )
+                ]),
+                dbc.Row([
+                        dbc.Col([dcc.Graph(id="fig-fraction")],
+                            xs={"size": 12},
+                            lg={"size": 8, "offset": 2},
+                        ),
+                ]),
+                dbc.Row([
+                        dbc.Col([dcc.Graph(id="fig-dissgrid")],
+                            xs={"size": 12},
+                            lg={"size": 8, "offset": 2},
+                        ),
+                ]),
+            ]
+        )
+    ])
 
-    init_callbacks(app)
+    # init_callbacks(app)
+    # def init_callbacks(app):
+    #     global df_fractions
+        
+    @callback(
+        Output("fig-fraction", "figure"),
+        Output("fig-dissgrid", "figure"),
+        Input("fraction-dropdown", "value")
+    )
+    def update_fraction_plot(fraction):
+        df_plot = df_fractions.loc[df_fractions.fraction.eq(fraction)]
+        fig_fraction = get_fig_votes(df_plot)
+        fig_dissgrid = get_fig_dissenters(df_plot)
+
+        return fig_fraction, fig_dissgrid
 
     return app  # .server
 
 
-def init_callbacks(app):
-    pass
+
