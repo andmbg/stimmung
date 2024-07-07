@@ -11,7 +11,7 @@ setup_logger()
 logger = logging.getLogger(__name__)
 
 
-def get_fig_votes(votes_plot):
+def get_fig_votes(votes_plot, selection):
     """
     Per-fraction x per-legislature figure showing dissent poll-wise.
     """
@@ -184,7 +184,7 @@ def get_fig_votes(votes_plot):
     return fig
 
 
-def get_fig_dissenters(votes_plot):
+def get_fig_dissenters(votes_plot, selection):
     """
     Show every MdB who dissented at least once and evey poll with at least one dissenter as a grid.
     """

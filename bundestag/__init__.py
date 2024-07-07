@@ -5,7 +5,7 @@ import json
 
 from flask import Flask
 import pandas as pd
-from dash import Dash, dcc, html, Input, Output, State, callback, dash_table
+from dash import Dash, dcc, html, Input, Output, State, callback, dash_table, no_update
 import dash_bootstrap_components as dbc
 
 # import from config relatively, so it remains portable:
@@ -115,6 +115,7 @@ def init_dashboard(flask_app, route):
 
                 # click data:
                 dcc.Store(id="idstore", storage_type="memory"),
+                dcc.Store(id='selected-tool-storage', storage_type='memory'),
                 dbc.Row([
                     dbc.Col([html.Pre(id="display")],
                         xs={"size": 12},
@@ -127,22 +128,42 @@ def init_dashboard(flask_app, route):
     # init_callbacks(app)
     # def init_callbacks(app):
     #     global df_fractions
+
+    # Callback to update storage with the selected UI tool
+    @callback(Output('selected-tool-storage', 'data'),
+              Input('fig-fraction', 'relayoutData'))
+    def update_fraction_tool(relayoutData):
+        if relayoutData is None:
+            return None
+
+        # Check for UI tool changes
+        if "dragmode" in relayoutData:
+            selected_tool = relayoutData["dragmode"]
+            return {"selected_tool": selected_tool}
         
+        return no_update
+
+    # update plots from storage:
     @callback(
         Output("fig-fraction", "figure"),
         Output("fig-dissgrid", "figure"),
+        #
         Input("fraction-dropdown", "value"),
         State("fraction-dropdown", "value"),
+        Input("idstore", "data"),
+        #
+        State("selected-tool-storage", "data"),
     )
-    def update_fraction_plot(
-        input_fraction,
-        state_fraction,
-    ):
+    def update_fraction_plot(input_fraction, state_fraction, input_storage, tool):
+
         fraction = input_fraction if input_fraction is not None else state_fraction
+        tool = tool["selected_tool"] if tool is not None else "select"
 
         df_plot = df_fractions.loc[df_fractions.fraction.eq(fraction)]
-        fig_fraction = get_fig_votes(df_plot)
-        fig_dissgrid = get_fig_dissenters(df_plot)
+
+        fig_fraction = get_fig_votes(df_plot, input_storage)
+        fig_fraction.update_layout(dragmode=tool)
+        fig_dissgrid = get_fig_dissenters(df_plot, input_storage)
 
         return fig_fraction, fig_dissgrid
     
