@@ -1,36 +1,49 @@
 import logging
 
+import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
 
+from bundestag.src.log_config import setup_logger
 
-def get_fig_votes(votes_plot):
+setup_logger()
+logger = logging.getLogger(__name__)
+
+
+def get_fig_votes(votes_plot, focus_mdb):
     """
     Per-fraction x per-legislature figure showing dissent poll-wise.
     """
 
     vote_map = {
-        "yes": "#00aa00",
-        "no": "#aa0000",
-        "abstain": "#000000",
+        "yes": "rgba(0,200,0, .5)",
+        "no": "rgba(200,0,0, .5)",
+        "abstain": "rgba(100,100,100, .5)",
     }
 
+    df = votes_plot.copy()
+
+    # mark focused MdB for grouping and separate plotting:
+    # df["focus"] = False
+    # df.loc[(df.name.eq(focus_mdb)) & (df.on_party_line.eq(False)), "focus"] = True
+    # logger.info(f"{focus_mdb}: {df.focus.sum()}")
+
     # ranges and panel sizes:
-    panel1_xmin = votes_plot.unanimity.max()
+    panel1_xmin = df.unanimity.max()
     panel3_xmax = (
-        votes_plot.groupby("y")["on_party_line"].apply(lambda x: sum(x == False)).max()
+        df.groupby("y")["on_party_line"].apply(lambda x: sum(x == False)).max()
     )
     xspan = panel1_xmin + panel3_xmax
     # poll result should be 5 % width of the plot:
     panel2_width = 1 / 50 * xspan
-    height = votes_plot.y.max()
+    height = df.y.max()
 
-    votes_opl = votes_plot.loc[votes_plot.on_party_line]
+    votes_opl = df.loc[df.on_party_line]
     votes_opl = votes_opl.groupby("y").agg("first").reset_index()
-    votes_dissent = votes_plot.loc[~votes_plot.on_party_line]
+    votes_dissent = df.loc[~df.on_party_line]
     parliament_vote = (
-        votes_plot.groupby("y").parliament_vote.agg("first").to_frame().reset_index()
+        df.groupby("y").parliament_vote.agg("first").to_frame().reset_index()
     )
     parliament_vote["x"] = 0
 
@@ -38,13 +51,13 @@ def get_fig_votes(votes_plot):
         cols=3,
         rows=1,
         column_widths=[panel1_xmin, panel2_width, panel3_xmax],
-        horizontal_spacing=.0,
+        horizontal_spacing=0.0,
         shared_yaxes=True,
     )
 
     # single bars for the fraction majority vote:
     for vote, grp in votes_opl.groupby("vote", observed=True):
-        
+
         fig.add_trace(
             go.Bar(
                 orientation="h",
@@ -59,27 +72,37 @@ def get_fig_votes(votes_plot):
                 customdata=grp[["label", "date"]],
                 hovertemplate="%{customdata[0]}<extra></extra>",
             ),
-            col=1, row=1
+            col=1,
+            row=1,
         )
 
     # individual markers for each dissenter:
-    for (name, vote), grp in votes_dissent.groupby(["name", "vote"], observed=True):
+    for (name, vote), grp in votes_dissent.groupby(["name", "vote"], observed=False):
+
+        if name == focus_mdb:
+            line_width = 2
+            line_color = "black"
+            logging.info(f"{name}: {len(grp)} {vote}")
+        else:
+            line_width = 1
+            line_color = "rgba(255,255,255, .1)"
 
         fig.add_trace(
             go.Bar(
                 orientation="h",
                 y=grp.y,
-                x=[1],
+                x=np.repeat([1], len(grp)),
                 marker=dict(
-                    line_width=.5,
-                    line_color="white",
+                    line_width=line_width,
+                    line_color=line_color,
                     color=vote_map[vote],
                 ),
                 showlegend=False,
-                customdata=grp[["label", "date", "vote", "name"]],
+                customdata=grp[["label", "date", "vote", "name", "vote_id"]],
                 hovertemplate="<b>%{customdata[3]}</b> (%{customdata[1]})<br>%{customdata[0]}<extra>%{customdata[2]}</extra>",
             ),
-            col=3, row=1
+            col=3,
+            row=1,
         )
 
     # overall result of each vote:
@@ -96,46 +119,63 @@ def get_fig_votes(votes_plot):
                 marker_line_width=1,
                 showlegend=False,
             ),
-            col=2, row=1,
+            col=2,
+            row=1,
         )
 
     fig.add_annotation(
-        text="<= Fraktionslinie",
-        x=-5, y=1,
-        xanchor="right", xref="x",
-        yanchor="bottom", yref="y domain",
+        text="Fraktionslinie",
+        x=-5,
+        y=1,
+        xanchor="right",
+        xref="x",
+        yanchor="bottom",
+        yref="y domain",
         showarrow=False,
         font=dict(size=18),
-        col=1, row=1,
+        col=1,
+        row=1,
     )
 
     fig.add_annotation(
-        text="Dissens =>",
-        x=5, y=1,
-        xanchor="left", xref="x",
-        yanchor="bottom", yref="y3 domain",
+        text="Dissens",
+        x=5,
+        y=1,
+        xanchor="left",
+        xref="x",
+        yanchor="bottom",
+        yref="y3 domain",
         showarrow=False,
         font=dict(size=18),
-        col=3, row=1,
+        col=3,
+        row=1,
     )
 
     # white bg for parliamentary vote:
-    fig.add_shape(
-        type="rect",
-        x0=0, x1=1, xref="x2 domain",
-        y0=0, y1=1, yref="y2 domain",
-        col=2, row=1,
-        line_width=0,
-        fillcolor="white",
-        layer="below",
-    )
+    # fig.add_shape(
+    #     type="rect",
+    #     x0=0, x1=1, xref="x2 domain",
+    #     y0=0, y1=1, yref="y2 domain",
+    #     col=2, row=1,
+    #     line_width=0,
+    #     fillcolor="white",
+    #     layer="below",
+    # )
 
     fig.update_layout(
+        title=dict(
+            text=(
+                "<b>Die Fraktionen:</b> Wie hoch war der Grad der Abweichung in den Abstimmungen?<br>"
+                f"Hier für die Fraktion der {df.fraction.iloc[0]}"
+            )
+        ),
         barmode="relative",
-        width=1200,
-        height=1500,
-        plot_bgcolor="#dddddd",
-        margin=dict(t=30, r=0, b=0, l=0),
+        width=800,
+        height=100 + height * 11,
+        plot_bgcolor="rgba(0,0,0, 0)",
+        paper_bgcolor="rgba(0,0,0, .05)",
+        margin=dict(t=100, r=0, b=0, l=0),
+        xaxis3_range=[-0.5, panel3_xmax],
     )
 
     fig.update_xaxes(
@@ -145,16 +185,13 @@ def get_fig_votes(votes_plot):
     )
 
     fig.update_yaxes(
-        showticklabels=False,
-        showgrid=False,
-        zeroline=False,
-        range=[.5, height + .5]
+        showticklabels=False, showgrid=False, zeroline=False, range=[0.5, height + 0.5]
     )
 
     return fig
 
 
-def get_fig_dissenters(votes_plot):
+def get_fig_dissenters(votes_plot, focus):
     """
     Show every MdB who dissented at least once and evey poll with at least one dissenter as a grid.
     """
@@ -163,14 +200,21 @@ def get_fig_dissenters(votes_plot):
         # look only at dissenting votes:
         votes_plot.loc[~votes_plot.on_party_line]
         # order y-axis by degree of dissent per MdB, select relevant attributes:
-        .sort_values("n_dissent", ascending=True)[["name", "label", "party_line", "vote"]]
-        .reset_index(drop=True)
+        .sort_values(["n_dissent", "name"], ascending=[True, True])[
+            ["name", "label", "party_line", "vote"]
+        ].reset_index(drop=True)
     )
 
-    # 
+    # fix y-axis sorting by giving explicit row numbers in the plot:
+    df_diss.name = pd.Categorical(df_diss.name, ordered=True, categories=df_diss.name.unique())
+
+    df_diss["focus"] = df_diss.name.apply(lambda x: x == focus)
+
+    height = len(df_diss.name.unique())
+
+    #
     label_freq = (
-        df_diss
-        .groupby("label")
+        df_diss.groupby("label")
         .size()
         .to_frame("freq")
         .reset_index()
@@ -180,32 +224,58 @@ def get_fig_dissenters(votes_plot):
         .rename({"index": "x"}, axis=1)
     )
     df_diss = pd.merge(df_diss, label_freq, how="left", on="label")
-    df_diss.sort_values("x").head(20)
+    df_diss.sort_values("x")
+
+
+
+    df_diss.to_csv("temp.csv")
 
     fig = go.Figure()
 
-    fig.add_trace(
-        go.Scatter(
-            x=df_diss.x,
-            y=df_diss.name,
-            mode="markers",
-            marker=dict(
-                size=8,
-                symbol="square",
-                color="rgba(0,0,128, 1)"
-            ),
-            customdata=df_diss[["name", "label", "party_line", "vote"]],
-            hovertemplate="<b>%{customdata[0]}</b> zur Abstimmung<br>„<i>%{customdata[1]}</i>“<br>Stimme: %{customdata[3]}<br>Fraktionsmehrheit: %{customdata[2]}.<extra></extra>"
+    for focus, grp in df_diss.groupby("focus"):
+
+        line_width = 2 if focus else 0
+        line_color = "#ffbb44" if focus else "white"
+
+        fig.add_trace(
+            go.Scatter(
+                x=grp.x,
+                y=grp.name,
+                mode="markers",
+                marker=dict(
+                    size=8,
+                    symbol="square",
+                    color="rgba(0,0,128, 1)",
+                    line_width=line_width,
+                    line_color=line_color,
+                ),
+                customdata=grp[["name", "label", "party_line", "vote"]],
+                hovertemplate="<b>%{customdata[0]}</b> zur Abstimmung<br>„<i>%{customdata[1]}</i>“<br>Stimme: %{customdata[3]}<br>Fraktionsmehrheit: %{customdata[2]}.<extra></extra>",
+                showlegend=False,
+            )
         )
-    )
 
     fig.update_layout(
-        width=800,
-        height=1500,
-        xaxis=dict(
-            showticklabels=False
+        title=dict(
+            text=(
+                "<b>Die Abgeordneten:</b> Wer hat bei welcher Frage abweichend gestimmt?<br>"
+                f"Hier für die Fraktion {votes_plot.fraction.iloc[0]}:"
+            ),
+            x=0,
+            xref="paper",
         ),
-        margin=dict(t=0, r=0, b=0, l=0)
+        width=800,
+        height=100 + height * 15,
+        plot_bgcolor="rgba(0,0,0, 0)",
+        paper_bgcolor="rgba(0,0,0, .05)",
+        xaxis=dict(
+            showticklabels=False,
+            dtick=1,
+        ),
+        yaxis=dict(
+            range=[-0.5, height - 0.5],
+        ),
+        margin=dict(t=100, r=0, b=0, l=0),
     )
-    
+
     return fig
