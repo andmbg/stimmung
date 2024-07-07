@@ -132,36 +132,46 @@ def init_dashboard(flask_app, route):
         Output("fig-fraction", "figure"),
         Output("fig-dissgrid", "figure"),
         Input("fraction-dropdown", "value"),
-        Input("fig-dissgrid", "clickData"),
         State("fraction-dropdown", "value"),
-        State("fig-dissgrid", "clickData"),
     )
     def update_fraction_plot(
         input_fraction,
-        input_focus,
         state_fraction,
-        state_focus
     ):
         fraction = input_fraction if input_fraction is not None else state_fraction
-        focus_json = input_focus if input_focus is not None else state_focus
-        focus = focus_json["points"][0]["customdata"][0] if focus_json is not None else None
 
         df_plot = df_fractions.loc[df_fractions.fraction.eq(fraction)]
-        fig_fraction = get_fig_votes(df_plot, focus)
-        fig_dissgrid = get_fig_dissenters(df_plot, focus)
+        fig_fraction = get_fig_votes(df_plot)
+        fig_dissgrid = get_fig_dissenters(df_plot)
 
         return fig_fraction, fig_dissgrid
     
-    # update the ID store from selection in fig-fraction:
+    # update the ID store from selection in both figures:
     @callback(Output("idstore", "data"),
-              Input("fig-fraction", "selectedData"))
-    def update_idstore(selection_json):
-        if selection_json is None:
-            return None
-        else:
-            vote_ids = [point["customdata"][4] for point in selection_json["points"]]
+              Input("fig-fraction", "selectedData"),
+              State("fig-fraction", "selectedData"),
+              Input("fig-dissgrid", "selectedData"),
+              State("fig-dissgrid", "selectedData"))
+    def update_idstore(
+        frac_selection_json,
+        frac_state_json,
+        grid_selection_json,
+        grid_state_json
+    ):
+        # frac status:
+        frac = frac_selection_json or frac_state_json or []
+        grid = grid_selection_json or grid_state_json or []
 
-        return f"{[i for i in vote_ids]}"
+        frac_ids = {i["customdata"][4] for i in frac["points"]} if len(frac) > 0 else set()
+        grid_ids = {i["customdata"][4] for i in grid["points"]} if len(grid) > 0 else set()
+
+        logger.info(f"frac: {frac_ids}")
+        logger.info(f"grid: {grid_ids}")
+        
+        union = frac_ids.union(grid_ids)
+        logger.info(f"union: {union}")
+
+        return list(union)
 
     # update display from ID store:    
     @callback(
@@ -172,7 +182,7 @@ def init_dashboard(flask_app, route):
     def update_display(idstore_input, idstore_state):
         data = idstore_input if idstore_input else idstore_state
 
-        return json.dumps(data, indent=2)
+        return json.dumps(data)
     
     return app  # .server
 

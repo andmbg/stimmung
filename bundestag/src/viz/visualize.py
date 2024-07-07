@@ -11,7 +11,7 @@ setup_logger()
 logger = logging.getLogger(__name__)
 
 
-def get_fig_votes(votes_plot, focus_mdb):
+def get_fig_votes(votes_plot):
     """
     Per-fraction x per-legislature figure showing dissent poll-wise.
     """
@@ -79,22 +79,14 @@ def get_fig_votes(votes_plot, focus_mdb):
     # individual markers for each dissenter:
     for (name, vote), grp in votes_dissent.groupby(["name", "vote"], observed=False):
 
-        if name == focus_mdb:
-            line_width = 2
-            line_color = "black"
-            logging.info(f"{name}: {len(grp)} {vote}")
-        else:
-            line_width = 1
-            line_color = "rgba(255,255,255, .1)"
-
         fig.add_trace(
             go.Bar(
                 orientation="h",
                 y=grp.y,
                 x=np.repeat([1], len(grp)),
                 marker=dict(
-                    line_width=line_width,
-                    line_color=line_color,
+                    line_width=.5,
+                    line_color="white",
                     color=vote_map[vote],
                 ),
                 showlegend=False,
@@ -192,7 +184,7 @@ def get_fig_votes(votes_plot, focus_mdb):
     return fig
 
 
-def get_fig_dissenters(votes_plot, focus):
+def get_fig_dissenters(votes_plot):
     """
     Show every MdB who dissented at least once and evey poll with at least one dissenter as a grid.
     """
@@ -208,8 +200,6 @@ def get_fig_dissenters(votes_plot, focus):
 
     # fix y-axis sorting by giving explicit row numbers in the plot:
     df_diss.name = pd.Categorical(df_diss.name, ordered=True, categories=df_diss.name.unique())
-
-    df_diss["focus"] = df_diss.name.apply(lambda x: x == focus)
 
     height = len(df_diss.name.unique())
 
@@ -233,28 +223,23 @@ def get_fig_dissenters(votes_plot, focus):
 
     fig = go.Figure()
 
-    for focus, grp in df_diss.groupby("focus"):
-
-        line_width = 2 if focus else 0
-        line_color = "#ffbb44" if focus else "white"
-
-        fig.add_trace(
-            go.Scatter(
-                x=grp.x,
-                y=grp.name,
-                mode="markers",
-                marker=dict(
-                    size=8,
-                    symbol="square",
-                    color="rgba(0,0,128, 1)",
-                    line_width=line_width,
-                    line_color=line_color,
-                ),
-                customdata=grp[["name", "label", "party_line", "vote", "vote_id"]],
-                hovertemplate="<b>%{customdata[0]}</b> zur Abstimmung<br>„<i>%{customdata[1]}</i>“<br>Stimme: %{customdata[3]}<br>Fraktionsmehrheit: %{customdata[2]}.<extra></extra>",
-                showlegend=False,
-            )
+    fig.add_trace(
+        go.Scatter(
+            x=df_diss.x,
+            y=df_diss.name,
+            mode="markers",
+            marker=dict(
+                size=8,
+                symbol="square",
+                color="rgba(0,0,128, 1)",
+                line_width=.5,
+                line_color="white",
+            ),
+            customdata=df_diss[["name", "label", "party_line", "vote", "vote_id"]],
+            hovertemplate="<b>%{customdata[0]}</b> zur Abstimmung<br>„<i>%{customdata[1]}</i>“<br>Stimme: %{customdata[3]}<br>Fraktionsmehrheit: %{customdata[2]}.<extra></extra>",
+            showlegend=False,
         )
+    )
 
     fig.update_layout(
         title=dict(
