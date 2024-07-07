@@ -176,6 +176,7 @@ def get_fig_votes(votes_plot, focus_mdb):
         paper_bgcolor="rgba(0,0,0, .05)",
         margin=dict(t=100, r=0, b=0, l=0),
         xaxis3_range=[-0.5, panel3_xmax],
+        clickmode="event+select",
     )
 
     fig.update_xaxes(
@@ -201,7 +202,7 @@ def get_fig_dissenters(votes_plot, focus):
         votes_plot.loc[~votes_plot.on_party_line]
         # order y-axis by degree of dissent per MdB, select relevant attributes:
         .sort_values(["n_dissent", "name"], ascending=[True, True])[
-            ["name", "label", "party_line", "vote"]
+            ["name", "label", "party_line", "vote", "vote_id"]
         ].reset_index(drop=True)
     )
 
@@ -249,7 +250,7 @@ def get_fig_dissenters(votes_plot, focus):
                     line_width=line_width,
                     line_color=line_color,
                 ),
-                customdata=grp[["name", "label", "party_line", "vote"]],
+                customdata=grp[["name", "label", "party_line", "vote", "vote_id"]],
                 hovertemplate="<b>%{customdata[0]}</b> zur Abstimmung<br>„<i>%{customdata[1]}</i>“<br>Stimme: %{customdata[3]}<br>Fraktionsmehrheit: %{customdata[2]}.<extra></extra>",
                 showlegend=False,
             )
