@@ -48,7 +48,6 @@ def init_dashboard(flask_app, route):
         dbc.Container(
             style={"paddingTop": "50px"},
             children=[
-                dcc.Store(id="keystore", data=[]),
 
                 dbc.Row([
                     dbc.Col([
@@ -115,8 +114,9 @@ def init_dashboard(flask_app, route):
                 ]),
 
                 # click data:
+                dcc.Store(id="idstore", storage_type="memory"),
                 dbc.Row([
-                    dbc.Col([html.Pre(id="selection")],
+                    dbc.Col([html.Pre(id="display")],
                         xs={"size": 12},
                         lg={"size": 8, "offset": 2}),
                 ])
@@ -152,19 +152,27 @@ def init_dashboard(flask_app, route):
 
         return fig_fraction, fig_dissgrid
     
-    @callback(
-        Output("selection", "children"),
-        Input("fig-fraction", "selectedData"),
-    )
-    def update_selection(
-        selection_json
-    ):
+    # update the ID store from selection in fig-fraction:
+    @callback(Output("idstore", "data"),
+              Input("fig-fraction", "selectedData"))
+    def update_idstore(selection_json):
         if selection_json is None:
             return None
         else:
             vote_ids = [point["customdata"][4] for point in selection_json["points"]]
 
         return f"{[i for i in vote_ids]}"
+
+    # update display from ID store:    
+    @callback(
+        Output("display", "children"),
+        Input("idstore", "data"),
+        State("idstore", "data")
+    )
+    def update_display(idstore_input, idstore_state):
+        data = idstore_input if idstore_input else idstore_state
+
+        return json.dumps(data, indent=2)
     
     return app  # .server
 
