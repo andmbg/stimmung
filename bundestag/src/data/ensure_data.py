@@ -7,6 +7,8 @@ from bundestag.src.data.models import Dataset
 
 
 logger = logging.getLogger(__name__)
+dashapp_rootdir = Path(__file__).resolve().parents[3]
+logger.info(f"ensure_data root: {dashapp_rootdir}")
 
 
 def get_legislatures(parliament: str = None):
@@ -244,7 +246,7 @@ def get_legislature_votes(legislature: int):
     return df
 
 
-def ensure_data_bundestag(file: Path = Path.cwd() / "data" / "votes_bundestag.parquet") -> None:
+def ensure_data_bundestag(file: Path = dashapp_rootdir / "data" / "votes_bundestag.parquet") -> None:
 
     logger.info("Ensuring data are present locally. If not, this may take a while.")
     
@@ -259,4 +261,4 @@ def ensure_data_bundestag(file: Path = Path.cwd() / "data" / "votes_bundestag.pa
     # fetching takes long, around 1 hour (but then data are locally present)
     all_votes = pd.concat([get_legislature_votes(legislature=i) for i in legislatures.keys()])
 
-    all_votes.to_parquet("data/votes_bundestag.parquet")
+    all_votes.to_parquet(dashapp_rootdir / "data" / "votes_bundestag.parquet")
