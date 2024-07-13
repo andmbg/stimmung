@@ -141,7 +141,7 @@ class Dataset:
         Fetch data from AWDE.
         """
         response = query_all(self.awde_url, self.awde_endpoint, params=self.awde_params, total=total)
-        self.filepath = Path().cwd() / "data" / f"{self.name}.parquet"
+        self.filepath = dashapp_rootdir / "data" / f"{self.name}.parquet"
 
         # sometimes values are [], which makes Arrow choke. Replace with None:
         def _noneify_empty_lists(value):
