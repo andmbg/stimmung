@@ -8,6 +8,9 @@ import logging
 from ...config import awde_url
 
 logger = logging.getLogger(__name__)
+dashapp_rootdir = Path(__file__).resolve().parents[3]
+logger.info(f"models root: {dashapp_rootdir}")
+
 
 def query_all(
     url: str, endpoint: str, params: dict, page: int = 0, pager_limit: int = 1000, total: int = None
@@ -105,7 +108,7 @@ class Dataset:
 
     def _load_rawdata(self):
         # set filepath for cache from name:
-        filepath = Path().cwd() / "data" / f"{self.name}.parquet"
+        filepath = dashapp_rootdir / "data" / f"{self.name}.parquet"
         # Attempt to load data from the local file,
         # set data if possible, set nrow if possible:
         if filepath.exists():
