@@ -4,6 +4,7 @@ import logging
 import json
 
 from flask import Flask
+import numpy as np
 import pandas as pd
 from dash import Dash, dcc, html, Input, Output, State, callback, dash_table, no_update
 import dash_bootstrap_components as dbc
@@ -34,6 +35,11 @@ def init_dashboard(flask_app, route):
 
     # the dataset:
     df_fractions = get_votes()
+    df_fractions = df_fractions.loc[df_fractions.vote.ne("no_show")]
+    df_fractions.vote = pd.Categorical(
+        df_fractions.vote, ordered=True, categories=["yes", "no", "abstain"]
+    )
+
     logger.info(f"votes: {type(df_fractions)} {df_fractions.shape}")
 
     # prose paragraphs:
@@ -88,7 +94,11 @@ def init_dashboard(flask_app, route):
 
                 # fraction plot:
                 dbc.Row([
-                        dbc.Col([dcc.Graph(id="fig-fraction")],
+                        dbc.Col([
+                            dcc.Graph(
+                                id="fig-fraction",
+                                figure=get_fig_votes(df_fractions.loc[df_fractions.fraction.eq("AfD")], [445997])
+                            )],
                             xs={"size": 12},
                             lg={"size": 8, "offset": 2},
                             style={"border-top": "3px solid #cccccc",
@@ -125,86 +135,33 @@ def init_dashboard(flask_app, route):
         )
     ])
 
-    # init_callbacks(app)
-    # def init_callbacks(app):
-    #     global df_fractions
-
-    # Callback to update storage with the selected UI tool
-    @callback(Output('selected-tool-storage', 'data'),
-              Input('fig-fraction', 'relayoutData'))
-    def update_fraction_tool(relayoutData):
-        if relayoutData is None:
-            return None
-
-        # Check for UI tool changes
-        if "dragmode" in relayoutData:
-            selected_tool = relayoutData["dragmode"]
-            return {"selected_tool": selected_tool}
-        
-        return no_update
-
-    # update plots from storage:
-    @callback(
-        Output("fig-fraction", "figure"),
-        Output("fig-dissgrid", "figure"),
-        #
-        Input("fraction-dropdown", "value"),
-        State("fraction-dropdown", "value"),
-        Input("idstore", "data"),
-        #
-        State("selected-tool-storage", "data"),
-    )
-    def update_fraction_plot(input_fraction, state_fraction, input_storage, tool):
-
-        fraction = input_fraction if input_fraction is not None else state_fraction
-        tool = tool["selected_tool"] if tool is not None else "select"
-
-        df_plot = df_fractions.loc[df_fractions.fraction.eq(fraction)]
-
-        fig_fraction = get_fig_votes(df_plot, input_storage)
-        fig_fraction.update_layout(dragmode=tool)
-        fig_dissgrid = get_fig_dissenters(df_plot, input_storage)
-
-        return fig_fraction, fig_dissgrid
-    
-    # update the ID store from selection in both figures:
-    @callback(Output("idstore", "data"),
+    # update plots from selection
+    @callback(Output("fig-fraction", "figure"),
+              Output("fig-dissgrid", "figure"),
+              Output("display", "children"),
+              Input("fraction-dropdown", "value"),
               Input("fig-fraction", "selectedData"),
+              State("fig-fraction", "figure"),
               State("fig-fraction", "selectedData"),
-              Input("fig-dissgrid", "selectedData"),
-              State("fig-dissgrid", "selectedData"))
-    def update_idstore(
-        frac_selection_json,
-        frac_state_json,
-        grid_selection_json,
-        grid_state_json
-    ):
-        # frac status:
-        frac = frac_selection_json or frac_state_json or []
-        grid = grid_selection_json or grid_state_json or []
+              Input("fig-dissgrid", "selectedData"))
+    def update_everything(fraction, selection_frac, current_frac_fig, current_frac_data, selection_grid):
 
-        frac_ids = {i["customdata"][4] for i in frac["points"]} if len(frac) > 0 else set()
-        grid_ids = {i["customdata"][4] for i in grid["points"]} if len(grid) > 0 else set()
+        selected_votes = df_fractions.vote_id.tolist()
 
-        logger.info(f"frac: {frac_ids}")
-        logger.info(f"grid: {grid_ids}")
-        
-        union = frac_ids.union(grid_ids)
-        logger.info(f"union: {union}")
+        for selected_data in [selection_frac, selection_grid]:
+            if selected_data and selected_data["points"]:
+                selected_votes = list(np.intersect1d(
+                    selected_votes, [p["customdata"][4] for p in selected_data["points"]]
+                ))
+        frac_fig = get_fig_votes(df_fractions.loc[df_fractions.fraction.eq(fraction)], selected_votes)
+        diss_fig = get_fig_dissenters(df_fractions[df_fractions.fraction.eq(fraction)], selected_votes)
 
-        return list(union)
+        return (
+            frac_fig,
+            diss_fig,
+            str(selected_votes)
+        )
 
-    # update display from ID store:    
-    @callback(
-        Output("display", "children"),
-        Input("idstore", "data"),
-        State("idstore", "data")
-    )
-    def update_display(idstore_input, idstore_state):
-        data = idstore_input if idstore_input else idstore_state
-
-        return json.dumps(data)
-    
     return app  # .server
 
 

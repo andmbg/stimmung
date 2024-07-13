@@ -8,7 +8,7 @@ from bundestag.src.data.models import Dataset
 logger = logging.getLogger(__name__)
 
 
-def get_legislatures():
+def get_legislatures(label: str = None):
 
     logger.info("Loading legislatures data")
 
@@ -16,24 +16,29 @@ def get_legislatures():
         name="legislatures",
         awde_endpoint="parliament-periods",
         awde_params={
-            "label": "Bundestag 2021 - 2025",
+            "label": label,
             "type": "legislature",
         },
     )
-    legislatures.fetch()
+    if legislatures.data is None:
+        legislatures.fetch()
+        legislatures.save()
 
     return legislatures
 
 
-def get_polls():
+def get_polls(legislature: int = 132):
 
     logger.info("Loading data about polls")
 
     polls = Dataset(
-        name="polls",
+        name=f"polls_legislature_{legislature}",
         awde_endpoint="polls",
-        awde_params={"field_legislature[entity.id]": 132},
+        awde_params={"field_legislature[entity.id]": legislature},
     )
+    if polls.data is None:
+        polls.fetch()
+        polls.save()
 
     def _transform_polls(data: pd.DataFrame) -> pd.DataFrame:
         df = data.copy()
@@ -47,7 +52,9 @@ def get_polls():
         df["fid_topic"] = df.field_topics.apply(
             lambda x: ",".join([str(i["id"]) for i in x]) if x is not None else None
         )
-        df = df[["id", "fid_legislatur", "fid_topic", "label", "date", "parliament_vote"]]
+        df = df[
+            ["id", "fid_legislatur", "fid_topic", "label", "date", "parliament_vote"]
+        ]
 
         return df
 
@@ -61,7 +68,7 @@ def get_votes():
     Get vote-level data on all relevant votes at Bundestag.
     """
 
-    logger.info("Loading voting data")
+    logger.info("Loading vote-level data")
 
     # identify for which polls we want vote-level data:
     polls = get_polls()
