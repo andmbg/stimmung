@@ -174,7 +174,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list):
         title=dict(
             text=(
                 "<b>Die Fraktionen:</b> Wie hoch war der Grad der Abweichung in den Abstimmungen?<br>"
-                f"Hier für die Fraktion der {df.fraction.iloc[0]}"
+                f"Hier für die Fraktion: {df.fraction.iloc[0]}"
             )
         ),
         barmode="relative",
@@ -268,7 +268,7 @@ def get_fig_dissenters(votes_plot, selected_vote_ids):
         title=dict(
             text=(
                 "<b>Die Abgeordneten:</b> Wer hat bei welcher Frage abweichend gestimmt?<br>"
-                f"Hier für die Fraktion {votes_plot.fraction.iloc[0]}:"
+                f"Hier für die Fraktion: {votes_plot.fraction.iloc[0]}:"
             ),
             x=0,
             xref="paper",

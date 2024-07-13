@@ -3,20 +3,19 @@ from pathlib import Path
 import logging
 import json
 
-from flask import Flask
 import numpy as np
 import pandas as pd
-from dash import Dash, dcc, html, Input, Output, State, callback, dash_table, no_update
+from dash import Dash, dcc, html, Input, Output, State, callback
 import dash_bootstrap_components as dbc
 
 # import from config relatively, so it remains portable:
 dashapp_rootdir = Path(__file__).resolve().parents[1]
 sys.path.append(str(dashapp_rootdir))
 
-from .src.data.models import Dataset
-from .src.data.ensure_data import get_legislatures, get_polls, get_votes
+from .src.data.ensure_data import ensure_data_bundestag, get_legislature_votes, get_legislatures
 from .src.log_config import setup_logger
 from .src.viz.visualize import get_fig_dissenters, get_fig_votes
+from .config import cached_dataset
 
 
 setup_logger()
@@ -33,14 +32,30 @@ def init_dashboard(flask_app, route):
         external_stylesheets=[dbc.themes.FLATLY],
     )
 
+    #
+    # Initialization
+    # 
+
+    # legislature selection data:
+    # dict: {id: label}
+    legislature_labels = get_legislatures().data
+    legislature_labels = (
+        legislature_labels
+        .loc[legislature_labels.label.str.contains("Bundestag"), ["id", "label"]]
+        .set_index("id")
+        .to_dict()["label"]
+    )
+    
     # the dataset:
-    df_fractions = get_votes()
-    df_fractions = df_fractions.loc[df_fractions.vote.ne("no_show")]
-    df_fractions.vote = pd.Categorical(
-        df_fractions.vote, ordered=True, categories=["yes", "no", "abstain"]
+    ensure_data_bundestag()
+
+    data = pd.read_parquet(cached_dataset)
+    data = data.loc[data.vote.ne("no_show")]
+    data.vote = pd.Categorical(
+        data.vote, ordered=True, categories=["yes", "no", "abstain"]
     )
 
-    logger.info(f"votes: {type(df_fractions)} {df_fractions.shape}")
+    logger.info(f"votes: {type(data)} {data.shape}")
 
     # prose paragraphs:
     prosepath = dashapp_rootdir / "bundestag" / "src" / "prose"
@@ -64,32 +79,41 @@ def init_dashboard(flask_app, route):
                     ),
                 ]),
 
-                # Fraction selection:
-                # show one fraction, selected via a Dropdown menu:
+                # Legislature and fraction selection:
                 dbc.Row([
-                    dbc.Col([md_dropdown_pre],
-                        xs={"size": 12},
-                        lg={"size": 8, "offset": 2}),
-                ]),
-                dbc.Row([
+                    dbc.Col([
+                        dcc.Dropdown(
+                            id="legislature-dropdown",
+                            options=[
+                                {"label": v, "value": k}
+                                for k, v in legislature_labels.items()
+                            ],
+                            value=132,  # Bundestag 2021 - 2025
+                            clearable=False,
+                        )],
+                        xs={"size": 6},
+                        lg={"size": 3, "offset": 3}
+                    ),
                     dbc.Col([
                         dcc.Dropdown(
                             id="fraction-dropdown",
                             options=[
                                 {"label": f, "value": f}
-                                for f in df_fractions.fraction.unique()
+                                for f in data.fraction.unique()
                             ],
-                            value=df_fractions.fraction.unique()[0],
+                            value="SPD",
                             clearable=False,
                         )],
-                        xs={"size": 12},
-                        lg={"size": 2, "offset": 2}
+                        xs={"size": 6},
+                        lg={"size": 3, "offset": 0}
                     )
                 ]),
                 dbc.Row([
                     dbc.Col([md_dropdown_post],
                         xs={"size": 12},
-                        lg={"size": 8, "offset": 2}),
+                        lg={"size": 8, "offset": 2},
+                        style={"margin-top": "20px"}
+                    )
                 ]),
 
                 # fraction plot:
@@ -97,7 +121,7 @@ def init_dashboard(flask_app, route):
                         dbc.Col([
                             dcc.Graph(
                                 id="fig-fraction",
-                                figure=get_fig_votes(df_fractions.loc[df_fractions.fraction.eq("AfD")], [445997])
+                                figure=get_fig_votes(data.loc[data.fraction.eq("SPD")], [445997])
                             )],
                             xs={"size": 12},
                             lg={"size": 8, "offset": 2},
@@ -122,15 +146,27 @@ def init_dashboard(flask_app, route):
                             "border-bottom": "3px solid #cccccc",
                             "margin-top": "50px"}),
                 ]),
-
-                # click data:
-                dcc.Store(id="idstore", storage_type="memory"),
-                dcc.Store(id='selected-tool-storage', storage_type='memory'),
                 dbc.Row([
-                    dbc.Col([html.Pre(id="display")],
-                        xs={"size": 12},
-                        lg={"size": 8, "offset": 2}),
+                    dbc.Col([
+                        html.Div([
+                            html.A(children="Copyright der Daten: CC0 1.0",
+                                   href="https://creativecommons.org/publicdomain/zero/1.0/")
+                        ])
+                    ],
+                    xs={"size": 12},
+                    lg={"size": 8, "offset": 2},
+                    style={
+                        "margin-top": "150px",
+                        "text-align": "center"
+                    }),
                 ])
+
+                # inspect click data:
+                # dbc.Row([
+                #     dbc.Col([html.Pre(id="display")],
+                #         xs={"size": 12},
+                #         lg={"size": 8, "offset": 2}),
+                # ])
             ]
         )
     ])
@@ -138,29 +174,46 @@ def init_dashboard(flask_app, route):
     # update plots from selection
     @callback(Output("fig-fraction", "figure"),
               Output("fig-dissgrid", "figure"),
-              Output("display", "children"),
+              Input("legislature-dropdown", "value"),
               Input("fraction-dropdown", "value"),
               Input("fig-fraction", "selectedData"),
-              State("fig-fraction", "figure"),
-              State("fig-fraction", "selectedData"),
               Input("fig-dissgrid", "selectedData"))
-    def update_everything(fraction, selection_frac, current_frac_fig, current_frac_data, selection_grid):
+    def update_everything(
+        legislature,
+        fraction,
+        selection_frac,
+        selection_grid
+    ):
+        plot_data = data.loc[
+            data.fid_legislatur.eq(legislature)
+            & data.fraction.eq(fraction)
+        ]
 
-        selected_votes = df_fractions.vote_id.tolist()
+        selected_votes = data.vote_id.tolist()
 
         for selected_data in [selection_frac, selection_grid]:
             if selected_data and selected_data["points"]:
                 selected_votes = list(np.intersect1d(
                     selected_votes, [p["customdata"][4] for p in selected_data["points"]]
                 ))
-        frac_fig = get_fig_votes(df_fractions.loc[df_fractions.fraction.eq(fraction)], selected_votes)
-        diss_fig = get_fig_dissenters(df_fractions[df_fractions.fraction.eq(fraction)], selected_votes)
+        frac_fig = get_fig_votes(plot_data, selected_votes)
+        diss_fig = get_fig_dissenters(plot_data, selected_votes)
 
         return (
             frac_fig,
             diss_fig,
-            str(selected_votes)
         )
+    
+    @callback(Output("fraction-dropdown", "options"),
+              Input("legislature-dropdown", "value"))
+    def update_available_parties(legislature):
+        parties = data.loc[data.fid_legislatur.eq(legislature), "fraction"].unique()
+        return [{"label": p, "value": p} for p in parties]
+    
+    @callback(Output("fraction-dropdown", "value"),
+              Input("fraction-dropdown", "options"))
+    def update_selected_party(available_options):
+        return available_options[0]["value"]
 
     return app  # .server
 

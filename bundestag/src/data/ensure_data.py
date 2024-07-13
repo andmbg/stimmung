@@ -1,3 +1,4 @@
+from pathlib import Path
 import logging
 
 import pandas as pd
@@ -8,15 +9,25 @@ from bundestag.src.data.models import Dataset
 logger = logging.getLogger(__name__)
 
 
-def get_legislatures(label: str = None):
+def get_legislatures(parliament: str = None):
+    """
+    Given the label of a parliament plus time period ("Bundestag 2021 - 2025",
+    "EU-Parlament 2019 - 2024", or one of the States' names and periods), fetches all
+    legislative periods that are on record. Fetches all parliaments and periods if no
+    argument is given.
 
-    logger.info("Loading legislatures data")
+    If a dataset exists locally, does not fetch anything. Note that no checks are done if the
+    local dataset really represents what the argument would identify as downloadable. Delete
+    local data if in doubt.
+    """
+
+    logger.info(f"Loading legislatures data of {parliament if parliament else 'all parliaments'}")
 
     legislatures = Dataset(
-        name="legislatures",
+        name=f"legislatures_parliament_{parliament if parliament else 'all'}",
         awde_endpoint="parliament-periods",
         awde_params={
-            "label": label,
+            "label": parliament,
             "type": "legislature",
         },
     )
@@ -27,9 +38,18 @@ def get_legislatures(label: str = None):
     return legislatures
 
 
-def get_polls(legislature: int = 132):
+def get_polls(legislature: int = None):
+    """
+    Given the ID (integer) of a legislature, fetch all polls done during that legislature. A
+    legislature ID refers to a parliament and time period. Fetch polls of all legislatures if
+    no legislature ID is given.
 
-    logger.info("Loading data about polls")
+    If a dataset exists locally, do not fetch anything. Note that no checks are done if the
+    local dataset really represents what the argument would identify as downloadable. Delete
+    local data if in doubt.
+    """
+
+    logger.info(f"Loading data about polls during legislature ID {legislature}")
 
     polls = Dataset(
         name=f"polls_legislature_{legislature}",
@@ -63,29 +83,21 @@ def get_polls(legislature: int = 132):
     return polls
 
 
-def get_votes():
+def get_votes(poll: int = None):
     """
     Get vote-level data on all relevant votes at Bundestag.
     """
 
-    logger.info("Loading vote-level data")
+    logger.info(f"Loading voting data from poll ID {poll}")
 
-    # identify for which polls we want vote-level data:
-    polls = get_polls()
-    poll_ids = polls.data.id
-
-    # load or download vote data:
-    all_votes = {}
-
-    for id in poll_ids:
-        all_votes[id] = Dataset(
-            name=f"poll_{id}", awde_endpoint="votes", awde_params={"poll": id}
-        )
-        if all_votes[id].data is None:
-            logger.info(f"poll id {id} not present locally; downloading from AWDE")
-
-            all_votes[id].fetch()
-            all_votes[id].save()
+    votes = Dataset(
+        name=f"votes_poll_{poll}",
+        awde_endpoint="votes",
+        awde_params={"poll": poll}
+    )
+    if votes.data is None:
+        votes.fetch()
+        votes.save()
 
     # We want our vote data to look different from what we get from AWDE.
     # This function creates a pretty version of the raw data on the fly,
@@ -117,16 +129,27 @@ def get_votes():
 
         return df
 
-    for v in all_votes.values():
-        v.transform_data = _transform_vote
+    votes.transform_data = _transform_vote
 
-    allvotes = pd.concat([x.data for x in all_votes.values()])
+    return votes
 
-    logger.info("Processing vote data")
+
+def get_legislature_votes(legislature: int):
+
+    logger.info(f"Getting vote data for legislature id {legislature}")
+
+    all_polls: Dataset = get_polls(legislature=legislature)
+    poll_ids: list = all_polls.data.id.tolist()
+    
+    all_votes = {}
+    for id in poll_ids:
+        all_votes[id] = get_votes(poll=id)
+
+    allvotes = pd.concat([i.data for i in all_votes.values()])
 
     df = (
         allvotes.set_index("fid_poll")
-        .join(polls.data.set_index("id"))
+        .join(all_polls.data.set_index("id"))
         .reset_index()
         .rename({"fid_poll": "poll_id", "fid_vote": "vote_id"}, axis=1)
     )
@@ -219,3 +242,21 @@ def get_votes():
     df = df.set_index(["fraction", "poll_id"]).join(unanimity).reset_index()
 
     return df
+
+
+def ensure_data_bundestag(file: Path = Path.cwd() / "data" / "votes_bundestag.parquet") -> None:
+
+    logger.info("Ensuring data are present locally. If not, this may take a while.")
+    
+    if file.is_file():
+        logger.info("Data are cached already.")
+        return None
+
+    legislatures = get_legislatures().data
+    legislatures = legislatures.loc[legislatures.label.str.contains("Bundestag"), ["id", "label"]].set_index("id").to_dict()["label"]
+
+    # load or fetch all voting data;
+    # fetching takes long, around 1 hour (but then data are locally present)
+    all_votes = pd.concat([get_legislature_votes(legislature=i) for i in legislatures.keys()])
+
+    all_votes.to_parquet("data/votes_bundestag.parquet")

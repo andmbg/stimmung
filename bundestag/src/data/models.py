@@ -169,7 +169,7 @@ class Dataset:
 
     def __str__(self):
         out = f"{'Empty ' if self.data is None else ''}Dataset '{self.name}':\n"
-        out += f"'{self.awde_url}' + '{self.awde_endpoint}'\n"
+        out += f"'{self.awde_url + self.awde_endpoint}'\n"
         out += "params: {"
         for k, v in self.awde_params.items():
             out += f"\n\t{k}: {v}"
