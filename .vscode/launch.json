@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Debug Bundestag Dashboard",
+            "type": "python",
+            "request": "launch",
+            "module": "bundestag.dashboard",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"  // Ensure your workspace folder is added to PYTHONPATH
+            },
+            "justMyCode": true
+        }
+    ]
+}

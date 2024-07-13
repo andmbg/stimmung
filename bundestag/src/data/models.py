@@ -3,9 +3,11 @@ import pandas as pd
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
+import logging
 
-from src.config import awde_url
+from ...config import awde_url
 
+logger = logging.getLogger(__name__)
 
 def query_all(
     url: str, endpoint: str, params: dict, page: int = 0, pager_limit: int = 1000, total: int = None
@@ -109,6 +111,7 @@ class Dataset:
         if filepath.exists():
             self.filepath = filepath
             self.rawdata = pd.read_parquet(self.filepath)
+            logger.info(f"Loaded data from cache: {self.filepath}")
         else:
             self.filepath = None
             self.rawdata = None
@@ -166,7 +169,7 @@ class Dataset:
 
     def __str__(self):
         out = f"{'Empty ' if self.data is None else ''}Dataset '{self.name}':\n"
-        out += f"'{self.awde_url}' + '{self.awde_endpoint}'\n"
+        out += f"'{self.awde_url + self.awde_endpoint}'\n"
         out += "params: {"
         for k, v in self.awde_params.items():
             out += f"\n\t{k}: {v}"
