@@ -110,7 +110,9 @@ def init_dashboard(flask_app, route):
                         xs={"size": 6},
                         lg={"size": 4, "offset": 0},
                     )
-                ]),
+                ],
+                    class_name="mt-4"
+                ),
                 dbc.Row([
                     dbc.Col([md_dropdown_post],
                         xs={"size": 12},
