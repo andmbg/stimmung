@@ -143,7 +143,7 @@ def init_dashboard(flask_app, route):
                                             )
                                         ],
                                         xs={"size": 12},
-                                        lg={"size": 12, "offset": 1},
+                                        lg={"size": 10, "offset": 1},
                                         class_name="figure mt-4",
                                     ),
                                 ]
