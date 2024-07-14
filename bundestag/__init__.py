@@ -143,7 +143,7 @@ def init_dashboard(flask_app, route):
                                             )
                                         ],
                                         xs={"size": 12},
-                                        lg={"size": 8, "offset": 2},
+                                        lg={"size": 10, "offset": 1},
                                         class_name="para mt-4",
                                     ),
                                 ]
@@ -154,7 +154,7 @@ def init_dashboard(flask_app, route):
                                     dbc.Col(
                                         [md_pre_dissenter],
                                         xs={"size": 12},
-                                        lg={"size": 8, "offset": 2},
+                                        lg={"size": 10, "offset": 1},
                                         class_name="para mt-4",
                                     )
                                 ]
