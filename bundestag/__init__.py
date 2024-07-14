@@ -93,7 +93,8 @@ def init_dashboard(flask_app, route):
                             clearable=False,
                         )],
                         xs={"size": 6},
-                        lg={"size": 3, "offset": 3},
+                        lg={"size": 4, "offset": 2},
+                        class_name="para"
                     ),
                     dbc.Col([
                         dcc.Dropdown(
@@ -106,10 +107,10 @@ def init_dashboard(flask_app, route):
                             clearable=False,
                         )],
                         xs={"size": 6},
-                        lg={"size": 3, "offset": 0}
+                        lg={"size": 4, "offset": 0},
+                        class_name="para mt-4"
                     )
                 ],
-                    class_name="para mt-4"
                 ),
                 dbc.Row([
                     dbc.Col([md_dropdown_post],
@@ -128,10 +129,6 @@ def init_dashboard(flask_app, route):
                             )],
                             xs={"size": 12},
                             lg={"size": 8, "offset": 2},
-                            style={
-                                "border-top": "3px solid #cccccc",
-                                "border-bottom": "3px solid #cccccc"
-                            },
                             class_name="para mt-4"
                         ),
                 ]),
@@ -148,10 +145,6 @@ def init_dashboard(flask_app, route):
                     dbc.Col([dcc.Graph(id="fig-dissgrid")],
                         xs={"size": 12},
                         lg={"size": 8, "offset": 2},
-                        style={
-                            "border-top": "3px solid #cccccc",
-                            "border-bottom": "3px solid #cccccc"
-                        },
                         class_name="para mt-4"                        
                     ),
                 ]
