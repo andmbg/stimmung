@@ -121,7 +121,7 @@ def init_dashboard(flask_app, route):
                         dbc.Col([
                             dcc.Graph(
                                 id="fig-fraction",
-                                figure=get_fig_votes(data.loc[data.fraction.eq("SPD")], [445997])
+                                # figure=get_fig_votes(data.loc[data.fraction.eq("SPD")], [445997])
                             )],
                             xs={"size": 12},
                             lg={"size": 8, "offset": 2},
@@ -171,13 +171,19 @@ def init_dashboard(flask_app, route):
         )
     ])
 
+    init_callbacks(app, data)
+
+    return app
+
+
+def init_callbacks(app, data):
     # update plots from selection
-    @callback(Output("fig-fraction", "figure"),
-              Output("fig-dissgrid", "figure"),
-              Input("legislature-dropdown", "value"),
-              Input("fraction-dropdown", "value"),
-              Input("fig-fraction", "selectedData"),
-              Input("fig-dissgrid", "selectedData"))
+    @app.callback(Output("fig-fraction", "figure"),
+            Output("fig-dissgrid", "figure"),
+            Input("legislature-dropdown", "value"),
+            Input("fraction-dropdown", "value"),
+            Input("fig-fraction", "selectedData"),
+            Input("fig-dissgrid", "selectedData"))
     def update_everything(
         legislature,
         fraction,
@@ -204,18 +210,16 @@ def init_dashboard(flask_app, route):
             diss_fig,
         )
     
-    @callback(Output("fraction-dropdown", "options"),
-              Input("legislature-dropdown", "value"))
+    @app.callback(Output("fraction-dropdown", "options"),
+            Input("legislature-dropdown", "value"))
     def update_available_parties(legislature):
         parties = data.loc[data.fid_legislatur.eq(legislature), "fraction"].unique()
         return [{"label": p, "value": p} for p in parties]
     
-    @callback(Output("fraction-dropdown", "value"),
-              Input("fraction-dropdown", "options"))
+    @app.callback(Output("fraction-dropdown", "value"),
+            Input("fraction-dropdown", "options"))
     def update_selected_party(available_options):
         return available_options[0]["value"]
-
-    return app  # .server
 
 
 
