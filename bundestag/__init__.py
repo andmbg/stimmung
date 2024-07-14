@@ -184,7 +184,7 @@ def init_dashboard(flask_app, route):
                                         [md_pre_dissenter],
                                         xs={"size": 12},
                                         lg={"size": 8, "offset": 2},
-                                        class_name="mt-4",
+                                        class_name="para mt-4",
                                     )
                                 ]
                             ),
