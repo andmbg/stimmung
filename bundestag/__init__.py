@@ -91,6 +91,7 @@ def init_dashboard(flask_app, route):
                             ],
                             value=132,  # Bundestag 2021 - 2025
                             clearable=False,
+                            style={"z-index": "1050"},
                         )],
                         xs={"size": 6},
                         lg={"size": 4, "offset": 2},
@@ -104,13 +105,12 @@ def init_dashboard(flask_app, route):
                             ],
                             value="SPD",
                             clearable=False,
+                            style={"z-index": "1050"},
                         )],
                         xs={"size": 6},
                         lg={"size": 4, "offset": 0},
                     )
-                ],
-                    class_name="para mt-4"
-                ),
+                ]),
                 dbc.Row([
                     dbc.Col([md_dropdown_post],
                         xs={"size": 12},
