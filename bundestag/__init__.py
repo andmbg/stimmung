@@ -94,7 +94,6 @@ def init_dashboard(flask_app, route):
                         )],
                         xs={"size": 6},
                         lg={"size": 4, "offset": 2},
-                        class_name="para"
                     ),
                     dbc.Col([
                         dcc.Dropdown(
@@ -108,9 +107,9 @@ def init_dashboard(flask_app, route):
                         )],
                         xs={"size": 6},
                         lg={"size": 4, "offset": 0},
-                        class_name="para mt-4"
                     )
                 ],
+                    class_name="para mt-4"
                 ),
                 dbc.Row([
                     dbc.Col([md_dropdown_post],
