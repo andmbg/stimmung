@@ -178,7 +178,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list):
             )
         ),
         barmode="relative",
-        width=900,
+        # width=900,
         height=100 + 11 * layout_measures["height"],
         plot_bgcolor="rgba(0,0,0, 0)",
         paper_bgcolor="rgba(255,255,255, .5)",
