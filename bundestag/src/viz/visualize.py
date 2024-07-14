@@ -181,7 +181,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list):
         # width=900,
         height=100 + 11 * layout_measures["height"],
         plot_bgcolor="rgba(0,0,0, 0)",
-        paper_bgcolor="rgba(255,255,255, .5)",
+        paper_bgcolor="rgba(255,255,255, 0)",
         margin=dict(t=100, r=0, b=0, l=0),
         xaxis3_range=[-0.5, layout_measures["panel3_xmax"]],
         clickmode="event+select",
@@ -276,7 +276,7 @@ def get_fig_dissenters(votes_plot, selected_vote_ids):
         # width=900,
         height=100 + height * 15,
         plot_bgcolor="rgba(0,0,0, 0)",
-        paper_bgcolor="rgba(255,255,255, .5)",
+        paper_bgcolor="rgba(255,255,255, 0)",
         xaxis=dict(
             showticklabels=False,
             dtick=1,

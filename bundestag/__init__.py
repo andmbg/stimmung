@@ -74,6 +74,7 @@ def init_dashboard(flask_app, route):
                     dbc.Container(
                         style={"paddingTop": "50px"},
                         children=[
+                            
                             dbc.Row(
                                 [
                                     dbc.Col(
@@ -84,6 +85,34 @@ def init_dashboard(flask_app, route):
                                     ),
                                 ]
                             ),
+
+                            dbc.Row(
+                                [
+                                    dbc.Col(
+                                        [
+                                            html.Figure([
+                                                html.Img(src="assets/Bundestag_-_Palais_du_Reichstag_small.jpg", width="100%"),
+                                                html.Figcaption("CC BY-SA 3.0, A. Delesse (Prométhée)"),
+                                            ]),
+                                        ],
+                                        xs={"size": 12},
+                                        lg={"size": 8, "offset": 2},
+                                        class_name="figure mt-4",
+                                    )
+                                ]
+                            ),
+
+                            dbc.Row(
+                                [
+                                    dbc.Col(
+                                        [md_dropdown_pre],
+                                        xs={"size": 12},
+                                        lg={"size": 8, "offset": 2},
+                                        class_name="para mt-4",
+                                    )
+                                ]
+                            ),
+
                             # Legislature and fraction selection:
                             dbc.Row(
                                 [
