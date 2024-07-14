@@ -273,7 +273,7 @@ def get_fig_dissenters(votes_plot, selected_vote_ids):
             x=0,
             xref="paper",
         ),
-        width=900,
+        # width=900,
         height=100 + height * 15,
         plot_bgcolor="rgba(0,0,0, 0)",
         paper_bgcolor="rgba(255,255,255, .5)",
