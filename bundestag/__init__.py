@@ -65,115 +65,144 @@ def init_dashboard(flask_app, route):
     md_pre_dissenter = dcc.Markdown(open(prosepath / "pre_dissenter.md").read())
 
 
-    app.layout = html.Div([
-        dbc.Container(
-            style={"paddingTop": "50px"},
-            children=[
-
-                dbc.Row([
-                    dbc.Col([
-                        md_intro
-                    ],
-                        xs={"size": 12},
-                        lg={"size": 8, "offset": 2},
-                        class_name="para mt-4",
-                    ),
-                ]),
-
-                # Legislature and fraction selection:
-                dbc.Row([
-                    dbc.Col([
-                        dcc.Dropdown(
-                            id="legislature-dropdown",
-                            options=[
-                                {"label": v, "value": k}
-                                for k, v in legislature_labels.items()
-                            ],
-                            value=132,  # Bundestag 2021 - 2025
-                            clearable=False,
-                            style={"z-index": "1050"},
-                        )],
-                        xs={"size": 6},
-                        lg={"size": 4, "offset": 2},
-                    ),
-                    dbc.Col([
-                        dcc.Dropdown(
-                            id="fraction-dropdown",
-                            options=[
-                                {"label": f, "value": f}
-                                for f in data.fraction.unique()
-                            ],
-                            value="SPD",
-                            clearable=False,
-                            style={"z-index": "1050"},
-                        )],
-                        xs={"size": 6},
-                        lg={"size": 4, "offset": 0},
+    app.layout = html.Div(
+        className="background-fixed",
+        children=[
+            html.Div(
+                className="container",
+                children=[
+                    dbc.Container(
+                        style={"paddingTop": "50px"},
+                        children=[
+                            dbc.Row(
+                                [
+                                    dbc.Col(
+                                        [md_intro],
+                                        xs={"size": 12},
+                                        lg={"size": 8, "offset": 2},
+                                        class_name="para mt-4",
+                                    ),
+                                ]
+                            ),
+                            # Legislature and fraction selection:
+                            dbc.Row(
+                                [
+                                    dbc.Col(
+                                        [
+                                            dcc.Dropdown(
+                                                id="legislature-dropdown",
+                                                options=[
+                                                    {"label": v, "value": k}
+                                                    for k, v in legislature_labels.items()
+                                                ],
+                                                value=132,  # Bundestag 2021 - 2025
+                                                clearable=False,
+                                                style={"z-index": "1050"},
+                                            )
+                                        ],
+                                        xs={"size": 6},
+                                        lg={"size": 4, "offset": 2},
+                                    ),
+                                    dbc.Col(
+                                        [
+                                            dcc.Dropdown(
+                                                id="fraction-dropdown",
+                                                options=[
+                                                    {"label": f, "value": f}
+                                                    for f in data.fraction.unique()
+                                                ],
+                                                value="SPD",
+                                                clearable=False,
+                                                style={"z-index": "1050"},
+                                            )
+                                        ],
+                                        xs={"size": 6},
+                                        lg={"size": 4, "offset": 0},
+                                    ),
+                                ],
+                                class_name="mt-4",
+                            ),
+                            dbc.Row(
+                                [
+                                    dbc.Col(
+                                        [md_dropdown_post],
+                                        xs={"size": 12},
+                                        lg={"size": 8, "offset": 2},
+                                        class_name="para mt-4",
+                                    )
+                                ]
+                            ),
+                            # fraction plot:
+                            dbc.Row(
+                                [
+                                    dbc.Col(
+                                        [
+                                            dcc.Graph(
+                                                id="fig-fraction",
+                                                # figure=get_fig_votes(data.loc[data.fraction.eq("SPD")], [445997])
+                                            )
+                                        ],
+                                        xs={"size": 12},
+                                        lg={"size": 8, "offset": 2},
+                                        class_name="para mt-4",
+                                    ),
+                                ]
+                            ),
+                            # dissenter plot:
+                            dbc.Row(
+                                [
+                                    dbc.Col(
+                                        [md_pre_dissenter],
+                                        xs={"size": 12},
+                                        lg={"size": 8, "offset": 2},
+                                        class_name="para mt-4",
+                                    )
+                                ]
+                            ),
+                            dbc.Row(
+                                [
+                                    dbc.Col(
+                                        [dcc.Graph(id="fig-dissgrid")],
+                                        xs={"size": 12},
+                                        lg={"size": 8, "offset": 2},
+                                        class_name="para mt-4",
+                                    ),
+                                ]
+                            ),
+                            dbc.Row(
+                                [
+                                    dbc.Col(
+                                        [
+                                            html.Div(
+                                                [
+                                                    html.A(
+                                                        children="Copyright der Daten: CC0 1.0",
+                                                        href="https://creativecommons.org/publicdomain/zero/1.0/",
+                                                    )
+                                                ]
+                                            )
+                                        ],
+                                        xs={"size": 12},
+                                        lg={"size": 8, "offset": 2},
+                                        style={
+                                            "margin-top": "150px",
+                                            "text-align": "center",
+                                        },
+                                    ),
+                                ]
+                            ),
+                            # inspect click data:
+                            # dbc.Row([
+                            #     dbc.Col([html.Pre(id="display")],
+                            #         xs={"size": 12},
+                            #         lg={"size": 8, "offset": 2}),
+                            # ])
+                        ],
                     )
                 ],
-                    class_name="mt-4"
-                ),
-                dbc.Row([
-                    dbc.Col([md_dropdown_post],
-                        xs={"size": 12},
-                        lg={"size": 8, "offset": 2},
-                        class_name="para mt-4"
-                    )
-                ]),
-
-                # fraction plot:
-                dbc.Row([
-                        dbc.Col([
-                            dcc.Graph(
-                                id="fig-fraction",
-                                # figure=get_fig_votes(data.loc[data.fraction.eq("SPD")], [445997])
-                            )],
-                            xs={"size": 12},
-                            lg={"size": 8, "offset": 2},
-                            class_name="para mt-4"
-                        ),
-                ]),
-                
-                # dissenter plot:
-                dbc.Row([
-                    dbc.Col([md_pre_dissenter],
-                        xs={"size": 12},
-                        lg={"size": 8, "offset": 2},
-                        class_name="para mt-4"
-                    )
-                ]),
-                dbc.Row([
-                    dbc.Col([dcc.Graph(id="fig-dissgrid")],
-                        xs={"size": 12},
-                        lg={"size": 8, "offset": 2},
-                        class_name="para mt-4"                        
-                    ),
-                ]
-                ),
-                dbc.Row([
-                    dbc.Col([
-                        html.Div([
-                            html.A(children="Copyright der Daten: CC0 1.0",
-                                   href="https://creativecommons.org/publicdomain/zero/1.0/")
-                        ])
-                    ],
-                    xs={"size": 12},
-                    lg={"size": 8, "offset": 2},
-                    style={
-                        "margin-top": "150px",
-                        "text-align": "center"
-                    }),
-                ])
-
-                # inspect click data:
-                # dbc.Row([
-                #     dbc.Col([html.Pre(id="display")],
-                #         xs={"size": 12},
-                #         lg={"size": 8, "offset": 2}),
-                # ])
-            ]
-        )
-    ])
+            )
+        ],
+    )
 
     init_callbacks(app, data)
 
