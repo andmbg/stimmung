@@ -66,8 +66,8 @@ def init_dashboard(flask_app, route):
 
 
     app.layout = html.Div(
-        className="background-fixed",
-        children=[
+        [
+            html.Div(className="background-fixed"),
             html.Div(
                 className="container",
                 children=[
@@ -200,7 +200,7 @@ def init_dashboard(flask_app, route):
                         ],
                     )
                 ],
-            )
+            ),
         ],
     )
 
