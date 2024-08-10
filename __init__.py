@@ -1,6 +1,6 @@
 metadata = {
-    "title": "Abstimmverhalten",
-    "route": "/bundestag/",
-    "thumbnail": "dashapps/bundestag/preview.png",
-    "synopsis": "Das Abstimmverhalten der Bundestagsabgeordneten gegenüber ihrer Fraktion: Wie oft und bei welchen Gesetzesvorhaben haben die Abgeordneten mit ihrer Fraktion oder von ihr abweichend gestimmt? Interaktive Visualisierung mit Daten von Abgeordnetenwatch.de",
+    "title": "Party Line Voting at Bundestag",
+    "route": "/en/bundestag/",
+    "thumbnail": "dashapps/en/bundestag/preview.png",
+    "synopsis": "Voting patterns of members of the Bundestag compared to their parliamentary group: How often do representatives vote in line with their party or against, an on what issues? Interactive visualization with data from the Abgeordenetenwatch NGO.",
 }
