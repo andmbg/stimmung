@@ -13,13 +13,29 @@ logger.info(f"models root: {dashapp_rootdir}")
 
 
 def query_all(
-    url: str, endpoint: str, params: dict, page: int = 0, pager_limit: int = 1000, total: int = None
+    url: str,
+    endpoint: str,
+    params: dict,
+    page: int = 0,
+    pager_limit: int = 1000,
+    total: int = None,
 ) -> list:
     """
-    Query the endpoint, get > 1000 results if there are.
+    Query the endpoint, get > 1000 results if there are. This is not much more than
+    a wrapper around the requests.get() function. It adds repeated requests if the
+    available data are large enough to be paged.
+
+    :param url: the url to query
+    :param endpoint: the endpoint
+    :param params: parameters
+    :param page: page number if results are many. If results are few, stays 0 and can be ignored.
+    :param pager_limit: number of results per page.
+    :param total: max. number of results. If None (default), request all of them.
     """
     params["page"] = page
-    params["pager_limit"] = total if total is None or total < pager_limit else pager_limit
+    params["pager_limit"] = (
+        total if total is None or total < pager_limit else pager_limit
+    )
 
     response = requests.get(url + endpoint, params=params)
     response.raise_for_status()  # Raise an error for bad responses
@@ -45,7 +61,7 @@ def query_all(
 
         r = response_dict["meta"]["result"]
         done = int(r["page"]) * int(r["results_per_page"]) + int(r["count"])
-    
+
     return result_list
 
 
@@ -140,7 +156,9 @@ class Dataset:
         """
         Fetch data from AWDE.
         """
-        response = query_all(self.awde_url, self.awde_endpoint, params=self.awde_params, total=total)
+        response = query_all(
+            self.awde_url, self.awde_endpoint, params=self.awde_params, total=total
+        )
         self.filepath = dashapp_rootdir / "data" / f"{self.name}.parquet"
 
         # sometimes values are [], which makes Arrow choke. Replace with None:
@@ -148,7 +166,7 @@ class Dataset:
             if isinstance(value, list) and len(value) == 0:
                 return None
             return value
-        
+
         response = pd.DataFrame(response).map(_noneify_empty_lists)
         self.rawdata = pd.DataFrame(response)
 

@@ -420,6 +420,23 @@ files = [
 ]
 
 [[package]]
+name = "deepl"
+version = "1.18.0"
+description = "Python library for the DeepL API."
+optional = false
+python-versions = "<4,>=3.6.2"
+files = [
+    {file = "deepl-1.18.0-py3-none-any.whl", hash = "sha256:2afe9adc459f5c591282e4d74570a0dc5041554d54dd687f72d3b0b77936e9ce"},
+    {file = "deepl-1.18.0.tar.gz", hash = "sha256:5ae41763939441edbca7640fd344280cbee47d490641ce35206910a8b01e778e"},
+]
+
+[package.dependencies]
+requests = ">=2,<3"
+
+[package.extras]
+keyring = ["keyring (>=23.4.1,<24.0.0)"]
+
+[[package]]
 name = "executing"
 version = "2.0.1"
 description = "Get the currently executing AST node of a frame, and other information"
@@ -1615,4 +1632,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = ">3.12, <3.13"
-content-hash = "ed76ce6abd3d9be66d5e309153a3a574b71110c82906aee4794149c134bcf8d3"
+content-hash = "b6a5c1e83ed711934d4bd743e82f87aafeff2c303ccc37bdd2ce68c97576d1a3"

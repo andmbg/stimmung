@@ -23,7 +23,9 @@ def get_legislatures(parliament: str = None):
     local data if in doubt.
     """
 
-    logger.info(f"Loading legislatures data of {parliament if parliament else 'all parliaments'}")
+    logger.info(
+        f"Loading legislatures data of {parliament if parliament else 'all parliaments'}"
+    )
 
     legislatures = Dataset(
         name=f"legislatures_parliament_{parliament if parliament else 'all'}",
@@ -33,6 +35,8 @@ def get_legislatures(parliament: str = None):
             "type": "legislature",
         },
     )
+    # Dataset tries to load locally present data, but if not present, does not trigger the
+    # download by itself. the fetch() method does this. save() means we keep the goods:
     if legislatures.data is None:
         legislatures.fetch()
         legislatures.save()
@@ -93,9 +97,7 @@ def get_votes(poll: int = None):
     logger.info(f"Loading voting data from poll ID {poll}")
 
     votes = Dataset(
-        name=f"votes_poll_{poll}",
-        awde_endpoint="votes",
-        awde_params={"poll": poll}
+        name=f"votes_poll_{poll}", awde_endpoint="votes", awde_params={"poll": poll}
     )
     if votes.data is None:
         votes.fetch()
@@ -142,7 +144,7 @@ def get_legislature_votes(legislature: int):
 
     all_polls: Dataset = get_polls(legislature=legislature)
     poll_ids: list = all_polls.data.id.tolist()
-    
+
     all_votes = {}
     for id in poll_ids:
         all_votes[id] = get_votes(poll=id)
@@ -246,19 +248,29 @@ def get_legislature_votes(legislature: int):
     return df
 
 
-def ensure_data_bundestag(file: Path = dashapp_rootdir / "data" / "votes_bundestag.parquet") -> None:
+def ensure_data_bundestag(
+    languages: list = ["DE"],
+    file: Path = dashapp_rootdir / "data" / "votes_bundestag.parquet",
+) -> None:
 
     logger.info("Ensuring data are present locally. If not, this may take a while.")
-    
+
     if file.is_file():
         logger.info("Data are cached already.")
         return None
 
     legislatures = get_legislatures().data
-    legislatures = legislatures.loc[legislatures.label.str.contains("Bundestag"), ["id", "label"]].set_index("id").to_dict()["label"]
+    legislatures = (
+        legislatures.loc[legislatures.label.str.contains("Bundestag"), ["id", "label"]]
+        .set_index("id")
+        .to_dict()["label"]
+    )
 
     # load or fetch all voting data;
     # fetching takes long, around 1 hour (but then data are locally present)
-    all_votes = pd.concat([get_legislature_votes(legislature=i) for i in legislatures.keys()])
+    all_votes = pd.concat(
+        [get_legislature_votes(legislature=i) for i in legislatures.keys()]
+    )
 
     all_votes.to_parquet(dashapp_rootdir / "data" / "votes_bundestag.parquet")
+
