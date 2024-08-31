@@ -249,7 +249,7 @@ def get_legislature_votes(legislature: int):
 
 
 def ensure_data_bundestag(
-    languages: list = ["DE"],
+    translate: str = None,
     file: Path = dashapp_rootdir / "data" / "votes_bundestag.parquet",
 ) -> None:
 
