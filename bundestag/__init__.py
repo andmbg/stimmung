@@ -5,17 +5,21 @@ import json
 
 import numpy as np
 import pandas as pd
-from dash import Dash, dcc, html, Input, Output, State, callback
+from dash import Dash, dcc, html, Input, Output
 import dash_bootstrap_components as dbc
 
 # import from config relatively, so it remains portable:
 dashapp_rootdir = Path(__file__).resolve().parents[1]
 sys.path.append(str(dashapp_rootdir))
 
-from .src.data.ensure_data import ensure_data_bundestag, get_legislature_votes, get_legislatures
+from .src.data.ensure_data import (
+    ensure_data_bundestag,
+    get_legislatures,
+    translate_labels,
+)
 from .src.log_config import setup_logger
 from .src.viz.visualize import get_fig_dissenters, get_fig_votes
-from .config import cached_dataset
+from .config import cached_dataset, language
 
 
 setup_logger()
@@ -34,22 +38,25 @@ def init_dashboard(flask_app, route):
 
     #
     # Initialization
-    # 
+    #
 
     # legislature selection data:
     # dict: {id: label}
     legislature_labels = get_legislatures().data
     legislature_labels = (
-        legislature_labels
-        .loc[legislature_labels.label.str.contains("Bundestag"), ["id", "label"]]
+        legislature_labels.loc[
+            legislature_labels.label.str.contains("Bundestag"), ["id", "label"]
+        ]
         .set_index("id")
         .to_dict()["label"]
     )
-    
+
     # the dataset:
-    ensure_data_bundestag()
+    ensure_data_bundestag(tgt_lang=language)
 
     data = pd.read_parquet(cached_dataset)
+    data.label = translate_labels(labels=data.label, tgt_lang=config.language)
+
     data = data.loc[data.vote.ne("no_show")]
     data.vote = pd.Categorical(
         data.vote, ordered=True, categories=["yes", "no", "abstain"]
@@ -59,11 +66,10 @@ def init_dashboard(flask_app, route):
 
     # prose paragraphs:
     prosepath = dashapp_rootdir / "bundestag" / "src" / "prose"
-    md_intro =         dcc.Markdown(open(prosepath / "intro.md"        ).read())
-    md_dropdown_pre =  dcc.Markdown(open(prosepath / "dropdown_pre.md" ).read())
+    md_intro = dcc.Markdown(open(prosepath / "intro.md").read())
+    md_dropdown_pre = dcc.Markdown(open(prosepath / "dropdown_pre.md").read())
     md_dropdown_post = dcc.Markdown(open(prosepath / "dropdown_post.md").read())
     md_pre_dissenter = dcc.Markdown(open(prosepath / "pre_dissenter.md").read())
-
 
     app.layout = html.Div(
         [
@@ -74,7 +80,6 @@ def init_dashboard(flask_app, route):
                     dbc.Container(
                         style={"paddingTop": "50px"},
                         children=[
-                            
                             dbc.Row(
                                 [
                                     dbc.Col(
@@ -85,15 +90,21 @@ def init_dashboard(flask_app, route):
                                     ),
                                 ]
                             ),
-
                             dbc.Row(
                                 [
                                     dbc.Col(
                                         [
-                                            html.Figure([
-                                                html.Img(src="assets/Bundestag_-_Palais_du_Reichstag_small.jpg", width="100%"),
-                                                html.Figcaption("CC BY-SA 3.0, A. Delesse (Prométhée)"),
-                                            ]),
+                                            html.Figure(
+                                                [
+                                                    html.Img(
+                                                        src="assets/Bundestag_-_Palais_du_Reichstag_small.jpg",
+                                                        width="100%",
+                                                    ),
+                                                    html.Figcaption(
+                                                        "CC BY-SA 3.0, A. Delesse (Prométhée)"
+                                                    ),
+                                                ]
+                                            ),
                                         ],
                                         xs={"size": 12},
                                         lg={"size": 8, "offset": 2},
@@ -101,7 +112,6 @@ def init_dashboard(flask_app, route):
                                     )
                                 ]
                             ),
-
                             dbc.Row(
                                 [
                                     dbc.Col(
@@ -112,7 +122,6 @@ def init_dashboard(flask_app, route):
                                     )
                                 ]
                             ),
-
                             # Legislature and fraction selection:
                             dbc.Row(
                                 [
@@ -240,30 +249,29 @@ def init_dashboard(flask_app, route):
 
 def init_callbacks(app, data):
     # update plots from selection
-    @app.callback(Output("fig-fraction", "figure"),
-            Output("fig-dissgrid", "figure"),
-            Input("legislature-dropdown", "value"),
-            Input("fraction-dropdown", "value"),
-            Input("fig-fraction", "selectedData"),
-            Input("fig-dissgrid", "selectedData"))
-    def update_everything(
-        legislature,
-        fraction,
-        selection_frac,
-        selection_grid
-    ):
+    @app.callback(
+        Output("fig-fraction", "figure"),
+        Output("fig-dissgrid", "figure"),
+        Input("legislature-dropdown", "value"),
+        Input("fraction-dropdown", "value"),
+        Input("fig-fraction", "selectedData"),
+        Input("fig-dissgrid", "selectedData"),
+    )
+    def update_everything(legislature, fraction, selection_frac, selection_grid):
         plot_data = data.loc[
-            data.fid_legislatur.eq(legislature)
-            & data.fraction.eq(fraction)
+            data.fid_legislatur.eq(legislature) & data.fraction.eq(fraction)
         ]
 
         selected_votes = data.vote_id.tolist()
 
         for selected_data in [selection_frac, selection_grid]:
             if selected_data and selected_data["points"]:
-                selected_votes = list(np.intersect1d(
-                    selected_votes, [p["customdata"][4] for p in selected_data["points"]]
-                ))
+                selected_votes = list(
+                    np.intersect1d(
+                        selected_votes,
+                        [p["customdata"][4] for p in selected_data["points"]],
+                    )
+                )
         frac_fig = get_fig_votes(plot_data, selected_votes)
         diss_fig = get_fig_dissenters(plot_data, selected_votes)
 
@@ -271,17 +279,16 @@ def init_callbacks(app, data):
             frac_fig,
             diss_fig,
         )
-    
-    @app.callback(Output("fraction-dropdown", "options"),
-            Input("legislature-dropdown", "value"))
+
+    @app.callback(
+        Output("fraction-dropdown", "options"), Input("legislature-dropdown", "value")
+    )
     def update_available_parties(legislature):
         parties = data.loc[data.fid_legislatur.eq(legislature), "fraction"].unique()
         return [{"label": p, "value": p} for p in parties]
-    
-    @app.callback(Output("fraction-dropdown", "value"),
-            Input("fraction-dropdown", "options"))
+
+    @app.callback(
+        Output("fraction-dropdown", "value"), Input("fraction-dropdown", "options")
+    )
     def update_selected_party(available_options):
         return available_options[0]["value"]
-
-
-

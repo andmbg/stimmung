@@ -1,11 +1,16 @@
+import os
 from pathlib import Path
 import logging
+import json
 
 import pandas as pd
+import deepl
+from dotenv import load_dotenv, find_dotenv
 
 from bundestag.src.data.models import Dataset
 
 
+load_dotenv(find_dotenv(), override=True)
 logger = logging.getLogger(__name__)
 dashapp_rootdir = Path(__file__).resolve().parents[3]
 logger.info(f"ensure_data root: {dashapp_rootdir}")
@@ -91,7 +96,9 @@ def get_polls(legislature: int = None):
 
 def get_votes(poll: int = None):
     """
-    Get vote-level data on all relevant votes at Bundestag.
+    Get vote-level data for a given poll.
+
+    :param poll: ID of the poll. Get this int ID using get_polls() and looking up the ID
     """
 
     logger.info(f"Loading voting data from poll ID {poll}")
@@ -138,17 +145,27 @@ def get_votes(poll: int = None):
     return votes
 
 
-def get_legislature_votes(legislature: int):
+def get_legislature_votes(legislature: int) -> pd.DataFrame:
+    """
+    For one legislature (parliament x period), ensure presence of vote-level data
+    on all polls.
+
+    :param legislature: ID of the legislature. Get this int ID using
+        get_legislatures() and looking up the ID paired with the leg. of interest.
+
+    :return: processed df with vote-level data of this legislature
+    """
 
     logger.info(f"Getting vote data for legislature id {legislature}")
 
+    # Get all polls for this legislature, and their IDs.
     all_polls: Dataset = get_polls(legislature=legislature)
     poll_ids: list = all_polls.data.id.tolist()
 
+    # based on the poll IDs, collect all votes for each poll as a dataframe
     all_votes = {}
     for id in poll_ids:
         all_votes[id] = get_votes(poll=id)
-
     allvotes = pd.concat([i.data for i in all_votes.values()])
 
     df = (
@@ -249,10 +266,18 @@ def get_legislature_votes(legislature: int):
 
 
 def ensure_data_bundestag(
-    translate: str = None,
     file: Path = dashapp_rootdir / "data" / "votes_bundestag.parquet",
+    tgt_lang: str = None,
 ) -> None:
+    """
+    Ensure that all voting data are present locally. That is, check if they are,
+    and if not, download them from AWDE. Then, if we are in a non-German version,
+    check if translations of vote labels are present, get missing ones from DeepL.
 
+    :param file: the local parquet file to store voting data in.
+    :param translate: if not None, identifier for DeepL to translate vote labels
+        into. Otherwise, things stay in German.
+    """
     logger.info("Ensuring data are present locally. If not, this may take a while.")
 
     if file.is_file():
@@ -271,6 +296,73 @@ def ensure_data_bundestag(
     all_votes = pd.concat(
         [get_legislature_votes(legislature=i) for i in legislatures.keys()]
     )
-
     all_votes.to_parquet(dashapp_rootdir / "data" / "votes_bundestag.parquet")
 
+    # Ensure presence of translations in our dictionary:
+    if tgt_lang is not None:
+        get_translations(all_votes.label, tgt_lang)
+
+
+def get_translations(labels: pd.Series, tgt_lang: str) -> None:
+    """
+    Check voting labels for presence of their 'tgt_lang' translation in our
+    dictionary, and if missing, translate them and store them right there.
+    """
+    # load label dictionary:
+    dictionary_path = dashapp_rootdir / "data" / "translations" / "translations.json"
+    dictionary = json.loads(dictionary_path.read_text())
+
+    # identify new labels (not in dict or not in the right language):
+    data_labels = labels.unique()
+    new_labels = [
+        lbl
+        for lbl in data_labels
+        if lbl not in dictionary.keys() or tgt_lang not in dictionary[lbl].keys()
+    ]
+
+    # do the translating:
+    if new_labels:
+        auth_key = os.getenv("DEEPL_AUTH_KEY", None)
+        if auth_key:
+            translator = deepl.Translator(auth_key)
+
+            logger.info(f"Translating {len(new_labels)} new labels.")
+            dictionary.update(
+                {
+                    label: {
+                        tgt_lang: deepl.translate(
+                            label, target_lang=tgt_lang, source_lang="DE"
+                        )
+                    }
+                    for label in new_labels
+                }
+            )
+
+            logger.info("Saving new found translations to dictionary.")
+            with open(dictionary_path, "w") as f:
+                json.dump(dictionary, f, indent=4, ensure_ascii=False)
+
+        else:
+            logger.warning("No DeepL key found. Translations will not be available.")
+    else:
+        logger.info("No new labels found. No translation needed.")
+
+
+def translate_labels(labels: pd.Series, tgt_lang: str = "EN-GB") -> pd.Series:
+    """
+    Assume presence of a dictionary of translations in the data folder.
+    Translate the labels of the given series.
+    """
+    dictionary_path = dashapp_rootdir / "data" / "translations" / "translations.json"
+    dictionary = json.loads(dictionary_path.read_text())
+
+    # simplify the dictionary to only contain the target language:
+    tgt_lang_dictionary = {
+        k: v[tgt_lang]
+        for k, v in dictionary.items()
+        if tgt_lang in v.keys()
+    }
+
+    labels = labels.replace(tgt_lang_dictionary)
+
+    return labels

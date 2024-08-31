@@ -22,7 +22,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list):
         "abstain": "rgba(100,100,100, .5)",
     }
 
-    logger.info(f"Received vote_ids: {selected_vote_ids}")
+    # logger.info(f"Received vote_ids: {selected_vote_ids}")
 
     df = votes_plot.copy()
 
@@ -202,7 +202,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list):
         range=[0.5, layout_measures["height"] + 0.5]
     )
 
-    logger.info(f"just drew frac plot with selection {selected_vote_ids}")
+    # logger.info(f"just drew frac plot with selection {selected_vote_ids}")
 
     return fig
 
