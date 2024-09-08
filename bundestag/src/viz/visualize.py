@@ -6,20 +6,16 @@ from plotly.subplots import make_subplots
 import pandas as pd
 
 from bundestag.src.log_config import setup_logger
-from bundestag.src.i18n import cached_translation
+from bundestag.src.i18n import translate
 
 setup_logger()
 logger = logging.getLogger(__name__)
-
 
 
 def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
     """
     Per-fraction * per-legislature figure showing dissent poll-wise.
     """
-    def ct(text: str, tgt_lang: str = language) -> str:
-        return cached_translation(text, tgt_lang=tgt_lang)
-
     vote_map = {
         "yes": "rgba(0,200,0, .5)",
         "no": "rgba(200,0,0, .5)",
@@ -38,19 +34,21 @@ def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
     layout_measures["panel3_xmax"] = (
         df.groupby("y")["on_party_line"].apply(lambda x: sum(x == False)).max()
     )
-    layout_measures["xspan"] = layout_measures["panel1_xmin"] + layout_measures["panel3_xmax"]
+    layout_measures["xspan"] = (
+        layout_measures["panel1_xmin"] + layout_measures["panel3_xmax"]
+    )
     # poll result should be 2 % width of the plot:
     layout_measures["panel2_width"] = 1 / 50 * layout_measures["xspan"]
     layout_measures["height"] = df.y.max()
-    
+
     # for each poll, get one datapoint for the partyline vote
     # (x extension is in "unanimity" col):
     votes_opl = df.loc[df.on_party_line]
     votes_opl = votes_opl.groupby("y").agg("first").reset_index()
-    
+
     # we care about each individual dissenter vote:
     votes_dissent = df.loc[~df.on_party_line]
-    
+
     # for each poll, get overall result once:
     parliament_vote = (
         df.groupby("y").parliament_vote.agg("first").to_frame().reset_index()
@@ -94,7 +92,9 @@ def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
     # grouped by person (name) and color (yes/no/abs vote):
     for vote, grp in votes_dissent.groupby("vote", observed=True):
 
-        selected_votes_rownum = (grp["vote_id"].isin(selected_vote_ids)).to_numpy().nonzero()[0].tolist()
+        selected_votes_rownum = (
+            (grp["vote_id"].isin(selected_vote_ids)).to_numpy().nonzero()[0].tolist()
+        )
         logger.info(f"vote '{vote}' selected_votes_rownum: {selected_votes_rownum}")
 
         fig.add_trace(
@@ -103,13 +103,15 @@ def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
                 y=grp.y,
                 x=np.repeat([1], len(grp)),
                 marker=dict(
-                    line_width=.5,
+                    line_width=0.5,
                     line_color="white",
                     color=vote_map[vote],
                 ),
                 showlegend=False,
                 # customdata=grp.vote_id,
-                customdata=grp.reset_index()[["label", "date", "vote", "name", "vote_id"]],
+                customdata=grp.reset_index()[
+                    ["label", "date", "vote", "name", "vote_id"]
+                ],
                 hovertemplate="<b>%{customdata[3]}</b> (%{customdata[1]})<br>%{customdata[0]}<extra>%{customdata[2]}</extra>",
                 selectedpoints=selected_votes_rownum,
             ),
@@ -136,7 +138,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
         )
 
     fig.add_annotation(
-        text=ct("Fraktionslinie"),
+        text="Fraktionslinie",
         x=-5,
         y=1,
         xanchor="right",
@@ -150,7 +152,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
     )
 
     fig.add_annotation(
-        text=ct("Dissens"),
+        text="Dissens",
         x=5,
         y=1,
         xanchor="left",
@@ -190,7 +192,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
         xaxis3_range=[-0.5, layout_measures["panel3_xmax"]],
         clickmode="event+select",
         dragmode="select",
-        newselection_mode="gradual"
+        newselection_mode="gradual",
     )
 
     fig.update_xaxes(
@@ -203,7 +205,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
         showticklabels=False,
         showgrid=False,
         zeroline=False,
-        range=[0.5, layout_measures["height"] + 0.5]
+        range=[0.5, layout_measures["height"] + 0.5],
     )
 
     # logger.info(f"just drew frac plot with selection {selected_vote_ids}")
@@ -226,7 +228,9 @@ def get_fig_dissenters(votes_plot, selected_vote_ids, language="de"):
     )
 
     # fix y-axis sorting by giving explicit row numbers in the plot:
-    df_diss.name = pd.Categorical(df_diss.name, ordered=True, categories=df_diss.name.unique())
+    df_diss.name = pd.Categorical(
+        df_diss.name, ordered=True, categories=df_diss.name.unique()
+    )
 
     height = len(df_diss.name.unique())
 
@@ -244,7 +248,9 @@ def get_fig_dissenters(votes_plot, selected_vote_ids, language="de"):
     df_diss = pd.merge(df_diss, label_freq, how="left", on="label")
     df_diss.sort_values("x")
 
-    selected_votes_rownum = (df_diss["vote_id"].isin(selected_vote_ids)).to_numpy().nonzero()[0].tolist()
+    selected_votes_rownum = (
+        (df_diss["vote_id"].isin(selected_vote_ids)).to_numpy().nonzero()[0].tolist()
+    )
 
     fig = go.Figure()
 
@@ -257,7 +263,7 @@ def get_fig_dissenters(votes_plot, selected_vote_ids, language="de"):
                 size=8,
                 symbol="square",
                 color="rgba(0,0,128, 1)",
-                line_width=.5,
+                line_width=0.5,
                 line_color="white",
             ),
             selectedpoints=selected_votes_rownum,
@@ -291,7 +297,7 @@ def get_fig_dissenters(votes_plot, selected_vote_ids, language="de"):
         margin=dict(t=100, r=0, b=0, l=0),
         clickmode="event+select",
         dragmode="select",
-        newselection_mode="gradual"
+        newselection_mode="gradual",
     )
 
     return fig

@@ -34,7 +34,7 @@ def get_translations(labels: pd.Series, language: str) -> None:
     tgt = language_codes[language]
     logger.info(f"Global dict has {len(global_dictionary)} entries.")
 
-    dict_de = _focus_dict(global_dictionary, src=src)
+    dict_de = bilingualize_dict(src=src, tgt=language)
 
     # identify new labels (not in dict or not in the desired language):
     data_labels = labels.unique()
@@ -84,26 +84,33 @@ def get_translations(labels: pd.Series, language: str) -> None:
         logger.info("No new labels found. No translation needed.")
 
 
-def _focus_dict(global_dict: dict, src: str) -> dict:
+def bilingualize_dict(src: str = "de", tgt: str = "de") -> dict:
     """
-    Take a global dictionary, and return a dictionary that takes the desired
-    language as source and the other language as targets. Go from form
+    Take the global dictionary, and return a simple bilingual dictionary.
+    Go from
       [ {"DE": "lorem", "EN": "ipsum"}, ... ]
-      to
-      {"lorem": {"EN": "ipsum"}, ...}
+    to
+      {"lorem": "ipsum", ...}
 
     :param global_dict: the dictionary to focus
     :param src: the focal language
-    :return: the focused dictionary
+    :param tgt: the target language
+    :return: the bilingual dictionary
     """
-    focused_dict = {}
-    for entry in global_dict:
-        if src in entry.keys():
-            translations = entry.copy()
-            del translations[src]
-            focused_dict[entry[src]] = translations
+    global multiling_dictionary
 
-    return focused_dict
+    src = language_codes[src]
+    tgt = language_codes[tgt]
+
+    biling_dictionary = {
+        str(entry[src]): str(entry[tgt])
+        for entry in multiling_dictionary
+        if src in entry and tgt in entry
+    }
+
+    return biling_dictionary
+
+biling_dictionary = bilingualize_dict()
 
 
 def _defocus_dict(focused_dict: dict, src: str) -> dict:
@@ -139,28 +146,22 @@ def translate_labels(labels: pd.Series, tgt_lang: str = "en") -> pd.Series:
     :param tgt_lang: the target language. Uses our app codes, "de", "en", etc.
     :return: the translated labels, as pd.Series
     """
-    global multiling_dictionary
+    global biling_dictionary
 
-    if str == "de":
+    if tgt_lang == "de":
         return labels
 
-    tgt = language_codes[tgt_lang]
-
-    focused_dictionary = _focus_dict(multiling_dictionary, src=language_codes["de"])
-    bilingual_dictionary = {
-        k: v[tgt] for k, v in focused_dictionary.items() if tgt in v.keys()
-    }
-
-    labels = labels.replace(bilingual_dictionary)
+    labels = labels.replace(biling_dictionary)
 
     return labels
 
 
-def cached_translation(text: str, src_lang: str = "de", tgt_lang: str = "en") -> str:
+def translate(text: str, tgt_lang: str = "de") -> str:
     """
-    Looks up the given string in the global dictionary and returns it. Procurement
-    of new translations is done in get_translations(). This here function assumes
-    that every translation is already in the dictionary.
+    Return a previously-cached translation for the given German string. If the
+    current language is "de", just return the input string unchanged. Else,
+    if no translation is found, [TODO] get it from DeepL and store it in both
+    the bilingual and multilingual dictionaries.
 
     :param text: the string to translate
     :param src_lang: the source language. Uses our app codes, "de", "en", etc.
@@ -169,18 +170,16 @@ def cached_translation(text: str, src_lang: str = "de", tgt_lang: str = "en") ->
     """
     if tgt_lang == "de":
         return text
-    
+
     if text is None:
         return None
-    
-    global multiling_dictionary
-    tgt = language_codes[tgt_lang]
 
-    focused_dictionary = _focus_dict(multiling_dictionary, src=language_codes[src_lang])
-    translated_text = focused_dictionary.get(text, {}).get(tgt, None)
+    global biling_dictionary
+
+    translated_text = biling_dictionary.get(text)
 
     if translated_text is None:
         logger.error(f"No translation found for '{text[0:30]}' in {tgt_lang}.")
         return text
-    
+
     return translated_text
