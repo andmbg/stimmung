@@ -20,13 +20,14 @@ from .src.data.ensure_data import (
 from .src.log_config import setup_logger
 from .src.viz.visualize import get_fig_dissenters, get_fig_votes
 from .config import cached_dataset, language
+from .src.i18n import translate_labels, cached_translation as ct
 
 
 setup_logger()
 logger = logging.getLogger(__name__)
 
 
-def init_dashboard(flask_app, route):
+def init_dashboard(flask_app, route, language):
 
     app = Dash(
         __name__,
@@ -55,7 +56,7 @@ def init_dashboard(flask_app, route):
     ensure_data_bundestag(tgt_lang=language)
 
     data = pd.read_parquet(cached_dataset)
-    data.label = translate_labels(labels=data.label, tgt_lang=config.language)
+    data.label = translate_labels(labels=data.label, tgt_lang=language)
 
     data = data.loc[data.vote.ne("no_show")]
     data.vote = pd.Categorical(
@@ -66,10 +67,10 @@ def init_dashboard(flask_app, route):
 
     # prose paragraphs:
     prosepath = dashapp_rootdir / "bundestag" / "src" / "prose"
-    md_intro = dcc.Markdown(open(prosepath / "intro.md").read())
-    md_dropdown_pre = dcc.Markdown(open(prosepath / "dropdown_pre.md").read())
-    md_dropdown_post = dcc.Markdown(open(prosepath / "dropdown_post.md").read())
-    md_pre_dissenter = dcc.Markdown(open(prosepath / "pre_dissenter.md").read())
+    md_intro = dcc.Markdown(ct(open(prosepath / "intro.md").read(), tgt_lang=language))
+    md_dropdown_pre = dcc.Markdown(ct(open(prosepath / "dropdown_pre.md").read(), tgt_lang=language))
+    md_dropdown_post = dcc.Markdown(ct(open(prosepath / "dropdown_post.md").read(), tgt_lang=language))
+    md_pre_dissenter = dcc.Markdown(ct(open(prosepath / "pre_dissenter.md").read(), tgt_lang=language))
 
     app.layout = html.Div(
         [

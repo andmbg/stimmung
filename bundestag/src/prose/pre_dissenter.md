@@ -1,7 +1,7 @@
-The two illustrations are connected:
-Use the mouse to draw a box around the dissenting votes at the top or bottom.
-For example, by marking the votes of one or more MPs at the bottom, you can see them at the top in the context of the overall votes, i.e., whether this was an isolated dissenting vote or a major split in the parliamentary group.
+Beide Abbildungen hängen zusammen:
+Ziehe mit der Maus einen Kasten um die abweichenden Stimmen oben oder unten.
+Indem du etwa die Stimmen eines oder einer Abgeordneten unten markierst, kannst du sie oben im Kontext der gesamten Abstimmungen sehen, also mit dem Zusammenhang, ob dies eine vereinzelte Gegenstimme war, oder eine größere Spaltung durch die Fraktion ging.
 
-Selections above and below act simultaneously by restricting each other (overlap or *intersect* in set theory).
-You can expand or collapse the selection in a figure using the Shift or Alt key.
-Double-clicking removes the selection.
+Selektionen oben und unten wirken gleichzeitig, und zwar indem sie sich gegenseitig beschränken (Überschneidung oder *intersect* in der Mengenlehre).
+Du kannst die Auswahl in einer Abbildung per Umschalt- oder Alt-Taste erweitern bzw. verkleinern.
+Ein Doppelklick entfernt die Auswahl.

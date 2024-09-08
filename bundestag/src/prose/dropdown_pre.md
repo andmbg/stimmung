@@ -1,2 +1,2 @@
-Let's start by selecting a specific legislation period of the Bundestag.
-After that, choose the parliamentary group that you would like to have a closer look on.
+Wir beginnen damit, uns eine bestimmte Legislaturperiode des Bundestags auszuwählen.
+Dann geht es um die Fraktion, die wir uns genauer ansehen wollen:

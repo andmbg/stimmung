@@ -1,14 +1,8 @@
+
 NEXT:
 
-query_all() soll die pages benutzen, nicht range_start/range_end.
-Das scheint nämlich zu Fehlern zu führen.
+Gute Darstellungsform der Abstimmungsdaten finden, die einzelne Abgeordnete im Kontext ihrer Fraktion und (sekundär) diese im Kontext der Gesamtergebnisse zeigt.
 
-Runterladen von Abstimmungen in akt. Legislatur.
+Plot 1: Fraktionsperspektive.
 
-Technische Umsetzung:
-- 1 Datensatz & .parquet für [topics, polls, politicians, votes]
-- je Kategorie:
-  - lokal IDs zählen
-  - in API-Metadaten Zahl der Datensätze abrufen
-  - wenn API-Zahl > Zahl lokaler IDs:
-    - Runterladen der Kategorie mit Filter "id[notin]": "[...]"
+User wählt eine Fraktion.

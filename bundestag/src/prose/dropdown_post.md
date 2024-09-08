@@ -1,4 +1,4 @@
-For this parliamentary group in this legislative period, you can see the voting behavior across all votes here, coded according to whether MPs follow the majority of the parliamentary group or vote differently.
-This means that the majority of the parliamentary group is shown on the left (tap on the bars or move the mouse over them to see what the vote was about).
-On the right are all the votes of those who voted differently from their group.
-The outcome of the vote is also shown in the middle.
+Für diese Fraktion in dieser Legislaturperiode siehst du hier über alle Abstimmungen hinweg das Abstimmverhalten, kodiert danach, ob Abgeordnete der Fraktionsmehrheit folgen oder abweichend abstimmen.
+Das heißt, links steht die Fraktionsmehrheit (tippe auf die Balden oder fahre mit der Maus darüber, um zu sehen, worum es bei der Abstimmung ging).
+Rechts sind alle Stimmen derer, die anders abgestimmt haben als ihre Fraktion.
+In der Mitte ist außerdem der Ausgang der Abstimmung.
