@@ -8,6 +8,7 @@ import deepl
 from dotenv import load_dotenv, find_dotenv
 
 from bundestag.src.data.models import Dataset
+from bundestag.src.i18n import get_translations
 
 
 load_dotenv(find_dotenv(), override=True)
@@ -301,68 +302,3 @@ def ensure_data_bundestag(
     # Ensure presence of translations in our dictionary:
     if tgt_lang is not None:
         get_translations(all_votes.label, tgt_lang)
-
-
-def get_translations(labels: pd.Series, tgt_lang: str) -> None:
-    """
-    Check voting labels for presence of their 'tgt_lang' translation in our
-    dictionary, and if missing, translate them and store them right there.
-    """
-    # load label dictionary:
-    dictionary_path = dashapp_rootdir / "data" / "translations" / "translations.json"
-    dictionary = json.loads(dictionary_path.read_text())
-
-    # identify new labels (not in dict or not in the right language):
-    data_labels = labels.unique()
-    new_labels = [
-        lbl
-        for lbl in data_labels
-        if lbl not in dictionary.keys() or tgt_lang not in dictionary[lbl].keys()
-    ]
-
-    # do the translating:
-    if new_labels:
-        auth_key = os.getenv("DEEPL_AUTH_KEY", None)
-        if auth_key:
-            translator = deepl.Translator(auth_key)
-
-            logger.info(f"Translating {len(new_labels)} new labels.")
-            dictionary.update(
-                {
-                    label: {
-                        tgt_lang: deepl.translate(
-                            label, target_lang=tgt_lang, source_lang="DE"
-                        )
-                    }
-                    for label in new_labels
-                }
-            )
-
-            logger.info("Saving new found translations to dictionary.")
-            with open(dictionary_path, "w") as f:
-                json.dump(dictionary, f, indent=4, ensure_ascii=False)
-
-        else:
-            logger.warning("No DeepL key found. Translations will not be available.")
-    else:
-        logger.info("No new labels found. No translation needed.")
-
-
-def translate_labels(labels: pd.Series, tgt_lang: str = "EN-GB") -> pd.Series:
-    """
-    Assume presence of a dictionary of translations in the data folder.
-    Translate the labels of the given series.
-    """
-    dictionary_path = dashapp_rootdir / "data" / "translations" / "translations.json"
-    dictionary = json.loads(dictionary_path.read_text())
-
-    # simplify the dictionary to only contain the target language:
-    tgt_lang_dictionary = {
-        k: v[tgt_lang]
-        for k, v in dictionary.items()
-        if tgt_lang in v.keys()
-    }
-
-    labels = labels.replace(tgt_lang_dictionary)
-
-    return labels

@@ -5,8 +5,9 @@ import json
 
 import numpy as np
 import pandas as pd
-from dash import Dash, dcc, html, Input, Output
+from flask import g
 import dash_bootstrap_components as dbc
+from dash import Dash, dcc, html, Input, Output
 
 # import from config relatively, so it remains portable:
 dashapp_rootdir = Path(__file__).resolve().parents[1]
@@ -15,7 +16,7 @@ sys.path.append(str(dashapp_rootdir))
 from .src.data.ensure_data import (
     ensure_data_bundestag,
     get_legislatures,
-    translate_labels,
+    # translate_labels,
 )
 from .src.log_config import setup_logger
 from .src.viz.visualize import get_fig_dissenters, get_fig_votes
