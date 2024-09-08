@@ -6,15 +6,19 @@ from plotly.subplots import make_subplots
 import pandas as pd
 
 from bundestag.src.log_config import setup_logger
+from bundestag.src.i18n import cached_translation
 
 setup_logger()
 logger = logging.getLogger(__name__)
 
 
-def get_fig_votes(votes_plot, selected_vote_ids: list):
+
+def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
     """
     Per-fraction * per-legislature figure showing dissent poll-wise.
     """
+    def ct(text: str, tgt_lang: str = language) -> str:
+        return cached_translation(text, tgt_lang=tgt_lang)
 
     vote_map = {
         "yes": "rgba(0,200,0, .5)",
@@ -132,7 +136,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list):
         )
 
     fig.add_annotation(
-        text="Fraktionslinie",
+        text=ct("Fraktionslinie"),
         x=-5,
         y=1,
         xanchor="right",
@@ -146,7 +150,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list):
     )
 
     fig.add_annotation(
-        text="Dissens",
+        text=ct("Dissens"),
         x=5,
         y=1,
         xanchor="left",
@@ -207,7 +211,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list):
     return fig
 
 
-def get_fig_dissenters(votes_plot, selected_vote_ids):
+def get_fig_dissenters(votes_plot, selected_vote_ids, language="de"):
     """
     Show every MdB who dissented at least once and evey poll with at least one dissenter as a grid.
     """

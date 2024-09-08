@@ -244,12 +244,12 @@ def init_dashboard(flask_app, route, language):
         ],
     )
 
-    init_callbacks(app, data)
+    init_callbacks(app, data, language)
 
     return app
 
 
-def init_callbacks(app, data):
+def init_callbacks(app, data, language="de"):
     # update plots from selection
     @app.callback(
         Output("fig-fraction", "figure"),
@@ -274,8 +274,8 @@ def init_callbacks(app, data):
                         [p["customdata"][4] for p in selected_data["points"]],
                     )
                 )
-        frac_fig = get_fig_votes(plot_data, selected_votes)
-        diss_fig = get_fig_dissenters(plot_data, selected_votes)
+        frac_fig = get_fig_votes(plot_data, selected_votes, language=language)
+        diss_fig = get_fig_dissenters(plot_data, selected_votes, language=language)
 
         return (
             frac_fig,
