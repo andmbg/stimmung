@@ -8,4 +8,4 @@ language_context.set_language("en")
 
 app = Flask(__name__, instance_relative_config=False)
 app = init_dashboard(app, route="/")
-app.run(host="0.0.0.0", port=8080, debug=True, load_dotenv=False)
+app.run(host="0.0.0.0", port=8080, debug=False, load_dotenv=False)

@@ -155,6 +155,18 @@ def load_current_dict(current_language: str = "en") -> dict:
     return dictionary
 
 
+def save_current_dict(dictionary, current_language: str = "en") -> None:
+    """
+    Restore original dictionary form and save to JSON.
+    """
+    dictionary_path = dashapp_rootdir / "i18n" / "dictionary.json"
+    
+    tgt = code[current_language]
+
+    master_dict = {k: {tgt: v} for k, v in dictionary.items()}
+    json.dump(master_dict, open(dictionary_path, "w"), ensure_ascii=False, indent=4)
+
+
 def translate_series(series: pd.Series) -> pd.Series:
     """
     Translate a series of strings into the current language.
@@ -196,7 +208,9 @@ def translate(text: str) -> str:
         translated_text = dictionary.get(text)
     else:
         # if string is missing, get it from DeepL and store in TM:
-        translated_text = request_translation(text, code[current_language])
+        translated_text = request_translation(text)
+        dictionary[text] = translated_text
+        save_current_dict(dictionary, current_language)
 
     if translated_text is None:
         logger.error(

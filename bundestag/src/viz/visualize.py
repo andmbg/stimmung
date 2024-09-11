@@ -156,7 +156,7 @@ def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
     )
 
     fig.add_annotation(
-        text="Dissens",
+        text=t("Dissens"),
         x=5,
         y=1,
         xanchor="left",
