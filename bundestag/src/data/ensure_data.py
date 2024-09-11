@@ -8,7 +8,6 @@ import deepl
 from dotenv import load_dotenv, find_dotenv
 
 from bundestag.src.data.models import Dataset
-from bundestag.src.i18n import get_translations
 
 
 load_dotenv(find_dotenv(), override=True)
@@ -268,12 +267,10 @@ def get_legislature_votes(legislature: int) -> pd.DataFrame:
 
 def ensure_data_bundestag(
     file: Path = dashapp_rootdir / "data" / "votes_bundestag.parquet",
-    tgt_lang: str = None,
 ) -> None:
     """
     Ensure that all voting data are present locally. That is, check if they are,
-    and if not, download them from AWDE. Then, if we are in a non-German version,
-    check if translations of vote labels are present, get missing ones from DeepL.
+    and if not, download them from AWDE. 
 
     :param file: the local parquet file to store voting data in.
     :param translate: if not None, identifier for DeepL to translate vote labels
@@ -300,5 +297,5 @@ def ensure_data_bundestag(
     all_votes.to_parquet(dashapp_rootdir / "data" / "votes_bundestag.parquet")
 
     # Ensure presence of translations in our dictionary:
-    if tgt_lang is not None:
-        get_translations(all_votes.label, tgt_lang)
+    # if tgt_lang is not None:
+    #     get_translations(all_votes.label)

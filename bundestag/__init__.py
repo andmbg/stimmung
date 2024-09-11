@@ -16,19 +16,23 @@ sys.path.append(str(dashapp_rootdir))
 from .src.data.ensure_data import (
     ensure_data_bundestag,
     get_legislatures,
-    # translate_labels,
 )
 from .src.log_config import setup_logger
-from .src.viz.visualize import get_fig_dissenters, get_fig_votes
 from .config import cached_dataset
-from .src.i18n import translate_labels, translate as t
+from .src.language_context import language_context
+from .src.i18n import translate as t, translate_series
+from .src.viz.visualize import get_fig_dissenters, get_fig_votes
 
 
 setup_logger()
 logger = logging.getLogger(__name__)
 
 
-def init_dashboard(flask_app, route, language):
+def init_dashboard(flask_app, route):
+
+    current_language = language_context.get_language()
+
+    logger.info(f"---init_dashboard()---: {current_language}")
 
     app = Dash(
         __name__,
@@ -37,7 +41,6 @@ def init_dashboard(flask_app, route, language):
         # relevant for standalone launch, not used by main flask app:
         external_stylesheets=[dbc.themes.FLATLY],
     )
-
     #
     # Initialization
     #
@@ -54,10 +57,10 @@ def init_dashboard(flask_app, route, language):
     )
 
     # the dataset:
-    ensure_data_bundestag(tgt_lang=language)
+    ensure_data_bundestag()
 
     data = pd.read_parquet(cached_dataset)
-    data.label = translate_labels(labels=data.label, tgt_lang=language)
+    data.label = translate_series(data.label)
 
     data = data.loc[data.vote.ne("no_show")]
     data.vote = pd.Categorical(
@@ -68,10 +71,10 @@ def init_dashboard(flask_app, route, language):
 
     # prose paragraphs:
     prosepath = dashapp_rootdir / "bundestag" / "src" / "prose"
-    md_intro = dcc.Markdown(t(open(prosepath / "intro.md").read(), tgt_lang=language))
-    md_dropdown_pre = dcc.Markdown(t(open(prosepath / "dropdown_pre.md").read(), tgt_lang=language))
-    md_dropdown_post = dcc.Markdown(t(open(prosepath / "dropdown_post.md").read(), tgt_lang=language))
-    md_pre_dissenter = dcc.Markdown(t(open(prosepath / "pre_dissenter.md").read(), tgt_lang=language))
+    md_intro = dcc.Markdown(t(open(prosepath / "intro.md").read()))
+    md_dropdown_pre = dcc.Markdown(t(open(prosepath / "dropdown_pre.md").read()))
+    md_dropdown_post = dcc.Markdown(t(open(prosepath / "dropdown_post.md").read()))
+    md_pre_dissenter = dcc.Markdown(t(open(prosepath / "pre_dissenter.md").read()))
 
     app.layout = html.Div(
         [
@@ -244,12 +247,13 @@ def init_dashboard(flask_app, route, language):
         ],
     )
 
-    init_callbacks(app, data, language)
+    init_callbacks(app, data, current_language)
 
     return app
 
 
-def init_callbacks(app, data, language="de"):
+def init_callbacks(app, data, language):
+
     # update plots from selection
     @app.callback(
         Output("fig-fraction", "figure"),
@@ -259,10 +263,12 @@ def init_callbacks(app, data, language="de"):
         Input("fig-fraction", "selectedData"),
         Input("fig-dissgrid", "selectedData"),
     )
-    def update_everything(legislature, fraction, selection_frac, selection_grid):
+    def update_everything(legislature, fraction, selection_frac, selection_grid, language=language):
         plot_data = data.loc[
             data.fid_legislatur.eq(legislature) & data.fraction.eq(fraction)
         ]
+
+        language_context.set_language(language)
 
         selected_votes = data.vote_id.tolist()
 
@@ -275,7 +281,7 @@ def init_callbacks(app, data, language="de"):
                     )
                 )
         frac_fig = get_fig_votes(plot_data, selected_votes, language=language)
-        diss_fig = get_fig_dissenters(plot_data, selected_votes, language=language)
+        diss_fig = get_fig_dissenters(plot_data, selected_votes)
 
         return (
             frac_fig,

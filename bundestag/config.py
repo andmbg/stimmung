@@ -2,7 +2,6 @@ from pathlib import Path
 
 dashapp_rootdir = Path(__file__).resolve().parents[1]
 # we use en/de, DeepL uses EN-GB/DE
-language = "de"
 language_codes = {
     "de": "DE",
     "en": "EN-GB",

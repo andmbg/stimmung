@@ -7,7 +7,8 @@ import pandas as pd
 from dotenv import load_dotenv, find_dotenv
 import deepl
 
-from bundestag.config import language_codes
+from bundestag.config import language_codes as code
+from .language_context import language_context
 
 
 load_dotenv(find_dotenv(), override=True)
@@ -20,29 +21,38 @@ dictionary_path = dashapp_rootdir / "i18n" / "dictionary.json"
 multiling_dictionary = json.loads(dictionary_path.read_text())
 
 
-def get_translations(labels: pd.Series, language: str) -> None:
+def get_biling_dictionary(multiling_dictionary, language):
+    """ """
+    logger.info(f"get_biling_dictionary(): {language}")
+    return {
+        str(entry["DE"]): str(entry[code[language]])
+        for entry in multiling_dictionary
+        if "DE" in entry and code[language] in entry
+    }
+
+
+# global_biling_dictionary = get_biling_dictionary(multiling_dictionary, current_language)
+
+
+def get_translations(labels: pd.Series) -> None:
     """
     Check voting labels for presence of their 'tgt_lang' translation in our
     dictionary, and if missing, translate them and store them right there.
     This only ensures presence; for the function that returns translations,
     see => translate_labels().
     """
+    current_language = language_context.get_language()
+
     # load label dictionary and set to target language:
     dictionary_path = dashapp_rootdir / "i18n" / "dictionary.json"
-    global_dictionary = json.loads(dictionary_path.read_text())
-    src = language_codes["de"]
-    tgt = language_codes[language]
-    logger.info(f"Global dict has {len(global_dictionary)} entries.")
-
-    dict_de = bilingualize_dict(src=src, tgt=language)
+    dictionary = json.loads(dictionary_path.read_text())
+    src = code["de"]
+    tgt = code[current_language]
+    logger.info(f"Dictionary has {len(dictionary)} entries.")
 
     # identify new labels (not in dict or not in the desired language):
     data_labels = labels.unique()
-    new_labels = [
-        label
-        for label in data_labels
-        if label not in dict_de or dict_de.get(label, {}).get(tgt, None) is None
-    ]
+    new_labels = [label for label in data_labels if label not in dictionary]
 
     # do the translating and put it into the global dictionary:
     if new_labels:
@@ -52,27 +62,26 @@ def get_translations(labels: pd.Series, language: str) -> None:
             translator = deepl.Translator(auth_key)
             # new_entries: {"lorem": "ipsum", ...}
             new_entries = {
-                key: translator.translate_text(
-                    key, target_lang=tgt, source_lang=src
-                ).text
+                key: {
+                    tgt: translator.translate_text(
+                        key, target_lang=tgt, source_lang=src
+                    ).text
+                }
                 for key in new_labels
             }
 
-            # bring new entries into the focused dict_de
+            # bring new entries into the dictionary:
+            logger.info(f"Adding {len(new_entries)} new entries to the dictionary.")
             for k, v in new_entries.items():
-                if k in dict_de:
+                if k in dictionary:
                     # entry exisits, but add this new language:
-                    dict_de[k][tgt] = v
+                    dictionary[k][tgt] = v
                 else:
                     # add completely new entry:
-                    dict_de[k] = {tgt: v}
+                    dictionary[k] = {tgt: v}
 
-            # bring the focused dict_de into the international form:
-            global_dictionary = _defocus_dict(dict_de, src=src)
-
-            logger.info(f"Adding {len(new_entries)} new entries to the dictionary.")
             json.dump(
-                global_dictionary,
+                dictionary,
                 open(dictionary_path, "w"),
                 indent=4,
                 ensure_ascii=False,
@@ -84,79 +93,83 @@ def get_translations(labels: pd.Series, language: str) -> None:
         logger.info("No new labels found. No translation needed.")
 
 
-def bilingualize_dict(src: str = "de", tgt: str = "de") -> dict:
+def dict2list(dct: dict, key) -> list:
     """
-    Take the global dictionary, and return a simple bilingual dictionary.
-    Go from
-      [ {"DE": "lorem", "EN": "ipsum"}, ... ]
-    to
-      {"lorem": "ipsum", ...}
+    Turn a dict of the form
+    {"lorem": {"A": "ipsum", "B": "dolor", ...}, ...}
+    into
+    [ {"L": "lorem", "A": "ipsum", "B": "dolor, ...}, ... ].
+    "L" as an additional key to every dict must be specified as argument.
 
-    :param global_dict: the dictionary to focus
-    :param src: the focal language
-    :param tgt: the target language
-    :return: the bilingual dictionary
+    :param dict: the dictionary to transform
+    :param key: the new key to all component dicts
+    :return: list of dicts
     """
-    global multiling_dictionary
+    out = []
+    for k, v in dct.items():
+        assert isinstance(v, dict)
+        this_entry = v
+        this_entry[key] = k
+        out.append(this_entry)
 
-    src = language_codes[src]
-    tgt = language_codes[tgt]
-
-    biling_dictionary = {
-        str(entry[src]): str(entry[tgt])
-        for entry in multiling_dictionary
-        if src in entry and tgt in entry
-    }
-
-    return biling_dictionary
-
-biling_dictionary = bilingualize_dict()
+    return out
 
 
-def _defocus_dict(focused_dict: dict, src: str) -> dict:
+def list2dict(lst: list, key) -> dict:
     """
-    Take a focused dictionary, and return a global dictionary. Go from form
-    > {"lorem": {"EN": "ipsum"}, ...}
+    Turn a list of dicts into a dict of dicts by taking one key (typically a
+    language code) and turning its value into the key for each dict.
+    Turn form
+    [ {"L": "lorem", "A": "ipsum", "B": "dolor, ...}, ... ]
+    into
+    {"lorem": {"A": "ipsum", "B": "dolor", ...}, ...}.
+    If "key" is not in an element dict, this dict gets ignored.
 
-    to
-
-    > [ {"DE": "lorem", "EN": "ipsum"}, ... ]
-
-    This is the inverse of _focus_dict().
-
-    :param focused_dict: the dictionary to unfocus
-    :param src: the focal language, i.e., the language of the keys
-    :return: the global dictionary
+    :param list: the list of dicts to transform
+    :param key: the key among dict keys whose value becomes each component
+        dict's identifier.
+    :return: dict of dicts
     """
-    multiling_dict = []
-    for k, v in focused_dict.items():
-        entry = {src: k}
-        entry.update(v)
-        multiling_dict.append(entry)
+    out = {}
+    for cdict in lst:
+        assert isinstance(cdict, dict)
+        if key in cdict.keys():
+            this_entry = {key: {k: v for k, v in cdict.items() if k != key}}
+            out.update(this_entry)
 
-    return multiling_dict
+    return out
 
 
-def translate_labels(labels: pd.Series, tgt_lang: str = "en") -> pd.Series:
+def load_current_dict(current_language: str = "en") -> dict:
     """
-    Specialization of cached_translation() for the specific use case of a
-    pd.Series.
-
-    :param labels: pd.Series of string labels to translate.
-    :param tgt_lang: the target language. Uses our app codes, "de", "en", etc.
-    :return: the translated labels, as pd.Series
+    Load the master dictionary, bring into simple form:
+    {"lorem": {"en": "ipsum"}, ...} => {"lorem": "ipsum", ...}
     """
-    global biling_dictionary
+    dictionary_path = dashapp_rootdir / "i18n" / "dictionary.json"
 
-    if tgt_lang == "de":
-        return labels
+    tgt = code[current_language]
 
-    labels = labels.replace(biling_dictionary)
+    master_dict = json.loads(dictionary_path.read_text())
+    dictionary = {k: v[tgt] for k, v in master_dict.items()}
 
-    return labels
+    return dictionary
 
 
-def translate(text: str, tgt_lang: str = "de") -> str:
+def translate_series(series: pd.Series) -> pd.Series:
+    """
+    Translate a series of strings into the current language.
+    """
+    current_language = language_context.get_language()
+    
+    if current_language == "de":
+        return series
+    
+    dictionary = load_current_dict(current_language)
+
+    return series.replace(dictionary)
+
+
+def translate(text: str) -> str:
     """
     Return a previously-cached translation for the given German string. If the
     current language is "de", just return the input string unchanged. Else,
@@ -168,18 +181,57 @@ def translate(text: str, tgt_lang: str = "de") -> str:
     :param tgt_lang: the target language. Uses our app codes, "de", "en", etc.
     :return: the translated string
     """
-    if tgt_lang == "de":
-        return text
+    current_language = language_context.get_language()
 
+    if current_language == "de":
+        return text
+    
     if text is None:
         return None
 
-    global biling_dictionary
+    dictionary = load_current_dict(current_language)
 
-    translated_text = biling_dictionary.get(text)
+    # if string is in translation memory, return translation:
+    if text in dictionary:
+        translated_text = dictionary.get(text)
+    else:
+        # if string is missing, get it from DeepL and store in TM:
+        translated_text = request_translation(text, code[current_language])
 
     if translated_text is None:
-        logger.error(f"No translation found for '{text[0:30]}' in {tgt_lang}.")
+        logger.error(
+            f"No translation found for '{text[0:30]}' in {current_language}, "
+            "neither in our own dict nor at DeepL."
+        )
         return text
+
+    return translated_text
+
+
+def request_translation(text: str) -> str:
+    """
+    Query DeepL API for translation of text into current_language. Save the
+    returned string in the bilingual dictionary.
+    """
+    current_language = language_context.get_language()
+
+    auth_key = os.getenv("DEEPL_AUTH_KEY", None)
+
+    if auth_key:
+        logger.info(
+            f"Requesting translation for '{text[0:30]}"
+            f"{'[...]' if len(text) > 30 else ''}'"
+        )
+        translator = deepl.Translator(auth_key)
+
+        translated_text = translator.translate_text(
+            text,
+            target_lang=code[current_language],
+            source_lang="DE",
+        ).text
+
+    else:
+        logger.warning("No DeepL key found. New translations will not be available.")
+        translated_text = text
 
     return translated_text

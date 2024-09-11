@@ -1,2254 +1,1691 @@
-[
-    {
-        "DE": "Fraktionslinie",
+{
+    "Fraktionslinie": {
         "EN-GB": "along party line"
     },
-    {
-        "DE": "Für diese Fraktion in dieser Legislaturperiode siehst du hier über alle Abstimmungen hinweg das Abstimmverhalten, kodiert danach, ob Abgeordnete der Fraktionsmehrheit folgen oder abweichend abstimmen.\nDas heißt, links steht die Fraktionsmehrheit (tippe auf die Balden oder fahre mit der Maus darüber, um zu sehen, worum es bei der Abstimmung ging).\nRechts sind alle Stimmen derer, die anders abgestimmt haben als ihre Fraktion.\nIn der Mitte ist außerdem der Ausgang der Abstimmung.\n",
+    "Für diese Fraktion in dieser Legislaturperiode siehst du hier über alle Abstimmungen hinweg das Abstimmverhalten, kodiert danach, ob Abgeordnete der Fraktionsmehrheit folgen oder abweichend abstimmen.\nDas heißt, links steht die Fraktionsmehrheit (tippe auf die Balden oder fahre mit der Maus darüber, um zu sehen, worum es bei der Abstimmung ging).\nRechts sind alle Stimmen derer, die anders abgestimmt haben als ihre Fraktion.\nIn der Mitte ist außerdem der Ausgang der Abstimmung.\n": {
         "EN-GB": "For this parliamentary group in this legislative period, you can see the voting behavior across all votes here, coded according to whether MPs follow the majority of the parliamentary group or vote differently. This means that the majority of the parliamentary group is shown on the left (tap on the bars or move the mouse over them to see what the vote was about). On the right are all the votes of those who voted differently from their group. The outcome of the vote is also shown in the middle."
     },
-    {
-        "DE": "Wir beginnen damit, uns eine bestimmte Legislaturperiode des Bundestags auszuwählen.\nDann geht es um die Fraktion, die wir uns genauer ansehen wollen:\n",
+    "Wir beginnen damit, uns eine bestimmte Legislaturperiode des Bundestags auszuwählen.\nDann geht es um die Fraktion, die wir uns genauer ansehen wollen:\n": {
         "EN-GB": "Let's start by selecting a specific legislation period of the Bundestag. After that, choose the parliamentary group that you would like to have a closer look on."
     },
-    {
-        "DE": "# Das Abstimmverhalten im Bundestag\n\n*Wenn für jedes Gesetzesvorhaben einfach nur monolithische Fraktionen gemäß ihrer Größe abstimmen würden, wären Debatten ziemlich unnütz.*\n*Dann und wann empfinden Abgeordnete, dass ihnen ihr Gewissen oder die Plattform, mit der sie angetreten sind, einen anderen Standpunkt zu einem Gesetzesentwurf nahelegt, als es in ihrer Fraktion Mehrheitsmeinung ist.*\n*Wir blicken also auf das Stimmverhalten der Abgeordneten des Bundestags.*\n*Unsere Frage lautet zum Einen:*\n**Wie oft stimmen die Abgeordneten einer Fraktion entlang der Fraktionslinie oder dagegen?**\n",
+    "# Das Abstimmverhalten im Bundestag\n\n*Wenn für jedes Gesetzesvorhaben einfach nur monolithische Fraktionen gemäß ihrer Größe abstimmen würden, wären Debatten ziemlich unnütz.*\n*Dann und wann empfinden Abgeordnete, dass ihnen ihr Gewissen oder die Plattform, mit der sie angetreten sind, einen anderen Standpunkt zu einem Gesetzesentwurf nahelegt, als es in ihrer Fraktion Mehrheitsmeinung ist.*\n*Wir blicken also auf das Stimmverhalten der Abgeordneten des Bundestags.*\n*Unsere Frage lautet zum Einen:*\n**Wie oft stimmen die Abgeordneten einer Fraktion entlang der Fraktionslinie oder dagegen?**\n": {
         "EN-GB": "# Voting behavior in the Bundestag\n\n*If monolithic parliamentary groups simply voted according to their size on every bill, debates would be quite pointless. Every now and then, MPs feel that their conscience or the platform on which they stood suggests a different position on a bill than the majority opinion in their parliamentary group. We are therefore looking at the voting behavior of members of the Bundestag. On the one hand, our question is:* **How often do members of a parliamentary group vote along party lines or against?**"
     },
-    {
-        "DE": "Beide Abbildungen hängen zusammen:\nZiehe mit der Maus einen Kasten um die abweichenden Stimmen oben oder unten.\nIndem du etwa die Stimmen eines oder einer Abgeordneten unten markierst, kannst du sie oben im Kontext der gesamten Abstimmungen sehen, also mit dem Zusammenhang, ob dies eine vereinzelte Gegenstimme war, oder eine größere Spaltung durch die Fraktion ging.\n\nSelektionen oben und unten wirken gleichzeitig, und zwar indem sie sich gegenseitig beschränken (Überschneidung oder *intersect* in der Mengenlehre).\nDu kannst die Auswahl in einer Abbildung per Umschalt- oder Alt-Taste erweitern bzw. verkleinern.\nEin Doppelklick entfernt die Auswahl.\n",
+    "Beide Abbildungen hängen zusammen:\nZiehe mit der Maus einen Kasten um die abweichenden Stimmen oben oder unten.\nIndem du etwa die Stimmen eines oder einer Abgeordneten unten markierst, kannst du sie oben im Kontext der gesamten Abstimmungen sehen, also mit dem Zusammenhang, ob dies eine vereinzelte Gegenstimme war, oder eine größere Spaltung durch die Fraktion ging.\n\nSelektionen oben und unten wirken gleichzeitig, und zwar indem sie sich gegenseitig beschränken (Überschneidung oder *intersect* in der Mengenlehre).\nDu kannst die Auswahl in einer Abbildung per Umschalt- oder Alt-Taste erweitern bzw. verkleinern.\nEin Doppelklick entfernt die Auswahl.\n": {
         "EN-GB": "The two illustrations are connected: Use the mouse to draw a box around the dissenting votes at the top or bottom. For example, by marking the votes of one or more MPs at the bottom, you can see them at the top in the context of the overall votes, i.e., whether this was an isolated dissenting vote or a major split in the parliamentary group.\n\n Selections above and below act simultaneously by restricting each other (overlap or *intersect* in set theory). You can expand or collapse the selection in a figure using the Shift or Alt key. Double-clicking removes the selection."
     },
-    {
-        "DE": "Änderung des Infektionsschutzgesetzes (Ende der epidemischen Lage)",
+    "Änderung des Infektionsschutzgesetzes (Ende der epidemischen Lage)": {
         "EN-GB": "Amendment to the Infection Protection Act (end of the epidemic situation)"
     },
-    {
-        "DE": "CDU/CSU-Antrag: Verlängerung der epidemischen Lage nationaler Tragweite",
+    "CDU/CSU-Antrag: Verlängerung der epidemischen Lage nationaler Tragweite": {
         "EN-GB": "CDU/CSU motion: Extension of the epidemic situation of national scope"
     },
-    {
-        "DE": "Impfpflicht für bestimmte Berufsgruppen und weitere Änderungen im Infektionsschutzgesetz",
+    "Impfpflicht für bestimmte Berufsgruppen und weitere Änderungen im Infektionsschutzgesetz": {
         "EN-GB": "Compulsory vaccination for certain occupational groups and other changes to the Infection Protection Act"
     },
-    {
-        "DE": "DIE LINKE-Antrag: Prämie für Beschäftigte im Gesundheits- und Pflegesystem",
+    "DIE LINKE-Antrag: Prämie für Beschäftigte im Gesundheits- und Pflegesystem": {
         "EN-GB": "DIE LINKE motion: Bonus for employees in the health and care system"
     },
-    {
-        "DE": "Zweiter Nachtrag zum Bundeshaushalt 2021",
+    "Zweiter Nachtrag zum Bundeshaushalt 2021": {
         "EN-GB": "Second addendum to the 2021 federal budget"
     },
-    {
-        "DE": "Fortsetzung des Einsatzes der Bundeswehr im Irak",
+    "Fortsetzung des Einsatzes der Bundeswehr im Irak": {
         "EN-GB": "Continuation of the Bundeswehr mission in Iraq"
     },
-    {
-        "DE": "Ausnahme von der „Schuldenbremse“",
+    "Ausnahme von der „Schuldenbremse“": {
         "EN-GB": "Exception to the \"debt brake\""
     },
-    {
-        "DE": "CDU/CSU-Antrag: Sicherung einer bezahlbaren und souveränen Energieversorgung",
+    "CDU/CSU-Antrag: Sicherung einer bezahlbaren und souveränen Energieversorgung": {
         "EN-GB": "CDU/CSU motion: Securing an affordable and sovereign energy supply"
     },
-    {
-        "DE": "Änderung des Infektionsschutzgesetzes (Ende weitreichender Corona-Maßnahmen)",
+    "Änderung des Infektionsschutzgesetzes (Ende weitreichender Corona-Maßnahmen)": {
         "EN-GB": "Amendment to the Infection Protection Act (end of far-reaching corona measures)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Südsudan (UNMISS 2022/23)",
+    "Verlängerung des Bundeswehreinsatzes im Südsudan (UNMISS 2022/23)": {
         "EN-GB": "Extension of the Bundeswehr mission in South Sudan (UNMISS 2022/23)"
     },
-    {
-        "DE": "Verlängerung der Bundeswehrbeteiligung an NATO-Operation SEA GUARDIAN im Mittelmeer (2022/23)",
+    "Verlängerung der Bundeswehrbeteiligung an NATO-Operation SEA GUARDIAN im Mittelmeer (2022/23)": {
         "EN-GB": "Extension of Bundeswehr participation in NATO operation SEA GUARDIAN in the Mediterranean (2022/23)"
     },
-    {
-        "DE": "Impfpflicht ab 60",
+    "Impfpflicht ab 60": {
         "EN-GB": "Compulsory vaccination from 60"
     },
-    {
-        "DE": "CDU/CSU-Antrag: Impfvorsorgegesetz",
+    "CDU/CSU-Antrag: Impfvorsorgegesetz": {
         "EN-GB": "CDU/CSU motion: Preventive Vaccination Act"
     },
-    {
-        "DE": "Impfbereitschaft ohne allgemeine Impfpflicht erhöhen",
+    "Impfbereitschaft ohne allgemeine Impfpflicht erhöhen": {
         "EN-GB": "Increase vaccination readiness without general compulsory vaccination"
     },
-    {
-        "DE": "AfD-Antrag: Keine Impfpflicht gegen COVID-19",
+    "AfD-Antrag: Keine Impfpflicht gegen COVID-19": {
         "EN-GB": "AfD motion: No compulsory vaccination against COVID-19"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Mittelmeer (Operation EUNAVFOR MED IRINI)",
+    "Verlängerung des Bundeswehreinsatzes im Mittelmeer (Operation EUNAVFOR MED IRINI)": {
         "EN-GB": "Extension of the Bundeswehr mission in the Mediterranean (Operation EUNAVFOR MED IRINI)"
     },
-    {
-        "DE": "Umfassende Unterstützung für die Ukraine ",
+    "Umfassende Unterstützung für die Ukraine ": {
         "EN-GB": "Comprehensive support for Ukraine"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA 2022/2023)",
+    "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA 2022/2023)": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (MINUSMA 2022/2023)"
     },
-    {
-        "DE": "Fortsetzung des Bundeswehreinsatzes im Sahel mit Schwerpunkt Niger (EUTM Mali 2022/2023)",
+    "Fortsetzung des Bundeswehreinsatzes im Sahel mit Schwerpunkt Niger (EUTM Mali 2022/2023)": {
         "EN-GB": "Continuation of the Bundeswehr mission in the Sahel with a focus on Niger (EUTM Mali 2022/2023)"
     },
-    {
-        "DE": "CDU/CSU-Antrag: Förderung der energie­effizienten Gebäude­sanierung ",
+    "CDU/CSU-Antrag: Förderung der energie­effizienten Gebäude­sanierung ": {
         "EN-GB": "CDU/CSU motion: Promotion of energy-efficient building refurbishment"
     },
-    {
-        "DE": "CDU/CSU-Antrag: Sicherung der Nahrungsmittelversorgung der Ukraine",
+    "CDU/CSU-Antrag: Sicherung der Nahrungsmittelversorgung der Ukraine": {
         "EN-GB": "CDU/CSU motion: Securing food supplies in Ukraine"
     },
-    {
-        "DE": "AfD-Antrag: Einrichtungsbezogene Impfpflicht abschaffen",
+    "AfD-Antrag: Einrichtungsbezogene Impfpflicht abschaffen": {
         "EN-GB": "AfD motion: Abolish facility-based compulsory vaccination"
     },
-    {
-        "DE": "Etat des Bundeskanzlers und des Bundeskanzleramtes 2022",
+    "Etat des Bundeskanzlers und des Bundeskanzleramtes 2022": {
         "EN-GB": "Budget of the Federal Chancellor and the Federal Chancellery 2022"
     },
-    {
-        "DE": " Bundeshaushaltsplan für das Haushaltsjahr 2022 (Haushaltsgesetz)",
+    " Bundeshaushaltsplan für das Haushaltsjahr 2022 (Haushaltsgesetz)": {
         "EN-GB": " Federal budget for the 2022 financial year (Budget Act)"
     },
-    {
-        "DE": "Schuldentilgung der Haushaltsjahre 2020-2022",
+    "Schuldentilgung der Haushaltsjahre 2020-2022": {
         "EN-GB": "Debt repayment for the 2020-2022 financial years"
     },
-    {
-        "DE": "Anhebung des Mindestlohns für Minijobs ",
+    "Anhebung des Mindestlohns für Minijobs ": {
         "EN-GB": "Increase in the minimum wage for mini-jobs"
     },
-    {
-        "DE": "AfD-Antrag zum \"Sondervermögen Bundeswehr\"",
+    "AfD-Antrag zum \"Sondervermögen Bundeswehr\"": {
         "EN-GB": "AfD motion on the \"Bundeswehr Special Fund\""
     },
-    {
-        "DE": "Grundgesetzänderung (Artikel 87a)",
+    "Grundgesetzänderung (Artikel 87a)": {
         "EN-GB": "Amendment to the Basic Law (Article 87a)"
     },
-    {
-        "DE": "Sondervermögen Bundeswehr",
+    "Sondervermögen Bundeswehr": {
         "EN-GB": "Special assets of the Bundeswehr"
     },
-    {
-        "DE": "Beteiligung deutscher Streitkräfte an UNIFIL",
+    "Beteiligung deutscher Streitkräfte an UNIFIL": {
         "EN-GB": "Participation of German armed forces in UNIFIL"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR 2022/2023)",
+    "Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR 2022/2023)": {
         "EN-GB": "Extension of the Bundeswehr mission in Kosovo (KFOR 2022/2023)"
     },
-    {
-        "DE": "Beteiligung der Bundeswehr an der EU-geführten Sicherheitsoperation in Bosnien und Herzegowina (EUFOR ALTHEA)",
+    "Beteiligung der Bundeswehr an der EU-geführten Sicherheitsoperation in Bosnien und Herzegowina (EUFOR ALTHEA)": {
         "EN-GB": "Participation of the Bundeswehr in the EU-led security operation in Bosnia and Herzegovina (EUFOR ALTHEA)"
     },
-    {
-        "DE": "Bundeswehrbeschaffungsbeschleunigungsgesetz (Entschließungsantrag CDU/CSU-Fraktion)",
+    "Bundeswehrbeschaffungsbeschleunigungsgesetz (Entschließungsantrag CDU/CSU-Fraktion)": {
         "EN-GB": "Bundeswehr Procurement Acceleration Act (motion for a resolution by the CDU/CSU parliamentary group)"
     },
-    {
-        "DE": "Schnellerer Ausbau erneuerbarer Energien",
+    "Schnellerer Ausbau erneuerbarer Energien": {
         "EN-GB": "Faster expansion of renewable energies"
     },
-    {
-        "DE": "Änderung des Bundesnaturschutzgesetzes",
+    "Änderung des Bundesnaturschutzgesetzes": {
         "EN-GB": "Amendment of the Federal Nature Conservation Act"
     },
-    {
-        "DE": "Bereithaltung von Ersatzkraftwerken (Änderungsantrag CDU/CSU-Fraktion)",
+    "Bereithaltung von Ersatzkraftwerken (Änderungsantrag CDU/CSU-Fraktion)": {
         "EN-GB": "Provision of replacement power plants (CDU/CSU parliamentary group amendment)"
     },
-    {
-        "DE": "Ausbau von Windenergieanlagen an Land erhöhen und beschleunigen",
+    "Ausbau von Windenergieanlagen an Land erhöhen und beschleunigen": {
         "EN-GB": "Increase and accelerate the expansion of onshore wind turbines"
     },
-    {
-        "DE": "Änderung des Windenergie-auf-See-Gesetzes",
+    "Änderung des Windenergie-auf-See-Gesetzes": {
         "EN-GB": "Amendment of the Offshore Wind Energy Act"
     },
-    {
-        "DE": "Beschleunigter Ausbau erneuerbarer Energien (Beschlussempfehlung)",
+    "Beschleunigter Ausbau erneuerbarer Energien (Beschlussempfehlung)": {
         "EN-GB": "Accelerated expansion of renewable energies (recommended resolution)"
     },
-    {
-        "DE": "Stärkung des Schutzes der Bevölkerung vor COVID-19",
+    "Stärkung des Schutzes der Bevölkerung vor COVID-19": {
         "EN-GB": "Strengthening the protection of the population from COVID-19"
     },
-    {
-        "DE": "Weiterbetrieb von Kernkraftwerken (Änderungsantrag)",
+    "Weiterbetrieb von Kernkraftwerken (Änderungsantrag)": {
         "EN-GB": "Continued operation of nuclear power plants (amendment)"
     },
-    {
-        "DE": "Entschließungsantrag gegen Abschöpfung von Krisengewinnen",
+    "Entschließungsantrag gegen Abschöpfung von Krisengewinnen": {
         "EN-GB": "Motion for a resolution against the absorption of crisis profits"
     },
-    {
-        "DE": "Aufhebung der Gaspreisanpassungsverordnung (Entschließungsantrag)",
+    "Aufhebung der Gaspreisanpassungsverordnung (Entschließungsantrag)": {
         "EN-GB": "Repeal of the Gas Price Adjustment Ordinance (motion for a resolution)"
     },
-    {
-        "DE": "Beschlussempfehlung gegen Entschließungsantrag zu Waffenlieferungen an die Ukraine",
+    "Beschlussempfehlung gegen Entschließungsantrag zu Waffenlieferungen an die Ukraine": {
         "EN-GB": "Recommended resolution against motion for a resolution on arms deliveries to Ukraine"
     },
-    {
-        "DE": "Wiedereinsetzung des Stabilitäts- und Wachstumspaktes auf EU-Ebene",
+    "Wiedereinsetzung des Stabilitäts- und Wachstumspaktes auf EU-Ebene": {
         "EN-GB": "Reinstatement of the Stability and Growth Pact at EU level"
     },
-    {
-        "DE": "Verbot von Strom- und Gassperren",
+    "Verbot von Strom- und Gassperren": {
         "EN-GB": "Ban on electricity and gas cuts"
     },
-    {
-        "DE": "Abwehrschirm gegen gestiegene Strom- und Gaspreise",
+    "Abwehrschirm gegen gestiegene Strom- und Gaspreise": {
         "EN-GB": "Defence shield against increased electricity and gas prices"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Irak (2023)",
+    "Verlängerung des Bundeswehreinsatzes im Irak (2023)": {
         "EN-GB": "Extension of the Bundeswehr mission in Iraq (2023)"
     },
-    {
-        "DE": "Entschließungsantrag DIE LINKE: Finanz­reform der gesetzlichen Krankenversicherung",
+    "Entschließungsantrag DIE LINKE: Finanz­reform der gesetzlichen Krankenversicherung": {
         "EN-GB": "Motion for a resolution by DIE LINKE: Financial reform of statutory health insurance"
     },
-    {
-        "DE": "Änderung des Bundeszentralregistergesetzes",
+    "Änderung des Bundeszentralregistergesetzes": {
         "EN-GB": "Amendment of the Federal Central Register Act"
     },
-    {
-        "DE": "Einführung des Bürgergeldes",
+    "Einführung des Bürgergeldes": {
         "EN-GB": "Introduction of the citizen's income"
     },
-    {
-        "DE": "Wahlwiederholung der Bundestagswahl in 431 Berliner Wahlbezirken",
+    "Wahlwiederholung der Bundestagswahl in 431 Berliner Wahlbezirken": {
         "EN-GB": "Bundestag election rerun in 431 Berlin constituencies"
     },
-    {
-        "DE": "Weiterbetrieb deutscher Atomkraftwerke bis zum 15. April 2023",
+    "Weiterbetrieb deutscher Atomkraftwerke bis zum 15. April 2023": {
         "EN-GB": "Continued operation of German nuclear power plants until 15 April 2023"
     },
-    {
-        "DE": "Vermögensabgabe für Milliardär:innen und Multimillionär:innen (Antrag)",
+    "Vermögensabgabe für Milliardär:innen und Multimillionär:innen (Antrag)": {
         "EN-GB": "Wealth tax for billionaires and multimillionaires (proposal)"
     },
-    {
-        "DE": "Inflationsausgleichsgesetz",
+    "Inflationsausgleichsgesetz": {
         "EN-GB": "Inflation Compensation Act"
     },
-    {
-        "DE": "Änderung des Infektionsschutzgesetzes (Triage-Entscheidungen)",
+    "Änderung des Infektionsschutzgesetzes (Triage-Entscheidungen)": {
         "EN-GB": "Amendment to the Infection Protection Act (triage decisions)"
     },
-    {
-        "DE": "Änderung des Energiesicherungsgesetzes",
+    "Änderung des Energiesicherungsgesetzes": {
         "EN-GB": "Amendment of the Energy Security Act"
     },
-    {
-        "DE": "Der Bundeshaushalt 2023",
+    "Der Bundeshaushalt 2023": {
         "EN-GB": "The 2023 federal budget"
     },
-    {
-        "DE": "Etat des Bundeskanzlers und des Bundeskanzleramtes 2023",
+    "Etat des Bundeskanzlers und des Bundeskanzleramtes 2023": {
         "EN-GB": "Budget of the Federal Chancellor and the Federal Chancellery 2023"
     },
-    {
-        "DE": "Einigungsvorschlag zum Bürgergeld-Gesetz",
+    "Einigungsvorschlag zum Bürgergeld-Gesetz": {
         "EN-GB": "Agreement proposal on the Citizen's Income Act"
     },
-    {
-        "DE": "Digitale Verkündung von Bundesgesetzen und Verordnungen",
+    "Digitale Verkündung von Bundesgesetzen und Verordnungen": {
         "EN-GB": "Digital promulgation of federal laws and ordinances"
     },
-    {
-        "DE": "Vor­gezogener Braunkohle­ausstieg im Rheinischen Revier",
+    "Vor­gezogener Braunkohle­ausstieg im Rheinischen Revier": {
         "EN-GB": "Early lignite phase-out in the Rhenish mining area"
     },
-    {
-        "DE": "Ratifizierung des CETA-Abkommens",
+    "Ratifizierung des CETA-Abkommens": {
         "EN-GB": "Ratification of the CETA agreement"
     },
-    {
-        "DE": "Chancen-Aufenthaltsrecht",
+    "Chancen-Aufenthaltsrecht": {
         "EN-GB": "Right of residence opportunities"
     },
-    {
-        "DE": "Jahressteuergesetz 2022",
+    "Jahressteuergesetz 2022": {
         "EN-GB": "Annual Tax Act 2022"
     },
-    {
-        "DE": "Preisbremsen für leitungsgebundenes Erdgas und Wärme",
+    "Preisbremsen für leitungsgebundenes Erdgas und Wärme": {
         "EN-GB": "Price brakes for pipeline-based natural gas and heat"
     },
-    {
-        "DE": "Einführung einer Strompreisbremse",
+    "Einführung einer Strompreisbremse": {
         "EN-GB": "Introduction of an electricity price brake"
     },
-    {
-        "DE": "Wahlrechtsreform zur Verkleinerung des Bundestages ",
+    "Wahlrechtsreform zur Verkleinerung des Bundestages ": {
         "EN-GB": "Electoral law reform to reduce the size of the Bundestag"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes SEA GUARDIAN im Mittelmeer",
+    "Verlängerung des Bundeswehreinsatzes SEA GUARDIAN im Mittelmeer": {
         "EN-GB": "Extension of the German Armed Forces' SEA GUARDIAN mission in the Mediterranean"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Südsudan (UNMISS)",
+    "Verlängerung des Bundeswehreinsatzes in Südsudan (UNMISS)": {
         "EN-GB": "Extension of the Bundeswehr mission in South Sudan (UNMISS)"
     },
-    {
-        "DE": "Laufzeitverlängerung der Kernkraftwerke ",
+    "Laufzeitverlängerung der Kernkraftwerke ": {
         "EN-GB": "Extending the operating life of nuclear power plants"
     },
-    {
-        "DE": "Untersuchungsausschuss \"Bekämpfung des Corona-Virus\" nicht einsetzen",
+    "Untersuchungsausschuss \"Bekämpfung des Corona-Virus\" nicht einsetzen": {
         "EN-GB": "Do not set up the \"Combating the coronavirus\" committee of enquiry"
     },
-    {
-        "DE": "Bundeswehreinsatz im Mittelmeer verlängern (EUNAVFOR MED IRINI)",
+    "Bundeswehreinsatz im Mittelmeer verlängern (EUNAVFOR MED IRINI)": {
         "EN-GB": "Extend Bundeswehr mission in the Mediterranean (EUNAVFOR MED IRINI)"
     },
-    {
-        "DE": "Bewaffneter Streitkräfteeinsatz im Sudan",
+    "Bewaffneter Streitkräfteeinsatz im Sudan": {
         "EN-GB": "Armed forces deployed in Sudan"
     },
-    {
-        "DE": "Keine Bejagung von Wölfen",
+    "Keine Bejagung von Wölfen": {
         "EN-GB": "No hunting of wolves"
     },
-    {
-        "DE": "Beteiligung der Bundeswehr in Niger (EUMPM Niger)",
+    "Beteiligung der Bundeswehr in Niger (EUMPM Niger)": {
         "EN-GB": "Participation of the German Armed Forces in Niger (EUMPM Niger)"
     },
-    {
-        "DE": "Neuregelung der deutschen Asyl- und Flüchtlingspolitik",
+    "Neuregelung der deutschen Asyl- und Flüchtlingspolitik": {
         "EN-GB": "New regulation of German asylum and refugee policy"
     },
-    {
-        "DE": "Einsetzung des Bürgerrats \"Ernährung im Wandel\"",
+    "Einsetzung des Bürgerrats \"Ernährung im Wandel\"": {
         "EN-GB": "Establishment of the citizens' assembly \"Nutrition in transition\""
     },
-    {
-        "DE": "Einführung von bundesweiten Volksentscheiden",
+    "Einführung von bundesweiten Volksentscheiden": {
         "EN-GB": "Introduction of nationwide referendums"
     },
-    {
-        "DE": "Keine sofortige Einleitung der Rückführungsoffensive ",
+    "Keine sofortige Einleitung der Rückführungsoffensive ": {
         "EN-GB": "No immediate launch of the repatriation offensive"
     },
-    {
-        "DE": "Stärkung und Reform der Weltgesundheitsorganisation",
+    "Stärkung und Reform der Weltgesundheitsorganisation": {
         "EN-GB": "Strengthening and reforming the World Health Organisation"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR)",
+    "Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR)": {
         "EN-GB": "Extension of the Bundeswehr mission in Kosovo (KFOR)"
     },
-    {
-        "DE": "Letztmalige Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA)",
+    "Letztmalige Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA)": {
         "EN-GB": "Final extension of the Bundeswehr mission in Mali (MINUSMA)"
     },
-    {
-        "DE": "Pflegereform",
+    "Pflegereform": {
         "EN-GB": "Care reform"
     },
-    {
-        "DE": "LINKEN-Antrag ablehnen: Europäische Asylrechtsreform durchsetzen",
+    "LINKEN-Antrag ablehnen: Europäische Asylrechtsreform durchsetzen": {
         "EN-GB": "Reject LINKEN motion: Enforce European asylum law reform"
     },
-    {
-        "DE": "2-Prozent-Hürde zur Europawahl",
+    "2-Prozent-Hürde zur Europawahl": {
         "EN-GB": "2 per cent hurdle for the European elections"
     },
-    {
-        "DE": "Grenzüberschreitendes Entsenderecht im Straßenverkehr ",
+    "Grenzüberschreitendes Entsenderecht im Straßenverkehr ": {
         "EN-GB": "Cross-border posting rights in road transport"
     },
-    {
-        "DE": "Fachkräfteeinwanderung",
+    "Fachkräfteeinwanderung": {
         "EN-GB": "Immigration of skilled labour"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes vor der libanesischen Küste (UNIFIL)",
+    "Verlängerung des Bundeswehreinsatzes vor der libanesischen Küste (UNIFIL)": {
         "EN-GB": "Extension of the Bundeswehr mission off the Lebanese coast (UNIFIL)"
     },
-    {
-        "DE": "Keine rückwirkende Besteuerung der Energiepreispauschale",
+    "Keine rückwirkende Besteuerung der Energiepreispauschale": {
         "EN-GB": "No retroactive taxation of the energy price lump sum"
     },
-    {
-        "DE": "Förderung der geschäftsmäßigen Sterbehilfe grundsätzlich verbieten",
+    "Förderung der geschäftsmäßigen Sterbehilfe grundsätzlich verbieten": {
         "EN-GB": "Prohibit the promotion of assisted suicide in principle"
     },
-    {
-        "DE": "Ausbau der LNG-Gas-Infrastruktur",
+    "Ausbau der LNG-Gas-Infrastruktur": {
         "EN-GB": "Expansion of the LNG gas infrastructure"
     },
-    {
-        "DE": "Suizidhilfegesetz",
+    "Suizidhilfegesetz": {
         "EN-GB": "Assisted Suicide Act"
     },
-    {
-        "DE": "Suizidprävention stärken",
+    "Suizidprävention stärken": {
         "EN-GB": "Strengthening suicide prevention"
     },
-    {
-        "DE": "Bundeswehreinsatz in Mali (MINUSMA) beenden",
+    "Bundeswehreinsatz in Mali (MINUSMA) beenden": {
         "EN-GB": "End Bundeswehr mission in Mali (MINUSMA)"
     },
-    {
-        "DE": "Gebäudeenergiegesetz",
+    "Gebäudeenergiegesetz": {
         "EN-GB": "Building Energy Act"
     },
-    {
-        "DE": "Rücktritt von Bundesinnenministerin Nancy Faeser",
+    "Rücktritt von Bundesinnenministerin Nancy Faeser": {
         "EN-GB": "Resignation of Federal Minister of the Interior Nancy Faeser"
     },
-    {
-        "DE": "Änderungsantrag zum Energieeffizienzgesetz ",
+    "Änderungsantrag zum Energieeffizienzgesetz ": {
         "EN-GB": "Amendment to the Energy Efficiency Act"
     },
-    {
-        "DE": "Umsatzsteuergesetz",
+    "Umsatzsteuergesetz": {
         "EN-GB": "Value Added Tax Act"
     },
-    {
-        "DE": "Ablehnung des Elf-Punkte-Plans zum Schutz der Grenzen (Beschlussempfehlung)",
+    "Ablehnung des Elf-Punkte-Plans zum Schutz der Grenzen (Beschlussempfehlung)": {
         "EN-GB": "Rejection of the eleven-point plan to protect the borders (recommended resolution)"
     },
-    {
-        "DE": "Fortsetzung des Bundeswehreinsatzes im Irak",
+    "Fortsetzung des Bundeswehreinsatzes im Irak": {
         "EN-GB": "Continuation of the Bundeswehr mission in Iraq"
     },
-    {
-        "DE": "Änderung des Straßenverkehrsgesetzes",
+    "Änderung des Straßenverkehrsgesetzes": {
         "EN-GB": "Amendment of the Road Traffic Act"
     },
-    {
-        "DE": "Stiftungsfinanzierungsgesetz",
+    "Stiftungsfinanzierungsgesetz": {
         "EN-GB": "Foundation Financing Act"
     },
-    {
-        "DE": "Änderung des Atomgesetzes",
+    "Änderung des Atomgesetzes": {
         "EN-GB": "Amendment of the Atomic Energy Act"
     },
-    {
-        "DE": "Moldau und Georgien als sichere Herkunftsstaaten (Entschließungsantrag)",
+    "Moldau und Georgien als sichere Herkunftsstaaten (Entschließungsantrag)": {
         "EN-GB": "Moldova and Georgia as safe countries of origin (motion for a resolution)"
     },
-    {
-        "DE": "Videokonferenzen in der Zivil- und Fachgerichtsbarkeit",
+    "Videokonferenzen in der Zivil- und Fachgerichtsbarkeit": {
         "EN-GB": "Videoconferencing in civil and specialised jurisdiction"
     },
-    {
-        "DE": "Reform des Nachrichtendienstrechts",
+    "Reform des Nachrichtendienstrechts": {
         "EN-GB": "Reform of intelligence law"
     },
-    {
-        "DE": "Kein Stopp der EU-Gebäuderichtlinie (Beschlussempfehlung)",
+    "Kein Stopp der EU-Gebäuderichtlinie (Beschlussempfehlung)": {
         "EN-GB": "No halt to the EU Buildings Directive (recommended resolution)"
     },
-    {
-        "DE": "Keine Streichung von Erbschaftssteuervergünstigungen (Beschlussempfehlung)",
+    "Keine Streichung von Erbschaftssteuervergünstigungen (Beschlussempfehlung)": {
         "EN-GB": "No cancellation of inheritance tax concessions (recommended resolution)"
     },
-    {
-        "DE": "Erweiterter Tätigkeitsbereich der Europäischen Bank für Wiederaufbau und Entwicklung",
+    "Erweiterter Tätigkeitsbereich der Europäischen Bank für Wiederaufbau und Entwicklung": {
         "EN-GB": "Extended scope of activities of the European Bank for Reconstruction and Development"
     },
-    {
-        "DE": "Nachtragshaushaltsgesetz 2023",
+    "Nachtragshaushaltsgesetz 2023": {
         "EN-GB": "Supplementary Budget Act 2023"
     },
-    {
-        "DE": "Änderung des Erneuerbare-Energien-Gesetzes",
+    "Änderung des Erneuerbare-Energien-Gesetzes": {
         "EN-GB": "Amendment of the Renewable Energies Act"
     },
-    {
-        "DE": "Artikel 115 II GG - Aussetzen der Schuldenbremse für 2023",
+    "Artikel 115 II GG - Aussetzen der Schuldenbremse für 2023": {
         "EN-GB": "Article 115 II GG - Suspension of the debt brake for 2023"
     },
-    {
-        "DE": "Änderung des Parteiengesetzes",
+    "Änderung des Parteiengesetzes": {
         "EN-GB": "Amendment of the Political Parties Act"
     },
-    {
-        "DE": "Lieferung von TAURUS-Marschflugkörpern an die Ukraine",
+    "Lieferung von TAURUS-Marschflugkörpern an die Ukraine": {
         "EN-GB": "Delivery of TAURUS cruise missiles to Ukraine"
     },
-    {
-        "DE": "Friedensinitiative für die Ukraine und Russland (Beschlussempfehlung zur Ablehnung des Antrags)",
+    "Friedensinitiative für die Ukraine und Russland (Beschlussempfehlung zur Ablehnung des Antrags)": {
         "EN-GB": "Peace initiative for Ukraine and Russia (recommendation to reject the motion)"
     },
-    {
-        "DE": "Modernisierung des Staatsangehörigkeitsrechts",
+    "Modernisierung des Staatsangehörigkeitsrechts": {
         "EN-GB": "Modernisation of nationality law"
     },
-    {
-        "DE": "Entlastung der Landwirtschaft",
+    "Entlastung der Landwirtschaft": {
         "EN-GB": "Relief for agriculture"
     },
-    {
-        "DE": "Änderung des Bundeswahlgesetzes ",
+    "Änderung des Bundeswahlgesetzes ": {
         "EN-GB": "Amendment of the Federal Election Act"
     },
-    {
-        "DE": "Haushalt 2024 - Etat des Bundeskanzlers",
+    "Haushalt 2024 - Etat des Bundeskanzlers": {
         "EN-GB": "Budget 2024 - Budget of the Federal Chancellor"
     },
-    {
-        "DE": "Haushaltsgesetz 2024",
+    "Haushaltsgesetz 2024": {
         "EN-GB": "Budget Act 2024"
     },
-    {
-        "DE": "Einsatz der Bundeswehr im Roten Meer ",
+    "Einsatz der Bundeswehr im Roten Meer ": {
         "EN-GB": "Bundeswehr deployment in the Red Sea"
     },
-    {
-        "DE": "Veränderungen in der deutschen Außen- und Sicherheitspolitik erforderlich",
+    "Veränderungen in der deutschen Außen- und Sicherheitspolitik erforderlich": {
         "EN-GB": "Changes required in German foreign and security policy"
     },
-    {
-        "DE": "Militärische Unterstützung für die Ukraine",
+    "Militärische Unterstützung für die Ukraine": {
         "EN-GB": "Military support for Ukraine"
     },
-    {
-        "DE": "Cannabisgesetz",
+    "Cannabisgesetz": {
         "EN-GB": "Cannabis law"
     },
-    {
-        "DE": "Vermittlungs­ergebnis zum Wachstums­chancengesetz",
+    "Vermittlungs­ergebnis zum Wachstums­chancengesetz": {
         "EN-GB": "Mediation result for the Growth Opportunities Act"
     },
-    {
-        "DE": "Keine Lieferung von Taurus-Marschflugkörpern an die Ukraine (Beschlussempfehlung)",
+    "Keine Lieferung von Taurus-Marschflugkörpern an die Ukraine (Beschlussempfehlung)": {
         "EN-GB": "No delivery of Taurus cruise missiles to Ukraine (recommended resolution)"
     },
-    {
-        "DE": "Verlängerung des Bundes­wehreinsatzes in Südsudan (UNMISS)",
+    "Verlängerung des Bundes­wehreinsatzes in Südsudan (UNMISS)": {
         "EN-GB": "Extension of the Bundeswehr mission in South Sudan (UNMISS)"
     },
-    {
-        "DE": "Forderung nach Steuervergünstigung für Agrardiesel ablehnen",
+    "Forderung nach Steuervergünstigung für Agrardiesel ablehnen": {
         "EN-GB": "Reject demand for tax relief for agricultural diesel"
     },
-    {
-        "DE": "Änderung des Energiewirtschaftsgesetzes",
+    "Änderung des Energiewirtschaftsgesetzes": {
         "EN-GB": "Amendment of the Energy Industry Act"
     },
-    {
-        "DE": "Selbstbestimmungsgesetz",
+    "Selbstbestimmungsgesetz": {
         "EN-GB": "Self-determination law"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Mittelmeer (EUNAVFOR MED IRINI)",
+    "Verlängerung des Bundeswehreinsatzes im Mittelmeer (EUNAVFOR MED IRINI)": {
         "EN-GB": "Extension of the Bundeswehr mission in the Mediterranean (EUNAVFOR MED IRINI)"
     },
-    {
-        "DE": "Keine Ablehnung des WHO-Pandemievertrags",
+    "Keine Ablehnung des WHO-Pandemievertrags": {
         "EN-GB": "No rejection of the WHO pandemic treaty"
     },
-    {
-        "DE": "Keine Ab­schaf­fung des Solidaritäts­zuschlags",
+    "Keine Ab­schaf­fung des Solidaritäts­zuschlags": {
         "EN-GB": "No abolition of the solidarity surcharge"
     },
-    {
-        "DE": "Verbesserung des Klimaschutzes beim Immissionsschutz",
+    "Verbesserung des Klimaschutzes beim Immissionsschutz": {
         "EN-GB": "Improving climate protection in immission control"
     },
-    {
-        "DE": "Ablehnung eines Antrags zur Bekämpfung der Gefahr durch den politischen Islam ",
+    "Ablehnung eines Antrags zur Bekämpfung der Gefahr durch den politischen Islam ": {
         "EN-GB": "Rejection of a motion to combat the threat posed by political Islam"
     },
-    {
-        "DE": "Konsequenzen aus der tödlichen Messerattacke in Mannheim",
+    "Konsequenzen aus der tödlichen Messerattacke in Mannheim": {
         "EN-GB": "Consequences of the fatal knife attack in Mannheim"
     },
-    {
-        "DE": "Ablehnung eines Antrags zum Verbot des Vereins \"Muslim Interaktiv\"",
+    "Ablehnung eines Antrags zum Verbot des Vereins \"Muslim Interaktiv\"": {
         "EN-GB": "Rejection of an application to ban the \"Muslim Interaktiv\" association"
     },
-    {
-        "DE": "Zweite Beratung zur Aufhebung des Lieferkettengesetzes ohne Beratung in den Ausschüssen",
+    "Zweite Beratung zur Aufhebung des Lieferkettengesetzes ohne Beratung in den Ausschüssen": {
         "EN-GB": "Second consultation on the repeal of the Supply Chain Act without consultation in the committees"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR 2024/2025)",
+    "Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR 2024/2025)": {
         "EN-GB": "Extension of the Bundeswehr mission in Kosovo (KFOR 2024/2025)"
     },
-    {
-        "DE": "Weitere Beteiligung der Bundeswehr an der EU-geführten Sicherheitsoperation in Bosnien und Herzegowina (EUFOR ALTHEA)",
+    "Weitere Beteiligung der Bundeswehr an der EU-geführten Sicherheitsoperation in Bosnien und Herzegowina (EUFOR ALTHEA)": {
         "EN-GB": "Further participation of the Bundeswehr in the EU-led security operation in Bosnia and Herzegovina (EUFOR ALTHEA)"
     },
-    {
-        "DE": "Verlängerung der Bundeswehrbeteiligung im Libanon (UNIFIL)",
+    "Verlängerung der Bundeswehrbeteiligung im Libanon (UNIFIL)": {
         "EN-GB": "Extension of Bundeswehr participation in Lebanon (UNIFIL)"
     },
-    {
-        "DE": "Änderung des Schwangerschaftskonfliktgesetzes",
+    "Änderung des Schwangerschaftskonfliktgesetzes": {
         "EN-GB": "Amendment of the Pregnancy Conflict Act"
     },
-    {
-        "DE": "Verlängerung Ausbildungsfortsetzung Irak",
+    "Verlängerung Ausbildungsfortsetzung Irak": {
         "EN-GB": "Extension of training continuation Iraq"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Südsudan (UNMISS 2017)",
+    "Verlängerung des Bundeswehreinsatzes im Südsudan (UNMISS 2017)": {
         "EN-GB": "Extension of the Bundeswehr mission in South Sudan (UNMISS 2017)"
     },
-    {
-        "DE": "Verlängerung des Darfur-Einsatzes (UNAMID 2017)",
+    "Verlängerung des Darfur-Einsatzes (UNAMID 2017)": {
         "EN-GB": "Extension of the Darfur mission (UNAMID 2017)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA 2017/2018)",
+    "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA 2017/2018)": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (MINUSMA 2017/2018)"
     },
-    {
-        "DE": "Verlängerung der Bundeswehrbeteiligung an NATO-Operation SEA GUARDIAN (2017)",
+    "Verlängerung der Bundeswehrbeteiligung an NATO-Operation SEA GUARDIAN (2017)": {
         "EN-GB": "Extension of Bundeswehr participation in NATO operation SEA GUARDIAN (2017)"
     },
-    {
-        "DE": "Einsatz deutscher Streitkräfte gegen den IS in Syrien (2017)",
+    "Einsatz deutscher Streitkräfte gegen den IS in Syrien (2017)": {
         "EN-GB": "Deployment of German armed forces against IS in Syria (2017)"
     },
-    {
-        "DE": " Verlängerung des Bundeswehreinsatzes in Afghanistan (2017)",
+    " Verlängerung des Bundeswehreinsatzes in Afghanistan (2017)": {
         "EN-GB": " Extension of the Bundeswehr mission in Afghanistan (2017)"
     },
-    {
-        "DE": "Diätenanpassung der Abgeordneten",
+    "Diätenanpassung der Abgeordneten": {
         "EN-GB": "Adjustment of MPs' allowances"
     },
-    {
-        "DE": "Gesetzesentwurf der Union zum Familiennachzug",
+    "Gesetzesentwurf der Union zum Familiennachzug": {
         "EN-GB": "Union draft law on family reunification"
     },
-    {
-        "DE": "Gesetzesentwurf der Linksfraktion zum Familiennachzug",
+    "Gesetzesentwurf der Linksfraktion zum Familiennachzug": {
         "EN-GB": "Draft law of the left-wing parliamentary group on family reunification"
     },
-    {
-        "DE": "Gesetzesentwurf der AfD zum Familiennachzug",
+    "Gesetzesentwurf der AfD zum Familiennachzug": {
         "EN-GB": "AfD draft law on family reunification"
     },
-    {
-        "DE": "Antrag auf inhaltliche Distanzierung des Bundestages von Deniz Yücel",
+    "Antrag auf inhaltliche Distanzierung des Bundestages von Deniz Yücel": {
         "EN-GB": "Motion for the Bundestag to distance itself from Deniz Yücel"
     },
-    {
-        "DE": "Verstärkung der Grenzkontrollen",
+    "Verstärkung der Grenzkontrollen": {
         "EN-GB": "Strengthening border controls"
     },
-    {
-        "DE": "Anti-IS-Einsatz der Bundeswehr im Irak",
+    "Anti-IS-Einsatz der Bundeswehr im Irak": {
         "EN-GB": "Anti-IS deployment of the Bundeswehr in Iraq"
     },
-    {
-        "DE": "Ausweitung des Ausbildungseinsatzes der Bundeswehr in Afghanistan",
+    "Ausweitung des Ausbildungseinsatzes der Bundeswehr in Afghanistan": {
         "EN-GB": "Expansion of the Bundeswehr's training mission in Afghanistan"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Mittelmeer (SEA GUARDIAN 2018/2019)",
+    "Verlängerung des Bundeswehreinsatzes im Mittelmeer (SEA GUARDIAN 2018/2019)": {
         "EN-GB": "Extension of the Bundeswehr mission in the Mediterranean (SEA GUARDIAN 2018/2019)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Darfur (UNAMID 2018/19)",
+    "Verlängerung des Bundeswehreinsatzes in Darfur (UNAMID 2018/19)": {
         "EN-GB": "Extension of the Bundeswehr mission in Darfur (UNAMID 2018/19)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Südsudan (UNMISS 2018/19)",
+    "Verlängerung des Bundeswehreinsatzes im Südsudan (UNMISS 2018/19)": {
         "EN-GB": "Extension of the Bundeswehr mission in South Sudan (UNMISS 2018/19)"
     },
-    {
-        "DE": "Ausschluss der NPD von der Parteienfinanzierung",
+    "Ausschluss der NPD von der Parteienfinanzierung": {
         "EN-GB": "Exclusion of the NPD from party funding"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA 2018/2019)",
+    "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA 2018/2019)": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (MINUSMA 2018/2019)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Somalia (Atalanta 2018/2019)",
+    "Verlängerung des Bundeswehreinsatzes in Somalia (Atalanta 2018/2019)": {
         "EN-GB": "Extension of the Bundeswehr mission in Somalia (Atalanta 2018/2019)"
     },
-    {
-        "DE": " Verlängerung des Bundeswehreinsatzes in Mali (EUTM) (2018/2019)",
+    " Verlängerung des Bundeswehreinsatzes in Mali (EUTM) (2018/2019)": {
         "EN-GB": " Extension of the Bundeswehr mission in Mali (EUTM) (2018/2019)"
     },
-    {
-        "DE": "Einspruch gegen den an Alice Weidel erteilten Ordnungsruf",
+    "Einspruch gegen den an Alice Weidel erteilten Ordnungsruf": {
         "EN-GB": "Objection to the call to order issued to Alice Weidel"
     },
-    {
-        "DE": "Verschärfung der Mietpreisbremse",
+    "Verschärfung der Mietpreisbremse": {
         "EN-GB": "Tightening of the rent cap"
     },
-    {
-        "DE": "Neuregelung des Familiennachzugs zu subsidiär Schutzberechtigten",
+    "Neuregelung des Familiennachzugs zu subsidiär Schutzberechtigten": {
         "EN-GB": "New regulation of family reunification for persons entitled to subsidiary protection"
     },
-    {
-        "DE": " Verlängerung des Bundeswehreinsatzes im Mittelmeer (EUNAVFOR MED) (2018)",
+    " Verlängerung des Bundeswehreinsatzes im Mittelmeer (EUNAVFOR MED) (2018)": {
         "EN-GB": " Extension of the Bundeswehr mission in the Mediterranean (EUNAVFOR MED) (2018)"
     },
-    {
-        "DE": " Verlängerung des Bundeswehreinsatzes im Libanon (UNIFIL) (2018)",
+    " Verlängerung des Bundeswehreinsatzes im Libanon (UNIFIL) (2018)": {
         "EN-GB": " Extension of the Bundeswehr mission in Lebanon (UNIFIL) (2018)"
     },
-    {
-        "DE": " Änderung des Parteiengesetzes (PartG)",
+    " Änderung des Parteiengesetzes (PartG)": {
         "EN-GB": " Amendment of the Political Parties Act (PartG)"
     },
-    {
-        "DE": "Abschaffung der Sanktionen bei Hartz IV und Sozialhilfe",
+    "Abschaffung der Sanktionen bei Hartz IV und Sozialhilfe": {
         "EN-GB": "Abolition of Hartz IV and social welfare sanctions"
     },
-    {
-        "DE": "Abschließende Finanzhilfen für Griechenland",
+    "Abschließende Finanzhilfen für Griechenland": {
         "EN-GB": "Final financial aid for Greece"
     },
-    {
-        "DE": "Weidetierprämie einführen",
+    "Weidetierprämie einführen": {
         "EN-GB": "Introduce grazing premium"
     },
-    {
-        "DE": "Bundeshaushalt 2018",
+    "Bundeshaushalt 2018": {
         "EN-GB": "Federal budget 2018"
     },
-    {
-        "DE": "Haushalt 2018 - Geschäftsbereich der Bundeskanzlerin und des Bundeskanzleramtes",
+    "Haushalt 2018 - Geschäftsbereich der Bundeskanzlerin und des Bundeskanzleramtes": {
         "EN-GB": "Budget 2018 - portfolio of the Federal Chancellor and the Federal Chancellery"
     },
-    {
-        "DE": "Haushalt 2018 - Geschäftsbereich des Verteidigungsministeriums",
+    "Haushalt 2018 - Geschäftsbereich des Verteidigungsministeriums": {
         "EN-GB": "Budget 2018 - portfolio of the Ministry of Defence"
     },
-    {
-        "DE": "Erweiterung der sicheren Herkunftsländer",
+    "Erweiterung der sicheren Herkunftsländer": {
         "EN-GB": "Expansion of safe countries of origin"
     },
-    {
-        "DE": "Stärkung des Menschenrechts auf Religionsfreiheit",
+    "Stärkung des Menschenrechts auf Religionsfreiheit": {
         "EN-GB": "Strengthening the human right to religious freedom"
     },
-    {
-        "DE": "Überprüfung des Jahresmittelgrenzwerts für Stickoxid",
+    "Überprüfung des Jahresmittelgrenzwerts für Stickoxid": {
         "EN-GB": "Review of the annual average limit value for nitrogen oxide"
     },
-    {
-        "DE": "Änderungsantrag zur Brückenteilzeit",
+    "Änderungsantrag zur Brückenteilzeit": {
         "EN-GB": "Amendment to bridge part-time work"
     },
-    {
-        "DE": "Anpassung des Kindergeldes für im Ausland lebende Kinder",
+    "Anpassung des Kindergeldes für im Ausland lebende Kinder": {
         "EN-GB": "Adjustment of child benefit for children living abroad"
     },
-    {
-        "DE": "Verlängerung des Anti-IS-Einsatzes der Bundeswehr im Irak",
+    "Verlängerung des Anti-IS-Einsatzes der Bundeswehr im Irak": {
         "EN-GB": "Extension of the Bundeswehr's anti-IS mission in Iraq"
     },
-    {
-        "DE": "Leistungsverbesserungen und Stabilisierung in der gesetzlichen Rentenversicherung ",
+    "Leistungsverbesserungen und Stabilisierung in der gesetzlichen Rentenversicherung ": {
         "EN-GB": "Benefit improvements and stabilisation in statutory pension insurance"
     },
-    {
-        "DE": "Familienentlastungsgesetz - Änderungsantrag der AfD-Fraktion",
+    "Familienentlastungsgesetz - Änderungsantrag der AfD-Fraktion": {
         "EN-GB": "Family Relief Act - Amendment by the AfD parliamentary group"
     },
-    {
-        "DE": "Zwei-Prozent-Rüstungsziel der NATO (Antrag der Fraktion DIE LINKE)",
+    "Zwei-Prozent-Rüstungsziel der NATO (Antrag der Fraktion DIE LINKE)": {
         "EN-GB": "NATO's two per cent arms target (motion by the DIE LINKE parliamentary group)"
     },
-    {
-        "DE": "Vermeidung von Umsatzsteuerausfällen - Änderungsantrag der FDP",
+    "Vermeidung von Umsatzsteuerausfällen - Änderungsantrag der FDP": {
         "EN-GB": "Avoidance of VAT losses - FDP amendment"
     },
-    {
-        "DE": "Bundeshaushalt 2019: Etat des Bundeskanzleramtes",
+    "Bundeshaushalt 2019: Etat des Bundeskanzleramtes": {
         "EN-GB": "Federal budget 2019: Budget of the Federal Chancellery"
     },
-    {
-        "DE": "Familienentlastungsgesetz - Änderungsantrag der FDP-Fraktion",
+    "Familienentlastungsgesetz - Änderungsantrag der FDP-Fraktion": {
         "EN-GB": "Family Relief Act - amendment by the FDP parliamentary group"
     },
-    {
-        "DE": "Bundeshaushalt 2019",
+    "Bundeshaushalt 2019": {
         "EN-GB": "Federal budget 2019"
     },
-    {
-        "DE": "Änderung des Grundgesetzes - Bildung, Bau und Verkehr",
+    "Änderung des Grundgesetzes - Bildung, Bau und Verkehr": {
         "EN-GB": "Amendment of the Basic Law - Education, construction and transport"
     },
-    {
-        "DE": "Verlängerung der Ferkelkastration ohne Betäubung",
+    "Verlängerung der Ferkelkastration ohne Betäubung": {
         "EN-GB": "Extension of piglet castration without anaesthesia"
     },
-    {
-        "DE": "Globaler Pakt für Migration",
+    "Globaler Pakt für Migration": {
         "EN-GB": "Global Compact for Migration"
     },
-    {
-        "DE": "Mietrechtsanpassungsgesetz",
+    "Mietrechtsanpassungsgesetz": {
         "EN-GB": "Tenancy Law Adjustment Act"
     },
-    {
-        "DE": "Änderungsantrag zum Gesetzentwurf zur steuerlichen Förderung des Mietwohnungsneubaus",
+    "Änderungsantrag zum Gesetzentwurf zur steuerlichen Förderung des Mietwohnungsneubaus": {
         "EN-GB": "Amendment to the draft law on tax incentives for the construction of new rental housing"
     },
-    {
-        "DE": "UN-Migrationspakt (Antrag der AfD-Fraktion)",
+    "UN-Migrationspakt (Antrag der AfD-Fraktion)": {
         "EN-GB": "UN migration pact (motion by the AfD parliamentary group)"
     },
-    {
-        "DE": "Abschaffung des Solidaritätszuschlags",
+    "Abschaffung des Solidaritätszuschlags": {
         "EN-GB": "Abolition of the solidarity surcharge"
     },
-    {
-        "DE": "Bundeshaushalt 2019 - Einzelplan 60",
+    "Bundeshaushalt 2019 - Einzelplan 60": {
         "EN-GB": "Federal budget 2019 - Section 60"
     },
-    {
-        "DE": "Einstufung als sichere Herkunftsstaaten: Maghreb-Staaten und Georgien",
+    "Einstufung als sichere Herkunftsstaaten: Maghreb-Staaten und Georgien": {
         "EN-GB": "Categorisation as safe countries of origin: Maghreb states and Georgia"
     },
-    {
-        "DE": "Digitalpakt - Änderung des Grundgesetzes",
+    "Digitalpakt - Änderung des Grundgesetzes": {
         "EN-GB": "Digital Pact - amendment of the Basic Law"
     },
-    {
-        "DE": "Kostenloser Zugang zu Verhütungsmitteln für Menschen mit geringem Einkommen",
+    "Kostenloser Zugang zu Verhütungsmitteln für Menschen mit geringem Einkommen": {
         "EN-GB": "Free access to contraceptives for people on low incomes"
     },
-    {
-        "DE": "Reform des §219a - Informationen zum Schwangerschaftsabbruch ",
+    "Reform des §219a - Informationen zum Schwangerschaftsabbruch ": {
         "EN-GB": "Reform of §219a - Information on abortion"
     },
-    {
-        "DE": "Aufhebung von § 219a StGB",
+    "Aufhebung von § 219a StGB": {
         "EN-GB": "Repeal of § 219a StGB"
     },
-    {
-        "DE": "Aufhebung des Werbeverbots für Schwangerschaftsabbrüche",
+    "Aufhebung des Werbeverbots für Schwangerschaftsabbrüche": {
         "EN-GB": "Lifting the ban on advertising abortions"
     },
-    {
-        "DE": "Wölfe - Unkontrollierte Population stoppen?",
+    "Wölfe - Unkontrollierte Population stoppen?": {
         "EN-GB": "Wolves - Stopping an uncontrolled population?"
     },
-    {
-        "DE": "Fahrverbote für Dieselfahrzeuge einschränken",
+    "Fahrverbote für Dieselfahrzeuge einschränken": {
         "EN-GB": "Restrict driving bans for diesel vehicles"
     },
-    {
-        "DE": "Fahrverbote für Dieselfahrzeuge einschränken (Antrag der AfD-Fraktion)",
+    "Fahrverbote für Dieselfahrzeuge einschränken (Antrag der AfD-Fraktion)": {
         "EN-GB": "Restrict driving bans for diesel vehicles (motion by the AfD parliamentary group)"
     },
-    {
-        "DE": "Verstärkte Unterstützung Israels bei Abstimmungen im Rahmen der UN",
+    "Verstärkte Unterstützung Israels bei Abstimmungen im Rahmen der UN": {
         "EN-GB": "Increased support for Israel in UN votes"
     },
-    {
-        "DE": "Wahlrecht für benachteiligte Personengruppen durchsetzen (Gesetzentwurf der FDP-Fraktion)",
+    "Wahlrecht für benachteiligte Personengruppen durchsetzen (Gesetzentwurf der FDP-Fraktion)": {
         "EN-GB": "Enforce voting rights for disadvantaged groups (draft law of the FDP parliamentary group)"
     },
-    {
-        "DE": "Wahlrecht für benachteiligte Personengruppen durchsetzen (Gesetzentwurf der Fraktionen B90/Grüne und Die Linke)",
+    "Wahlrecht für benachteiligte Personengruppen durchsetzen (Gesetzentwurf der Fraktionen B90/Grüne und Die Linke)": {
         "EN-GB": "Enforce voting rights for disadvantaged groups (draft law by the B90/Greens and Die Linke parliamentary groups)"
     },
-    {
-        "DE": "Einführung eines inklusiveren Wahlrechts",
+    "Einführung eines inklusiveren Wahlrechts": {
         "EN-GB": "Introduction of more inclusive voting rights"
     },
-    {
-        "DE": "Einsatz der Bundeswehr in Afghanistan verlängern",
+    "Einsatz der Bundeswehr in Afghanistan verlängern": {
         "EN-GB": "Extend Bundeswehr deployment in Afghanistan"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Mittelmeer (\"Sea Guardian\")",
+    "Verlängerung des Bundeswehreinsatzes im Mittelmeer (\"Sea Guardian\")": {
         "EN-GB": "Extension of the Bundeswehr mission in the Mediterranean (\"Sea Guardian\")"
     },
-    {
-        "DE": "Fortsetzung des Bundeswehreinsatzes in Darfur",
+    "Fortsetzung des Bundeswehreinsatzes in Darfur": {
         "EN-GB": "Continuation of the Bundeswehr mission in Darfur"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Südsudan (\"Unmiss\")",
+    "Verlängerung des Bundeswehreinsatzes in Südsudan (\"Unmiss\")": {
         "EN-GB": "Extension of the Bundeswehr mission in South Sudan (\"Unmiss\")"
     },
-    {
-        "DE": "Änderung des Marktorganisationsgesetzes",
+    "Änderung des Marktorganisationsgesetzes": {
         "EN-GB": "Amendment of the Market Organisation Act"
     },
-    {
-        "DE": "Verstärkte deutsch-französische parlamentarische Zusammenarbeit",
+    "Verstärkte deutsch-französische parlamentarische Zusammenarbeit": {
         "EN-GB": "Increased Franco-German parliamentary cooperation"
     },
-    {
-        "DE": "Friedensprozess in Afghanistan unterstützen - Antrag der FDP-Fraktion",
+    "Friedensprozess in Afghanistan unterstützen - Antrag der FDP-Fraktion": {
         "EN-GB": "Supporting the peace process in Afghanistan - motion by the FDP parliamentary group"
     },
-    {
-        "DE": "Zugang zum Sozialschutz für Arbeitnehmer und Selbstständige verbessern",
+    "Zugang zum Sozialschutz für Arbeitnehmer und Selbstständige verbessern": {
         "EN-GB": "Improve access to social protection for employees and the self-employed"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (EUTM Mali) 2019/2020",
+    "Verlängerung des Bundeswehreinsatzes in Mali (EUTM Mali) 2019/2020": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (EUTM Mali) 2019/2020"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Somalia (Atalanta) 2019/2020",
+    "Verlängerung des Bundeswehreinsatzes in Somalia (Atalanta) 2019/2020": {
         "EN-GB": "Extension of the Bundeswehr mission in Somalia (Atalanta) 2019/2020"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA) 2019/2020",
+    "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA) 2019/2020": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (MINUSMA) 2019/2020"
     },
-    {
-        "DE": "Konzerntransparenz gegen Steuerflucht einführen",
+    "Konzerntransparenz gegen Steuerflucht einführen": {
         "EN-GB": "Introducing corporate transparency against tax evasion"
     },
-    {
-        "DE": "Erhöhung des BAföGs",
+    "Erhöhung des BAföGs": {
         "EN-GB": "Increase in BAföG"
     },
-    {
-        "DE": "BDS-Bewegung entgegentreten - Antisemitismus bekämpfen",
+    "BDS-Bewegung entgegentreten - Antisemitismus bekämpfen": {
         "EN-GB": "Countering the BDS movement - fighting anti-Semitism"
     },
-    {
-        "DE": "Bekämpfung illegaler Beschäftigung verstärken",
+    "Bekämpfung illegaler Beschäftigung verstärken": {
         "EN-GB": "Strengthening the fight against illegal employment"
     },
-    {
-        "DE": "Asyl- und Aufenthaltsrecht: Durchsetzung der Ausreisepflicht ",
+    "Asyl- und Aufenthaltsrecht: Durchsetzung der Ausreisepflicht ": {
         "EN-GB": "Asylum and residence law: Enforcement of the obligation to leave the country"
     },
-    {
-        "DE": "Gezielte Einwanderung in den deutschen Arbeitsmarkt",
+    "Gezielte Einwanderung in den deutschen Arbeitsmarkt": {
         "EN-GB": "Targeted immigration into the German labour market"
     },
-    {
-        "DE": "Erreichung der Klimaziele",
+    "Erreichung der Klimaziele": {
         "EN-GB": "Achieving the climate targets"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Kosovo (2019-2020)",
+    "Verlängerung des Bundeswehreinsatzes im Kosovo (2019-2020)": {
         "EN-GB": "Extension of the Bundeswehr mission in Kosovo (2019-2020)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Libanon (2019-2020)",
+    "Verlängerung des Bundeswehreinsatzes im Libanon (2019-2020)": {
         "EN-GB": "Extension of the Bundeswehr mission in Lebanon (2019-2020)"
     },
-    {
-        "DE": "Betrieb von Kohlekraftwerken zur Stromerzeugung beenden",
+    "Betrieb von Kohlekraftwerken zur Stromerzeugung beenden": {
         "EN-GB": "End operation of coal-fired power plants for electricity generation"
     },
-    {
-        "DE": "Klimanotstand ausrufen (Antrag der Linksfraktion)",
+    "Klimanotstand ausrufen (Antrag der Linksfraktion)": {
         "EN-GB": "Declare a climate emergency (motion by the Left Party)"
     },
-    {
-        "DE": "Intensivierung der Maßnahmen zur Aufforstung und zur nachhaltigen Holzgewinnung (Antrag der FDP-Fraktion)",
+    "Intensivierung der Maßnahmen zur Aufforstung und zur nachhaltigen Holzgewinnung (Antrag der FDP-Fraktion)": {
         "EN-GB": "Intensification of measures for afforestation and sustainable timber production (motion by the FDP parliamentary group)"
     },
-    {
-        "DE": "Stärkung der deutsch-französischen Zusammenarbeit",
+    "Stärkung der deutsch-französischen Zusammenarbeit": {
         "EN-GB": "Strengthening Franco-German cooperation"
     },
-    {
-        "DE": "Aufnahme von EU-Beitrittsverhandlungen mit Nordmazedonien",
+    "Aufnahme von EU-Beitrittsverhandlungen mit Nordmazedonien": {
         "EN-GB": "Start of EU accession negotiations with North Macedonia"
     },
-    {
-        "DE": "Aufnahme von EU-Beitrittsverhandlungen mit Albanien",
+    "Aufnahme von EU-Beitrittsverhandlungen mit Albanien": {
         "EN-GB": "Start of EU accession negotiations with Albania"
     },
-    {
-        "DE": "Tempolimit auf deutschen Autobahnen",
+    "Tempolimit auf deutschen Autobahnen": {
         "EN-GB": "Speed limit on German motorways"
     },
-    {
-        "DE": "Aufnahme von Flüchtlingen von den Ägäischen Inseln",
+    "Aufnahme von Flüchtlingen von den Ägäischen Inseln": {
         "EN-GB": "Reception of refugees from the Aegean islands"
     },
-    {
-        "DE": "Mehr Länderkompetenz bezüglich der Grundsteuer",
+    "Mehr Länderkompetenz bezüglich der Grundsteuer": {
         "EN-GB": "More state competence with regard to property tax"
     },
-    {
-        "DE": "Verlängerung des Anti-IS-Einsatzes der Bundeswehr im Irak und Syrien",
+    "Verlängerung des Anti-IS-Einsatzes der Bundeswehr im Irak und Syrien": {
         "EN-GB": "Extension of the Bundeswehr's anti-IS mission in Iraq and Syria"
     },
-    {
-        "DE": "Europäisch einheitliche Rahmenbedingungen für die Landwirtschaft",
+    "Europäisch einheitliche Rahmenbedingungen für die Landwirtschaft": {
         "EN-GB": "Standardised European framework conditions for agriculture"
     },
-    {
-        "DE": "Änderungsantrag der FDP zur Erhöhung der GWG-Grenze",
+    "Änderungsantrag der FDP zur Erhöhung der GWG-Grenze": {
         "EN-GB": "FDP amendment to increase the GWG limit"
     },
-    {
-        "DE": "Höhere Förderung biologischer und umweltgerechter Landwirtschaft",
+    "Höhere Förderung biologischer und umweltgerechter Landwirtschaft": {
         "EN-GB": "Greater promotion of organic and environmentally friendly agriculture"
     },
-    {
-        "DE": "Erhöhung der Freigrenze beim Solidaritätszuschlag",
+    "Erhöhung der Freigrenze beim Solidaritätszuschlag": {
         "EN-GB": "Increase in the exemption limit for the solidarity surcharge"
     },
-    {
-        "DE": "Gewerbesteuer abschaffen und Körperschaftssteuer senken",
+    "Gewerbesteuer abschaffen und Körperschaftssteuer senken": {
         "EN-GB": "Abolish trade tax and reduce corporation tax"
     },
-    {
-        "DE": "Masernimpfpflicht in Gemeinschaftseinrichtungen",
+    "Masernimpfpflicht in Gemeinschaftseinrichtungen": {
         "EN-GB": "Compulsory measles vaccination in community centres"
     },
-    {
-        "DE": "Erhöhung der Luftverkehrssteuer",
+    "Erhöhung der Luftverkehrssteuer": {
         "EN-GB": "Increase in air traffic tax"
     },
-    {
-        "DE": "Haushalt für die Bundeskanzlerin und das Bundeskanzleramt",
+    "Haushalt für die Bundeskanzlerin und das Bundeskanzleramt": {
         "EN-GB": "Budget for the Federal Chancellor and the Federal Chancellery"
     },
-    {
-        "DE": "Bundeshaushalt 2020",
+    "Bundeshaushalt 2020": {
         "EN-GB": "Federal budget 2020"
     },
-    {
-        "DE": "Umsetzung des Klimaschutzprogramms 2030",
+    "Umsetzung des Klimaschutzprogramms 2030": {
         "EN-GB": "Implementation of the 2030 climate protection programme"
     },
-    {
-        "DE": "Einsetzung einer Kommission zur Reform der förderalen Sicherheitsarchitektur",
+    "Einsetzung einer Kommission zur Reform der förderalen Sicherheitsarchitektur": {
         "EN-GB": "Establishment of a commission to reform the federal security architecture"
     },
-    {
-        "DE": "Abschuss von Wölfen erleichtern",
+    "Abschuss von Wölfen erleichtern": {
         "EN-GB": "Making it easier to shoot wolves"
     },
-    {
-        "DE": "Organspenden-Reform: Widerspruchslösung",
+    "Organspenden-Reform: Widerspruchslösung": {
         "EN-GB": "Organ donation reform: opt-out solution"
     },
-    {
-        "DE": "Organspenden-Reform: Zustimmungslösung",
+    "Organspenden-Reform: Zustimmungslösung": {
         "EN-GB": "Organ donation reform: consent solution"
     },
-    {
-        "DE": "EU-Freisetzungsrichtlinie von genetisch veränderten Organismen stärken",
+    "EU-Freisetzungsrichtlinie von genetisch veränderten Organismen stärken": {
         "EN-GB": "Strengthen EU directive on the release of genetically modified organisms"
     },
-    {
-        "DE": "Einführung einer Stiftung für Engagment und Ehrenamt",
+    "Einführung einer Stiftung für Engagment und Ehrenamt": {
         "EN-GB": "Introduction of a foundation for commitment and volunteering"
     },
-    {
-        "DE": "Aufnahme besonders schutzbedürftiger Geflüchteter aus den griechischen Lagern",
+    "Aufnahme besonders schutzbedürftiger Geflüchteter aus den griechischen Lagern": {
         "EN-GB": "Reception of particularly vulnerable refugees from the Greek camps"
     },
-    {
-        "DE": "Fortsetzung des Bundeswehreinsatzes im Rahmen der NATO-Operation \"SEA GUARDIAN\" im Mittelmeer",
+    "Fortsetzung des Bundeswehreinsatzes im Rahmen der NATO-Operation \"SEA GUARDIAN\" im Mittelmeer": {
         "EN-GB": "Continuation of the Bundeswehr mission as part of the NATO operation \"SEA GUARDIAN\" in the Mediterranean"
     },
-    {
-        "DE": "Fortsetzung des Bundeswehreinsatzes in Afghanistan",
+    "Fortsetzung des Bundeswehreinsatzes in Afghanistan": {
         "EN-GB": "Continuation of the Bundeswehr mission in Afghanistan"
     },
-    {
-        "DE": "Corona-Maßnahmen: Aussetzung der Schuldenbremse - erster Nachtragshaushalt",
+    "Corona-Maßnahmen: Aussetzung der Schuldenbremse - erster Nachtragshaushalt": {
         "EN-GB": "Corona measures: Suspension of the debt brake - first supplementary budget"
     },
-    {
-        "DE": "Beteiligung der Bundeswehr an der EU-Mission \"IRINI\" im Mittelmeer",
+    "Beteiligung der Bundeswehr an der EU-Mission \"IRINI\" im Mittelmeer": {
         "EN-GB": "Participation of the Bundeswehr in the EU \"IRINI\" mission in the Mediterranean"
     },
-    {
-        "DE": "Corona-Maßnahmen zum Schutz der Bevölkerung",
+    "Corona-Maßnahmen zum Schutz der Bevölkerung": {
         "EN-GB": "Corona measures to protect the population"
     },
-    {
-        "DE": "Regelsatz der Grundsicherung erhöhen",
+    "Regelsatz der Grundsicherung erhöhen": {
         "EN-GB": "Increase the standard rate of basic income support"
     },
-    {
-        "DE": "Beteiligung am Europäischen Corona-Stabilitätsmechanismus",
+    "Beteiligung am Europäischen Corona-Stabilitätsmechanismus": {
         "EN-GB": "Participation in the European Corona Stability Mechanism"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Somalia (Atalanta 2020/2021)",
+    "Verlängerung des Bundeswehreinsatzes in Somalia (Atalanta 2020/2021)": {
         "EN-GB": "Extension of the Bundeswehr mission in Somalia (Atalanta 2020/2021)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA 2020/2021)",
+    "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA 2020/2021)": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (MINUSMA 2020/2021)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (EUTM Mali 2020/2021)",
+    "Verlängerung des Bundeswehreinsatzes in Mali (EUTM Mali 2020/2021)": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (EUTM Mali 2020/2021)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes vor der libanesischen Küste (UNIFIL 2020/2021)",
+    "Verlängerung des Bundeswehreinsatzes vor der libanesischen Küste (UNIFIL 2020/2021)": {
         "EN-GB": "Extension of the Bundeswehr mission off the Lebanese coast (UNIFIL 2020/2021)"
     },
-    {
-        "DE": "Umsetzung der EU-Richtlinie: mehr Rechte für Arbeitnehmer:innen aus dem EU-Ausland",
+    "Umsetzung der EU-Richtlinie: mehr Rechte für Arbeitnehmer:innen aus dem EU-Ausland": {
         "EN-GB": "Implementation of the EU directive: more rights for employees from other EU countries"
     },
-    {
-        "DE": "Nachtragshaushalt 2020: Corona Konjunktur- und Krisenbewältigungspaket",
+    "Nachtragshaushalt 2020: Corona Konjunktur- und Krisenbewältigungspaket": {
         "EN-GB": "Supplementary budget 2020: Corona economic stimulus and crisis management package"
     },
-    {
-        "DE": "Änderungsantrag zum Kohleausstieggesetz: keine neue Inbetriebnahme ohne Rechtssicherheit",
+    "Änderungsantrag zum Kohleausstieggesetz: keine neue Inbetriebnahme ohne Rechtssicherheit": {
         "EN-GB": "Amendment to the Coal Phase-out Act: no new commissioning without legal certainty"
     },
-    {
-        "DE": "Wahlrechtsreform: Verkleinerung des Bundestages",
+    "Wahlrechtsreform: Verkleinerung des Bundestages": {
         "EN-GB": "Electoral law reform: reducing the size of the Bundestag"
     },
-    {
-        "DE": "Grundgesetzänderung zur stärkeren Entlastung der Kommunen in der COVID-19-Pandemie",
+    "Grundgesetzänderung zur stärkeren Entlastung der Kommunen in der COVID-19-Pandemie": {
         "EN-GB": "Amendment to the Basic Law to provide greater relief for local authorities during the COVID-19 pandemic"
     },
-    {
-        "DE": "Geflüchtete aus Moria in Deutschland aufnehmen",
+    "Geflüchtete aus Moria in Deutschland aufnehmen": {
         "EN-GB": "Accepting refugees from Moria in Germany"
     },
-    {
-        "DE": "Änderung des Bundeswahlgesetzes",
+    "Änderung des Bundeswahlgesetzes": {
         "EN-GB": "Amendment of the Federal Election Act"
     },
-    {
-        "DE": "Änderung der Abgabenordnung",
+    "Änderung der Abgabenordnung": {
         "EN-GB": "Amendment of the Fiscal Code"
     },
-    {
-        "DE": "Weiterführung des Bundeswehreinsatzes im Irak",
+    "Weiterführung des Bundeswehreinsatzes im Irak": {
         "EN-GB": "Continuation of the Bundeswehr mission in Iraq"
     },
-    {
-        "DE": "Änderung des Infektionsschutzgesetzes",
+    "Änderung des Infektionsschutzgesetzes": {
         "EN-GB": "Amendment of the Infection Protection Act"
     },
-    {
-        "DE": "Europäische Bank für nachhaltige Entwicklung und internationalen Klimaschutz",
+    "Europäische Bank für nachhaltige Entwicklung und internationalen Klimaschutz": {
         "EN-GB": "European Bank for Sustainable Development and International Climate Action"
     },
-    {
-        "DE": "Übereinkommen über ein europäisches Patentgericht",
+    "Übereinkommen über ein europäisches Patentgericht": {
         "EN-GB": "Agreement on a European Patent Court"
     },
-    {
-        "DE": "Bundeshaushalt 2021",
+    "Bundeshaushalt 2021": {
         "EN-GB": "Federal budget 2021"
     },
-    {
-        "DE": "Erneuerbare-Energien-Gesetz (EEG)",
+    "Erneuerbare-Energien-Gesetz (EEG)": {
         "EN-GB": "Renewable Energy Sources Act (EEG)"
     },
-    {
-        "DE": "Arbeitsschutzkontrollgesetz",
+    "Arbeitsschutzkontrollgesetz": {
         "EN-GB": "Occupational Health and Safety Control Act"
     },
-    {
-        "DE": "Internetportal Indymedia verbieten",
+    "Internetportal Indymedia verbieten": {
         "EN-GB": "Internet portal Indymedia banned"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Südsudan (Friedensmission UNMISS) ",
+    "Verlängerung des Bundeswehreinsatzes in Südsudan (Friedensmission UNMISS) ": {
         "EN-GB": "Extension of the Bundeswehr mission in South Sudan (UNMISS peacekeeping mission)"
     },
-    {
-        "DE": "Bundesgesetz zum Eigenmittelsystem der Europäischen Union ",
+    "Bundesgesetz zum Eigenmittelsystem der Europäischen Union ": {
         "EN-GB": "Federal law on the European Union's own resources system"
     },
-    {
-        "DE": "Änderung des BND-Gesetzes",
+    "Änderung des BND-Gesetzes": {
         "EN-GB": "Amendment of the BND Act"
     },
-    {
-        "DE": "Transparenzregelungen für Abgeordnete",
+    "Transparenzregelungen für Abgeordnete": {
         "EN-GB": "Transparency regulations for members of parliament"
     },
-    {
-        "DE": "Energieversorgung in Deutschland",
+    "Energieversorgung in Deutschland": {
         "EN-GB": "Energy supply in Germany"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Somalia (Atalanta 2021/2022)",
+    "Verlängerung des Bundeswehreinsatzes in Somalia (Atalanta 2021/2022)": {
         "EN-GB": "Extension of the Bundeswehr mission in Somalia (Atalanta 2021/2022)"
     },
-    {
-        "DE": "Verlängerung der Beteiligung der Bundeswehr an der EU-Mission \"IRINI\" im Mittelmeer",
+    "Verlängerung der Beteiligung der Bundeswehr an der EU-Mission \"IRINI\" im Mittelmeer": {
         "EN-GB": "Extension of the Bundeswehr's participation in the EU's \"IRINI\" mission in the Mediterranean"
     },
-    {
-        "DE": "Nachtragshaushalt 2021",
+    "Nachtragshaushalt 2021": {
         "EN-GB": "Supplementary budget 2021"
     },
-    {
-        "DE": "Ab­lösung der Staats­leistun­gen an die Kirchen",
+    "Ab­lösung der Staats­leistun­gen an die Kirchen": {
         "EN-GB": "Repayment of state benefits to the churches"
     },
-    {
-        "DE": "Bevölkerungsschutzgesetz – Normenkontrolle",
+    "Bevölkerungsschutzgesetz – Normenkontrolle": {
         "EN-GB": "Civil Protection Act - review of standards"
     },
-    {
-        "DE": "Patente für Impfstoffe freigeben",
+    "Patente für Impfstoffe freigeben": {
         "EN-GB": "Releasing patents for vaccines"
     },
-    {
-        "DE": "Verbesserung des Schutzes von Gerichtsvollziehern vor Gewalt sowie zur Änderung weiterer zwangsvollstreckungsrechtlicher Vorschriften",
+    "Verbesserung des Schutzes von Gerichtsvollziehern vor Gewalt sowie zur Änderung weiterer zwangsvollstreckungsrechtlicher Vorschriften": {
         "EN-GB": "Improving the protection of bailiffs against violence and amending other enforcement law provisions"
     },
-    {
-        "DE": "Mobilisierung von Bauland",
+    "Mobilisierung von Bauland": {
         "EN-GB": "Mobilisation of building land"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA 2021/2022)",
+    "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA 2021/2022)": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (MINUSMA 2021/2022)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (EUTM Mali 2021/2022)",
+    "Verlängerung des Bundeswehreinsatzes in Mali (EUTM Mali 2021/2022)": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (EUTM Mali 2021/2022)"
     },
-    {
-        "DE": "Aufhebung des Transsexuellengesetzes und Einführung des Selbstbestimmungsgesetzes",
+    "Aufhebung des Transsexuellengesetzes und Einführung des Selbstbestimmungsgesetzes": {
         "EN-GB": "Repeal of the Transsexuals Act and introduction of the Self-Determination Act"
     },
-    {
-        "DE": "Auf­hebung des Vermögen­steuergesetzes",
+    "Auf­hebung des Vermögen­steuergesetzes": {
         "EN-GB": "Repeal of the Wealth Tax Act"
     },
-    {
-        "DE": "Mehr Rechte für den Verfassungsschutz",
+    "Mehr Rechte für den Verfassungsschutz": {
         "EN-GB": "More rights for the Office for the Protection of the Constitution"
     },
-    {
-        "DE": "Unternehmerische Sorgfaltspflichten in Lieferketten",
+    "Unternehmerische Sorgfaltspflichten in Lieferketten": {
         "EN-GB": "Corporate due diligence obligations in supply chains"
     },
-    {
-        "DE": "Epidemische Lage von nationaler Tragweite bleibt weiter bestehen",
+    "Epidemische Lage von nationaler Tragweite bleibt weiter bestehen": {
         "EN-GB": "Epidemic situation of national importance remains in place"
     },
-    {
-        "DE": "Änderung des Klimaschutzgesetzes",
+    "Änderung des Klimaschutzgesetzes": {
         "EN-GB": "Amendment of the Climate Protection Act"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR 2021/2022)",
+    "Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR 2021/2022)": {
         "EN-GB": "Extension of the Bundeswehr mission in Kosovo (KFOR 2021/2022)"
     },
-    {
-        "DE": "Änderungen des Bundes­naturschutzgesetzes",
+    "Änderungen des Bundes­naturschutzgesetzes": {
         "EN-GB": "Amendments to the Federal Nature Conservation Act"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes vor der libanesischen Küste (UNIFIL 2021/2022)",
+    "Verlängerung des Bundeswehreinsatzes vor der libanesischen Küste (UNIFIL 2021/2022)": {
         "EN-GB": "Extension of the Bundeswehr mission off the Lebanese coast (UNIFIL 2021/2022)"
     },
-    {
-        "DE": "Keine Verwendung von geschlechtergerechter Sprache",
+    "Keine Verwendung von geschlechtergerechter Sprache": {
         "EN-GB": "No use of gender-neutral language"
     },
-    {
-        "DE": "Änderung im Infektions­schutz­gesetz",
+    "Änderung im Infektions­schutz­gesetz": {
         "EN-GB": "Amendment to the Infection Protection Act"
     },
-    {
-        "DE": "Einsatz deutscher Streitkräfte zur militärischen Evakuierung aus Afghanistan",
+    "Einsatz deutscher Streitkräfte zur militärischen Evakuierung aus Afghanistan": {
         "EN-GB": "Deployment of German armed forces for military evacuation from Afghanistan"
     },
-    {
-        "DE": "Fortbestand der epidemischen Lage von nationaler Tragweite",
+    "Fortbestand der epidemischen Lage von nationaler Tragweite": {
         "EN-GB": "Continuation of the epidemic situation of national importance"
     },
-    {
-        "DE": "Änderung des Infektionsschutzgesetzes und Grundrechtseinschränkungen",
+    "Änderung des Infektionsschutzgesetzes und Grundrechtseinschränkungen": {
         "EN-GB": "Amendment to the Infection Protection Act and restrictions on fundamental rights"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Südsudan (UNMISS) (2013)",
+    "Verlängerung des Bundeswehreinsatzes in Südsudan (UNMISS) (2013)": {
         "EN-GB": "Extension of the Bundeswehr mission in South Sudan (UNMISS) (2013)"
     },
-    {
-        "DE": "Verlängerung des Darfur-Einsatzes (UNAMID) (2013)",
+    "Verlängerung des Darfur-Einsatzes (UNAMID) (2013)": {
         "EN-GB": "Extension of the Darfur mission (UNAMID) (2013)"
     },
-    {
-        "DE": "Fortsetzung des Patriot-Einsatzes in der Türkei (2013)",
+    "Fortsetzung des Patriot-Einsatzes in der Türkei (2013)": {
         "EN-GB": "Continuation of the Patriot mission in Turkey (2013)"
     },
-    {
-        "DE": "Verlängerung des Anti-Terror-Einsatzes im Mittelmeer (OAE) (2013)",
+    "Verlängerung des Anti-Terror-Einsatzes im Mittelmeer (OAE) (2013)": {
         "EN-GB": "Extension of the counter-terrorism operation in the Mediterranean (OAE) (2013)"
     },
-    {
-        "DE": "Anbau von Genmais in der EU verhindern",
+    "Anbau von Genmais in der EU verhindern": {
         "EN-GB": "Preventing the cultivation of genetically modified maize in the EU"
     },
-    {
-        "DE": "Fortsetzung des Afghanistan-Einsatzes (ISAF) (2014)",
+    "Fortsetzung des Afghanistan-Einsatzes (ISAF) (2014)": {
         "EN-GB": "Continuation of the Afghanistan mission (ISAF) (2014)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (2014)",
+    "Verlängerung des Bundeswehreinsatzes in Mali (2014)": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (2014)"
     },
-    {
-        "DE": "Gesetz zur Strafbarkeit von Abgeordnetenbestechung",
+    "Gesetz zur Strafbarkeit von Abgeordnetenbestechung": {
         "EN-GB": "Law on the criminalisation of bribery of members of parliament"
     },
-    {
-        "DE": "Diätenerhöhung 2014",
+    "Diätenerhöhung 2014": {
         "EN-GB": "Diet increase 2014"
     },
-    {
-        "DE": "Kennzeichnungspflicht von Gen-Honig",
+    "Kennzeichnungspflicht von Gen-Honig": {
         "EN-GB": "Mandatory labelling of genetically modified honey"
     },
-    {
-        "DE": "Rechte der parlamentarischen Minderheit stärken",
+    "Rechte der parlamentarischen Minderheit stärken": {
         "EN-GB": "Strengthening the rights of the parliamentary minority"
     },
-    {
-        "DE": "Beteiligung der Bundeswehr an EUFOR-Einsatz Zentralafrika",
+    "Beteiligung der Bundeswehr an EUFOR-Einsatz Zentralafrika": {
         "EN-GB": "Bundeswehr participation in EUFOR mission in Central Africa"
     },
-    {
-        "DE": "Beteiligung der Bundeswehr bei Vernichtung syrischer Chemiewaffen",
+    "Beteiligung der Bundeswehr bei Vernichtung syrischer Chemiewaffen": {
         "EN-GB": "Participation of the Bundeswehr in the destruction of Syrian chemical weapons"
     },
-    {
-        "DE": "Mindestlohn in der Fleischwirtschaft",
+    "Mindestlohn in der Fleischwirtschaft": {
         "EN-GB": "Minimum wage in the meat industry"
     },
-    {
-        "DE": "Transparenz bei Rüstungsexportentscheidungen",
+    "Transparenz bei Rüstungsexportentscheidungen": {
         "EN-GB": "Transparency in arms export decisions"
     },
-    {
-        "DE": "Kündigung der Atom-Abkommen mit Indien und Brasilien",
+    "Kündigung der Atom-Abkommen mit Indien und Brasilien": {
         "EN-GB": "Cancellation of nuclear agreements with India and Brazil"
     },
-    {
-        "DE": "Rentenpaket",
+    "Rentenpaket": {
         "EN-GB": "Pension package"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes gegen Piraterie (Operation Atalanta) (2014)",
+    "Verlängerung des Bundeswehreinsatzes gegen Piraterie (Operation Atalanta) (2014)": {
         "EN-GB": "Extension of the Bundeswehr mission against piracy (Operation Atalanta) (2014)"
     },
-    {
-        "DE": "Änderungsantrag zum Gesetz zur Sukzessivadoption durch Lebenspartner",
+    "Änderungsantrag zum Gesetz zur Sukzessivadoption durch Lebenspartner": {
         "EN-GB": "Amendment to the law on successive adoption by civil partners"
     },
-    {
-        "DE": "2014: Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR)",
+    "2014: Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR)": {
         "EN-GB": "2014: Extension of the Bundeswehr mission in Kosovo (KFOR)"
     },
-    {
-        "DE": "Fortsetzung des Libanon-Einsatzes (UNFIL) (2014)",
+    "Fortsetzung des Libanon-Einsatzes (UNFIL) (2014)": {
         "EN-GB": "Continuation of the Lebanon mission (UNFIL) (2014)"
     },
-    {
-        "DE": "Flächendeckender Mindestlohn von 8,50 Euro",
+    "Flächendeckender Mindestlohn von 8,50 Euro": {
         "EN-GB": "Nationwide minimum wage of 8.50 euros"
     },
-    {
-        "DE": "Verlängerung der Bundeswehrbeteiligung an UN-Mission in Mali (Unterstützungsmission) (2014)",
+    "Verlängerung der Bundeswehrbeteiligung an UN-Mission in Mali (Unterstützungsmission) (2014)": {
         "EN-GB": "Extension of Bundeswehr participation in UN mission in Mali (support mission) (2014)"
     },
-    {
-        "DE": "Reform zur Reduzierung der Kosten der EEG-Umlage",
+    "Reform zur Reduzierung der Kosten der EEG-Umlage": {
         "EN-GB": "Reform to reduce the costs of the EEG surcharge"
     },
-    {
-        "DE": "Entfall der Optionspflicht im Staatsangehörigkeitsgesetz",
+    "Entfall der Optionspflicht im Staatsangehörigkeitsgesetz": {
         "EN-GB": "Cancellation of the option obligation in the Citizenship Act"
     },
-    {
-        "DE": "Abschaffung der sachgrundlosen Befristung von Arbeitsverträgen",
+    "Abschaffung der sachgrundlosen Befristung von Arbeitsverträgen": {
         "EN-GB": "Abolition of fixed-term employment contracts without objective grounds"
     },
-    {
-        "DE": "Angleichung der Renten in Ostdeutschland an Westniveau",
+    "Angleichung der Renten in Ostdeutschland an Westniveau": {
         "EN-GB": "Equalisation of pensions in eastern Germany to western levels"
     },
-    {
-        "DE": "Nationale Ausnahmeregelungen zu den EU-Richtlinien beim Anbau von Gentechnik",
+    "Nationale Ausnahmeregelungen zu den EU-Richtlinien beim Anbau von Gentechnik": {
         "EN-GB": "National exemptions from EU directives on the cultivation of genetic engineering"
     },
-    {
-        "DE": "Länderöffnungsklausel zur Regelungen über Mindestabstände zwischen Windenergieanlagen und Wohnbebauungen",
+    "Länderöffnungsklausel zur Regelungen über Mindestabstände zwischen Windenergieanlagen und Wohnbebauungen": {
         "EN-GB": "Länder opening clause for regulations on minimum distances between wind turbines and residential buildings"
     },
-    {
-        "DE": "Ablehnung von Schiedsgerichten bei TTIP und CETA",
+    "Ablehnung von Schiedsgerichten bei TTIP und CETA": {
         "EN-GB": "Rejection of arbitration tribunals in TTIP and CETA"
     },
-    {
-        "DE": "BAföG-Reform zur Erhöhung der Bedarfssätze",
+    "BAföG-Reform zur Erhöhung der Bedarfssätze": {
         "EN-GB": "BAföG reform to increase the requirement rates"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Darfur (UNAMID) (2014)",
+    "Verlängerung des Bundeswehreinsatzes in Darfur (UNAMID) (2014)": {
         "EN-GB": "Extension of the Bundeswehr mission in Darfur (UNAMID) (2014)"
     },
-    {
-        "DE": "Lockerung des Kooperationsverbotes von Bund und Ländern bei der Hochschulfinanzierung",
+    "Lockerung des Kooperationsverbotes von Bund und Ländern bei der Hochschulfinanzierung": {
         "EN-GB": "Relaxation of the ban on cooperation between the federal and state governments in higher education funding"
     },
-    {
-        "DE": "Fortsetzung des Bundeswehreinsatzes im Südsudan (2014)",
+    "Fortsetzung des Bundeswehreinsatzes im Südsudan (2014)": {
         "EN-GB": "Continuation of the Bundeswehr mission in South Sudan (2014)"
     },
-    {
-        "DE": "Bundeshaushaltsplan 2015",
+    "Bundeshaushaltsplan 2015": {
         "EN-GB": "Federal budget 2015"
     },
-    {
-        "DE": "Bundeswehreinsatz in Afghanistan (2014)",
+    "Bundeswehreinsatz in Afghanistan (2014)": {
         "EN-GB": "German Armed Forces mission in Afghanistan (2014)"
     },
-    {
-        "DE": "Fortsetzung des Bundeswehreinsatzes im Mittelmeer (ACTIVE ENDEAVOUR) (2014)",
+    "Fortsetzung des Bundeswehreinsatzes im Mittelmeer (ACTIVE ENDEAVOUR) (2014)": {
         "EN-GB": "Continuation of the Bundeswehr mission in the Mediterranean (ACTIVE ENDEAVOUR) (2014)"
     },
-    {
-        "DE": "Bundeswehreinsatz zur Luftüberwachung in der Türkei (2015)",
+    "Bundeswehreinsatz zur Luftüberwachung in der Türkei (2015)": {
         "EN-GB": "German Armed Forces air surveillance mission in Turkey (2015)"
     },
-    {
-        "DE": "Ausbildungsunterstützungseinsatz Kurdistan-Irak (2015)",
+    "Ausbildungsunterstützungseinsatz Kurdistan-Irak (2015)": {
         "EN-GB": "Training support mission Kurdistan-Iraq (2015)"
     },
-    {
-        "DE": "Finanzhilfen für Griechenland 2015",
+    "Finanzhilfen für Griechenland 2015": {
         "EN-GB": "Financial aid for Greece in 2015"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (EUTM Mali) (2015)",
+    "Verlängerung des Bundeswehreinsatzes in Mali (EUTM Mali) (2015)": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (EUTM Mali) (2015)"
     },
-    {
-        "DE": "PKW-Maut",
+    "PKW-Maut": {
         "EN-GB": "Car toll"
     },
-    {
-        "DE": "Für eine nachhaltigere Liegenschaftspolitik des Bundes",
+    "Für eine nachhaltigere Liegenschaftspolitik des Bundes": {
         "EN-GB": "In favour of a more sustainable federal real estate policy"
     },
-    {
-        "DE": "Private- und kommunale Holzvermarktung auf Landesebene erlauben",
+    "Private- und kommunale Holzvermarktung auf Landesebene erlauben": {
         "EN-GB": "Allow private and municipal timber marketing at state level"
     },
-    {
-        "DE": "Verlängerung Bundeswehreinsatz Liberia (2015)",
+    "Verlängerung Bundeswehreinsatz Liberia (2015)": {
         "EN-GB": "Extension of Bundeswehr mission in Liberia (2015)"
     },
-    {
-        "DE": "Verlängerung Bundeswehreinsatz Somalia (Operation Atalanta) (2015)",
+    "Verlängerung Bundeswehreinsatz Somalia (Operation Atalanta) (2015)": {
         "EN-GB": "Extension of the Bundeswehr mission in Somalia (Operation Atalanta) (2015)"
     },
-    {
-        "DE": "Beschluss des Tarifeinheitsgesetzes",
+    "Beschluss des Tarifeinheitsgesetzes": {
         "EN-GB": "Resolution of the Collective Bargaining Unity Act"
     },
-    {
-        "DE": "Verlängerung Bundeswehreinsatz Libanon (UNIFIL) (2015)",
+    "Verlängerung Bundeswehreinsatz Libanon (UNIFIL) (2015)": {
         "EN-GB": "Extension of Bundeswehr mission in Lebanon (UNIFIL) (2015)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Kosovo (KFOR) (2015)",
+    "Verlängerung des Bundeswehreinsatzes in Kosovo (KFOR) (2015)": {
         "EN-GB": "Extension of the Bundeswehr mission in Kosovo (KFOR) (2015)"
     },
-    {
-        "DE": "Rückwirkende Erhöhung von Kinderfreibetrag und Kindergeld",
+    "Rückwirkende Erhöhung von Kinderfreibetrag und Kindergeld": {
         "EN-GB": "Retroactive increase in child allowance and child benefit"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA) (2015)",
+    "Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA) (2015)": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (MINUSMA) (2015)"
     },
-    {
-        "DE": "Verhandlungsmandat für Griechenland-Finanzhilfen",
+    "Verhandlungsmandat für Griechenland-Finanzhilfen": {
         "EN-GB": "Negotiating mandate for financial aid for Greece"
     },
-    {
-        "DE": "Neubestimmung Bleiberecht und Aufenthaltsbeendigung für Flüchtlinge (Entschließungsantrag Die Linke)",
+    "Neubestimmung Bleiberecht und Aufenthaltsbeendigung für Flüchtlinge (Entschließungsantrag Die Linke)": {
         "EN-GB": "Redetermination of the right to stay and termination of residence for refugees (motion for a resolution by Die Linke)"
     },
-    {
-        "DE": "Neubausubventionen für Atomkraftwerke in der EU verhindern",
+    "Neubausubventionen für Atomkraftwerke in der EU verhindern": {
         "EN-GB": "Prevent subsidies for new nuclear power plants in the EU"
     },
-    {
-        "DE": "Gewährung eines 86 Mrd. Euro Kreditpakets für Griechenland",
+    "Gewährung eines 86 Mrd. Euro Kreditpakets für Griechenland": {
         "EN-GB": "Granting of an 86 billion euro loan package for Greece"
     },
-    {
-        "DE": "Verbot von geschäftsmäßiger Sterbehilfe",
+    "Verbot von geschäftsmäßiger Sterbehilfe": {
         "EN-GB": "Ban on commercial euthanasia"
     },
-    {
-        "DE": "Bundeswehreinsatz zur Bekämpfung von Menschenschmuggel im Mittelmeer (EUNAFOR MED) (2015)",
+    "Bundeswehreinsatz zur Bekämpfung von Menschenschmuggel im Mittelmeer (EUNAFOR MED) (2015)": {
         "EN-GB": "German Armed Forces mission to combat people smuggling in the Mediterranean (EUNAFOR MED) (2015)"
     },
-    {
-        "DE": "Verschärfung des Asylrechts (Asylpaket I)",
+    "Verschärfung des Asylrechts (Asylpaket I)": {
         "EN-GB": "Tightening of the asylum law (Asylum Package I)"
     },
-    {
-        "DE": "Wiedereinführung der Vorratsdatenspeicherung (2015)",
+    "Wiedereinführung der Vorratsdatenspeicherung (2015)": {
         "EN-GB": "Re-introduction of data retention (2015)"
     },
-    {
-        "DE": "Verlängerung des Afghanistan-Einsatzes der Bundeswehr (2016)",
+    "Verlängerung des Afghanistan-Einsatzes der Bundeswehr (2016)": {
         "EN-GB": "Extension of the Bundeswehr's mission in Afghanistan (2016)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Südsudan (UNMISS) (2016)",
+    "Verlängerung des Bundeswehreinsatzes im Südsudan (UNMISS) (2016)": {
         "EN-GB": "Extension of the Bundeswehr mission in South Sudan (UNMISS) (2016)"
     },
-    {
-        "DE": "Verlängerung Bundeswehr-Einsatz in Darfur (UNAMID) (2015)",
+    "Verlängerung Bundeswehr-Einsatz in Darfur (UNAMID) (2015)": {
         "EN-GB": "Extension of Bundeswehr mission in Darfur (UNAMID) (2015)"
     },
-    {
-        "DE": "Bundeswehreinsatz gegen den IS in Syrien (2015)",
+    "Bundeswehreinsatz gegen den IS in Syrien (2015)": {
         "EN-GB": "German Armed Forces operation against IS in Syria (2015)"
     },
-    {
-        "DE": "Umsetzung Aktionsprogramm Klimaschutz 2020",
+    "Umsetzung Aktionsprogramm Klimaschutz 2020": {
         "EN-GB": "Implementation of the Climate Action Programme 2020"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Mittelmeer (OAE) (2016)",
+    "Verlängerung des Bundeswehreinsatzes im Mittelmeer (OAE) (2016)": {
         "EN-GB": "Extension of the Bundeswehr mission in the Mediterranean (OAE) (2016)"
     },
-    {
-        "DE": "2016: Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA)",
+    "2016: Verlängerung des Bundeswehreinsatzes in Mali (MINUSMA)": {
         "EN-GB": "2016: Extension of the Bundeswehr mission in Mali (MINUSMA)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Nord-Irak (2016)",
+    "Verlängerung des Bundeswehreinsatzes in Nord-Irak (2016)": {
         "EN-GB": "Extension of the Bundeswehr mission in northern Iraq (2016)"
     },
-    {
-        "DE": "Verschärfung des Asylrechts (Asylpaket II)",
+    "Verschärfung des Asylrechts (Asylpaket II)": {
         "EN-GB": "Tightening of asylum law (Asylum Package II)"
     },
-    {
-        "DE": "Neuzulassung von Glyphosat verhindern",
+    "Neuzulassung von Glyphosat verhindern": {
         "EN-GB": "Preventing the re-authorisation of glyphosate"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Somalia (EUTM) (2016)",
+    "Verlängerung des Bundeswehreinsatzes in Somalia (EUTM) (2016)": {
         "EN-GB": "Extension of the Bundeswehr mission in Somalia (EUTM) (2016)"
     },
-    {
-        "DE": "Bekämpfung von Korruption im Gesundheitswesen",
+    "Bekämpfung von Korruption im Gesundheitswesen": {
         "EN-GB": "Combating corruption in the healthcare sector"
     },
-    {
-        "DE": "Grundsätzliches Fracking-Verbot",
+    "Grundsätzliches Fracking-Verbot": {
         "EN-GB": "Fundamental ban on fracking"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (2016)",
+    "Verlängerung des Bundeswehreinsatzes in Mali (2016)": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (2016)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Somalia (Atalanta) (2016)",
+    "Verlängerung des Bundeswehreinsatzes in Somalia (Atalanta) (2016)": {
         "EN-GB": "Extension of the Bundeswehr mission in Somalia (Atalanta) (2016)"
     },
-    {
-        "DE": "Einstufung von Algerien, Marokko und Tunesien als sichere Herkunftsstaaten (2016)",
+    "Einstufung von Algerien, Marokko und Tunesien als sichere Herkunftsstaaten (2016)": {
         "EN-GB": "Categorisation of Algeria, Morocco and Tunisia as safe countries of origin (2016)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Libanon (UNIFIL) (2016)",
+    "Verlängerung des Bundeswehreinsatzes im Libanon (UNIFIL) (2016)": {
         "EN-GB": "Extension of the Bundeswehr mission in Lebanon (UNIFIL) (2016)"
     },
-    {
-        "DE": "Fracking-Neuregelung: Verbot von unkonventionellem Fracking",
+    "Fracking-Neuregelung: Verbot von unkonventionellem Fracking": {
         "EN-GB": "New fracking regulations: ban on unconventional fracking"
     },
-    {
-        "DE": "Erbschaftssteuerreform bzg. Firmenerbe",
+    "Erbschaftssteuerreform bzg. Firmenerbe": {
         "EN-GB": "Inheritance tax reform regarding company inheritance"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR) (2016)",
+    "Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR) (2016)": {
         "EN-GB": "Extension of the Bundeswehr mission in Kosovo (KFOR) (2016)"
     },
-    {
-        "DE": "Reform des Sexualstrafrechts (Nein heißt Nein)",
+    "Reform des Sexualstrafrechts (Nein heißt Nein)": {
         "EN-GB": "Reform of sexual criminal law (no means no)"
     },
-    {
-        "DE": "Reform des Erneuerbare-Energien-Gesetzes (EEG)",
+    "Reform des Erneuerbare-Energien-Gesetzes (EEG)": {
         "EN-GB": "Reform of the Renewable Energy Sources Act (EEG)"
     },
-    {
-        "DE": "Antrag auf Verkauf des Dragoner-Areals",
+    "Antrag auf Verkauf des Dragoner-Areals": {
         "EN-GB": "Application for the sale of the Dragoon site"
     },
-    {
-        "DE": "Bundeswehrbeteiligung an NATO-Operation SEA GUARDIAN (2016)",
+    "Bundeswehrbeteiligung an NATO-Operation SEA GUARDIAN (2016)": {
         "EN-GB": "Bundeswehr participation in NATO operation SEA GUARDIAN (2016)"
     },
-    {
-        "DE": "CETA weiterverfolgen",
+    "CETA weiterverfolgen": {
         "EN-GB": "Pursue CETA"
     },
-    {
-        "DE": "Mietrechtsreform 2016",
+    "Mietrechtsreform 2016": {
         "EN-GB": "Tenancy law reform 2016"
     },
-    {
-        "DE": "Privatisierung von Bundesliegenschaften stoppen",
+    "Privatisierung von Bundesliegenschaften stoppen": {
         "EN-GB": "Stopping the privatisation of federal properties"
     },
-    {
-        "DE": "Arzneimittelreform",
+    "Arzneimittelreform": {
         "EN-GB": "Drug reform"
     },
-    {
-        "DE": "Einsatz deutscher Streitkräfte gegen den IS in Syrien (2016)",
+    "Einsatz deutscher Streitkräfte gegen den IS in Syrien (2016)": {
         "EN-GB": "Deployment of German armed forces against IS in Syria (2016)"
     },
-    {
-        "DE": "Haushalt 2017",
+    "Haushalt 2017": {
         "EN-GB": "Budget 2017"
     },
-    {
-        "DE": "Anpassung des Seefischereigesetzes an das EU-Recht",
+    "Anpassung des Seefischereigesetzes an das EU-Recht": {
         "EN-GB": "Adaptation of the Sea Fisheries Act to EU law"
     },
-    {
-        "DE": "Aktualisierung des Regelbedarfs und der Regelbedarfsstufen",
+    "Aktualisierung des Regelbedarfs und der Regelbedarfsstufen": {
         "EN-GB": "Updating the standard requirement and the standard requirement levels"
     },
-    {
-        "DE": "Gesetzesentwurf zur Verantwortung für die kerntechnische Entsorgung",
+    "Gesetzesentwurf zur Verantwortung für die kerntechnische Entsorgung": {
         "EN-GB": "Draft law on responsibility for nuclear waste management"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Südsudan (2016)",
+    "Verlängerung des Bundeswehreinsatzes in Südsudan (2016)": {
         "EN-GB": "Extension of the Bundeswehr mission in South Sudan (2016)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Darfur (2016)",
+    "Verlängerung des Bundeswehreinsatzes in Darfur (2016)": {
         "EN-GB": "Extension of the Bundeswehr mission in Darfur (2016)"
     },
-    {
-        "DE": "Gesetz zur Bekämpfung der Schwarzarbeit",
+    "Gesetz zur Bekämpfung der Schwarzarbeit": {
         "EN-GB": "Act to combat illegal employment"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatz in Afghanistan (2016)",
+    "Verlängerung des Bundeswehreinsatz in Afghanistan (2016)": {
         "EN-GB": "Extension of the Bundeswehr mission in Afghanistan (2016)"
     },
-    {
-        "DE": "Angleichung der Rentenansprüche von DDR-Bergleuten",
+    "Angleichung der Rentenansprüche von DDR-Bergleuten": {
         "EN-GB": "Equalisation of pension entitlements for GDR miners"
     },
-    {
-        "DE": "Angleichung der Rentenansprüche von DDR-Krankenschwestern",
+    "Angleichung der Rentenansprüche von DDR-Krankenschwestern": {
         "EN-GB": "Equalisation of pension entitlements for GDR nurses"
     },
-    {
-        "DE": "Fortsetzung des Bundeswehreinsatzes in Mali",
+    "Fortsetzung des Bundeswehreinsatzes in Mali": {
         "EN-GB": "Continuation of the Bundeswehr mission in Mali"
     },
-    {
-        "DE": "Fortsetzung der Ausbildungsunterstützung im Irak (2017)",
+    "Fortsetzung der Ausbildungsunterstützung im Irak (2017)": {
         "EN-GB": "Continuation of training support in Iraq (2017)"
     },
-    {
-        "DE": "Schaffung einer zentralen Gesellschaft für Autobahnen und Bundesstraßen",
+    "Schaffung einer zentralen Gesellschaft für Autobahnen und Bundesstraßen": {
         "EN-GB": "Creation of a central company for motorways and federal highways"
     },
-    {
-        "DE": "Verbesserung der Mietpreisbremse",
+    "Verbesserung der Mietpreisbremse": {
         "EN-GB": "Improving the rent freeze"
     },
-    {
-        "DE": "Keine Erhöhung der Verteidigungsausgaben auf 2 Prozent des BIP",
+    "Keine Erhöhung der Verteidigungsausgaben auf 2 Prozent des BIP": {
         "EN-GB": "No increase in defence spending to 2 percent of GDP"
     },
-    {
-        "DE": "Anpassung der PKW-Maut",
+    "Anpassung der PKW-Maut": {
         "EN-GB": "Adjustment of the car toll"
     },
-    {
-        "DE": "Bundeswehreinsatz in Somalia (EUTM) (2017)",
+    "Bundeswehreinsatz in Somalia (EUTM) (2017)": {
         "EN-GB": "German Armed Forces Mission in Somalia (EUTM) (2017)"
     },
-    {
-        "DE": "Einführung eines Verbandsklagerechts im Lohngerechtigkeitsgesetz",
+    "Einführung eines Verbandsklagerechts im Lohngerechtigkeitsgesetz": {
         "EN-GB": "Introduction of a right to sue associations in the Wage Fairness Act"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali (EUTM) (2017)",
+    "Verlängerung des Bundeswehreinsatzes in Mali (EUTM) (2017)": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali (EUTM) (2017)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Somalia (Atalanta) (2017)",
+    "Verlängerung des Bundeswehreinsatzes in Somalia (Atalanta) (2017)": {
         "EN-GB": "Extension of the Bundeswehr mission in Somalia (Atalanta) (2017)"
     },
-    {
-        "DE": "Neuregelung des bundesstaatlichen Finanzausgleichs",
+    "Neuregelung des bundesstaatlichen Finanzausgleichs": {
         "EN-GB": "Reorganisation of the federal financial equalisation system"
     },
-    {
-        "DE": "Vorläufiger Abschiebestopp nach Afghanistan",
+    "Vorläufiger Abschiebestopp nach Afghanistan": {
         "EN-GB": "Temporary ban on deportations to Afghanistan"
     },
-    {
-        "DE": "Rentenüberleitungsgesetz",
+    "Rentenüberleitungsgesetz": {
         "EN-GB": "Pension Transition Act"
     },
-    {
-        "DE": "Verlegung der Bundeswehr aus der Türkei nach Jordanien",
+    "Verlegung der Bundeswehr aus der Türkei nach Jordanien": {
         "EN-GB": "Transfer of the Bundeswehr from Turkey to Jordan"
     },
-    {
-        "DE": "Abschaffung der sachgrundlosen Befristung",
+    "Abschaffung der sachgrundlosen Befristung": {
         "EN-GB": "Abolition of fixed-term contracts without objective grounds"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR) (2017)",
+    "Verlängerung des Bundeswehreinsatzes im Kosovo (KFOR) (2017)": {
         "EN-GB": "Extension of the Bundeswehr mission in Kosovo (KFOR) (2017)"
     },
-    {
-        "DE": "Ausschluss extremistischer Parteien von der Parteienfinanzierung",
+    "Ausschluss extremistischer Parteien von der Parteienfinanzierung": {
         "EN-GB": "Exclusion of extremist parties from party funding"
     },
-    {
-        "DE": "Ehe für Alle",
+    "Ehe für Alle": {
         "EN-GB": "Marriage for all"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Mittelmeer (EUNAVFOR MED) (2017)",
+    "Verlängerung des Bundeswehreinsatzes im Mittelmeer (EUNAVFOR MED) (2017)": {
         "EN-GB": "Extension of the Bundeswehr mission in the Mediterranean (EUNAVFOR MED) (2017)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes im Libanon (UNIFIL) (2017)",
+    "Verlängerung des Bundeswehreinsatzes im Libanon (UNIFIL) (2017)": {
         "EN-GB": "Extension of the Bundeswehr mission in Lebanon (UNIFIL) (2017)"
     },
-    {
-        "DE": "Höhere Regionalisierungsmittel für den Bahnverkehr",
+    "Höhere Regionalisierungsmittel für den Bahnverkehr": {
         "EN-GB": "Higher regionalisation funds for rail transport"
     },
-    {
-        "DE": "Stärkung der Unabhängigkeit der Datenschutzaufsicht",
+    "Stärkung der Unabhängigkeit der Datenschutzaufsicht": {
         "EN-GB": "Strengthening the independence of data protection supervision"
     },
-    {
-        "DE": "Deutsche Beteiligung an Ausbildungsmission in Somalia",
+    "Deutsche Beteiligung an Ausbildungsmission in Somalia": {
         "EN-GB": "German participation in training mission in Somalia"
     },
-    {
-        "DE": "Verlängerung Afghanistaneinsatz (ISAF)",
+    "Verlängerung Afghanistaneinsatz (ISAF)": {
         "EN-GB": "Extension of Afghanistan mission (ISAF)"
     },
-    {
-        "DE": "Wachstumsbeschleunigungsgesetz",
+    "Wachstumsbeschleunigungsgesetz": {
         "EN-GB": "Growth Acceleration Act"
     },
-    {
-        "DE": "Verlängerung des Anti-Terror-Kampfes (OEF)",
+    "Verlängerung des Anti-Terror-Kampfes (OEF)": {
         "EN-GB": "Extension of the war on terror (OEF)"
     },
-    {
-        "DE": "Verlängerung Libanon-Einsatz (UNFIL)",
+    "Verlängerung Libanon-Einsatz (UNFIL)": {
         "EN-GB": "Extension of Lebanon mission (UNFIL)"
     },
-    {
-        "DE": "Schwarzarbeiterbekämpfungsgesetz",
+    "Schwarzarbeiterbekämpfungsgesetz": {
         "EN-GB": "Act to Combat Undeclared Labour"
     },
-    {
-        "DE": "Kampf gegen Piraten (ATALANTA)",
+    "Kampf gegen Piraten (ATALANTA)": {
         "EN-GB": "Fight against pirates (ATALANTA)"
     },
-    {
-        "DE": "Bundeswehreinsatz in Bosnien Herzegowina",
+    "Bundeswehreinsatz in Bosnien Herzegowina": {
         "EN-GB": "German Armed Forces deployment in Bosnia and Herzegovina"
     },
-    {
-        "DE": "Verzicht auf Mehrwertsteuersenkung für das Hotelgewerbe",
+    "Verzicht auf Mehrwertsteuersenkung für das Hotelgewerbe": {
         "EN-GB": "Waiver of VAT reduction for the hotel industry"
     },
-    {
-        "DE": "Notkredit für Griechenland",
+    "Notkredit für Griechenland": {
         "EN-GB": "Emergency loan for Greece"
     },
-    {
-        "DE": "Schnellere Absenkung der Einspeisevergütung im EEG",
+    "Schnellere Absenkung der Einspeisevergütung im EEG": {
         "EN-GB": "Faster reduction of the feed-in tariff in the EEG"
     },
-    {
-        "DE": "Euro-Rettungsschirm",
+    "Euro-Rettungsschirm": {
         "EN-GB": "Euro bailout fund"
     },
-    {
-        "DE": "Verlängerung Kosovo-Einsatz (KFOR)",
+    "Verlängerung Kosovo-Einsatz (KFOR)": {
         "EN-GB": "Extension of Kosovo mission (KFOR)"
     },
-    {
-        "DE": "Austritt aus der Kernfusion (ITER)",
+    "Austritt aus der Kernfusion (ITER)": {
         "EN-GB": "Exit from nuclear fusion (ITER)"
     },
-    {
-        "DE": "Reform der Jobcenter",
+    "Reform der Jobcenter": {
         "EN-GB": "Job centre reform"
     },
-    {
-        "DE": "Verlängerung des Libanon-Einsatzes (UNFIL)",
+    "Verlängerung des Libanon-Einsatzes (UNFIL)": {
         "EN-GB": "Extension of the Lebanon mission (UNFIL)"
     },
-    {
-        "DE": "Verlängerung des Darfur-Einsatzes (UNAMID)",
+    "Verlängerung des Darfur-Einsatzes (UNAMID)": {
         "EN-GB": "Extension of the Darfur mission (UNAMID)"
     },
-    {
-        "DE": "Reduzierung der Wehrpflicht",
+    "Reduzierung der Wehrpflicht": {
         "EN-GB": "Reduction of compulsory military service"
     },
-    {
-        "DE": "Verlängerung des Sudan-Einsatzes (UNMIS)",
+    "Verlängerung des Sudan-Einsatzes (UNMIS)": {
         "EN-GB": "Extension of the Sudan mission (UNMIS)"
     },
-    {
-        "DE": "Bundeswehr ohne Wehrpflicht",
+    "Bundeswehr ohne Wehrpflicht": {
         "EN-GB": "Bundeswehr without conscription"
     },
-    {
-        "DE": "Verlängerung von AKW-Laufzeiten",
+    "Verlängerung von AKW-Laufzeiten": {
         "EN-GB": "Extension of nuclear power plant lifetimes"
     },
-    {
-        "DE": "Abschöpfung von Zusatzgewinnen aus AKW-Laufzeitverlängerung",
+    "Abschöpfung von Zusatzgewinnen aus AKW-Laufzeitverlängerung": {
         "EN-GB": "Skimming off additional profits from the extension of nuclear power plant lifetimes"
     },
-    {
-        "DE": "Brennelementesteuer",
+    "Brennelementesteuer": {
         "EN-GB": "Fuel element tax"
     },
-    {
-        "DE": "Sparpaket (Haushaltsbegleitgesetz)",
+    "Sparpaket (Haushaltsbegleitgesetz)": {
         "EN-GB": "Austerity package (Budget Accompanying Act)"
     },
-    {
-        "DE": "Bundeshaushalt 2010",
+    "Bundeshaushalt 2010": {
         "EN-GB": "Federal budget 2010"
     },
-    {
-        "DE": "Abschaffung der reduzierten Mehrwertsteuer für Hotels",
+    "Abschaffung der reduzierten Mehrwertsteuer für Hotels": {
         "EN-GB": "Abolition of reduced VAT for hotels"
     },
-    {
-        "DE": "Beibehaltung der Steuerfreiheit bei Feiertags- und Nachtarbeit",
+    "Beibehaltung der Steuerfreiheit bei Feiertags- und Nachtarbeit": {
         "EN-GB": "Retention of tax exemption for public holiday and night work"
     },
-    {
-        "DE": "Mindestsicherung statt Hartz IV",
+    "Mindestsicherung statt Hartz IV": {
         "EN-GB": "Minimum income instead of Hartz IV"
     },
-    {
-        "DE": "Neuordnung am Arzneimittelmarkt",
+    "Neuordnung am Arzneimittelmarkt": {
         "EN-GB": "Reorganisation of the pharmaceutical market"
     },
-    {
-        "DE": "Einführung bundesweiter Volksentscheide",
+    "Einführung bundesweiter Volksentscheide": {
         "EN-GB": "Introduction of nationwide referendums"
     },
-    {
-        "DE": "Gesundheitsreform",
+    "Gesundheitsreform": {
         "EN-GB": "Healthcare reform"
     },
-    {
-        "DE": "Haushalt 2011",
+    "Haushalt 2011": {
         "EN-GB": "Budget 2011"
     },
-    {
-        "DE": "Verlängerung Bosnien-Einsatz (ALTHEA)",
+    "Verlängerung Bosnien-Einsatz (ALTHEA)": {
         "EN-GB": "Extension of Bosnia mission (ALTHEA)"
     },
-    {
-        "DE": "Verlängerung des Anti-Terror-Einsatzes im Mittelmeer (OAE)",
+    "Verlängerung des Anti-Terror-Einsatzes im Mittelmeer (OAE)": {
         "EN-GB": "Extension of the anti-terror mission in the Mediterranean (OAE)"
     },
-    {
-        "DE": "Anpassung und Veränderung von Hartz IV",
+    "Anpassung und Veränderung von Hartz IV": {
         "EN-GB": "Adaptation and change of Hartz IV"
     },
-    {
-        "DE": "Vorläufiger Bau- und Vergabestopp bei Stuttgart 21",
+    "Vorläufiger Bau- und Vergabestopp bei Stuttgart 21": {
         "EN-GB": "Temporary halt to construction and awarding of contracts for Stuttgart 21"
     },
-    {
-        "DE": "Unverzügliche Abschaltung aller deutschen AKW",
+    "Unverzügliche Abschaltung aller deutschen AKW": {
         "EN-GB": "Immediate shutdown of all German nuclear power plants"
     },
-    {
-        "DE": "Vorübergehende Aussetzung von AKW-Laufzeiten (Moratorium)",
+    "Vorübergehende Aussetzung von AKW-Laufzeiten (Moratorium)": {
         "EN-GB": "Temporary suspension of nuclear power plant lifetimes (moratorium)"
     },
-    {
-        "DE": "Sofortige Abschaltung von Alt-AKW",
+    "Sofortige Abschaltung von Alt-AKW": {
         "EN-GB": "Immediate shutdown of old nuclear power plants"
     },
-    {
-        "DE": "AWACS-Einsatz in Afghanistan",
+    "AWACS-Einsatz in Afghanistan": {
         "EN-GB": "AWACS deployment in Afghanistan"
     },
-    {
-        "DE": "Verlängerung des Libanon-Einsatzes (UNIFIL)",
+    "Verlängerung des Libanon-Einsatzes (UNIFIL)": {
         "EN-GB": "Extension of the Lebanon mission (UNIFIL)"
     },
-    {
-        "DE": "Atomausstieg bis 2022",
+    "Atomausstieg bis 2022": {
         "EN-GB": "Nuclear phase-out by 2022"
     },
-    {
-        "DE": "Eingeschränkte Zulassung der Präimplantationsdiagnostik",
+    "Eingeschränkte Zulassung der Präimplantationsdiagnostik": {
         "EN-GB": "Restricted authorisation of pre-implantation diagnostics"
     },
-    {
-        "DE": "Keine Panzer an Saudi-Arabien verkaufen",
+    "Keine Panzer an Saudi-Arabien verkaufen": {
         "EN-GB": "Do not sell tanks to Saudi Arabia"
     },
-    {
-        "DE": "Unterirdische Speicherung von CO2",
+    "Unterirdische Speicherung von CO2": {
         "EN-GB": "Underground storage of CO2"
     },
-    {
-        "DE": "Verlängerung des Darfur-Einsatzes",
+    "Verlängerung des Darfur-Einsatzes": {
         "EN-GB": "Extension of the Darfur mission"
     },
-    {
-        "DE": "Deutsche Beteiligung an UN-Aufbaumission in Südsudan",
+    "Deutsche Beteiligung an UN-Aufbaumission in Südsudan": {
         "EN-GB": "German participation in UN reconstruction mission in South Sudan"
     },
-    {
-        "DE": "Abschiebestopp für syrische Flüchtlinge",
+    "Abschiebestopp für syrische Flüchtlinge": {
         "EN-GB": "Deportation ban for Syrian refugees"
     },
-    {
-        "DE": "Euro-Stabilisierungsfonds EFSF",
+    "Euro-Stabilisierungsfonds EFSF": {
         "EN-GB": "Euro stabilisation fund EFSF"
     },
-    {
-        "DE": "Reform des Bundestagswahlrechts",
+    "Reform des Bundestagswahlrechts": {
         "EN-GB": "Reform of the Bundestag electoral law"
     },
-    {
-        "DE": "Ausweitung des Euro-Rettungsschirms (EFSF)",
+    "Ausweitung des Euro-Rettungsschirms (EFSF)": {
         "EN-GB": "Expansion of the euro rescue fund (EFSF)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes gegen Piraterie (Atalanta)",
+    "Verlängerung des Bundeswehreinsatzes gegen Piraterie (Atalanta)": {
         "EN-GB": "Extension of the Bundeswehr mission against piracy (Atalanta)"
     },
-    {
-        "DE": "Verlängerung Afghanistan-Einsatz (ISAF)",
+    "Verlängerung Afghanistan-Einsatz (ISAF)": {
         "EN-GB": "Extension of Afghanistan mission (ISAF)"
     },
-    {
-        "DE": "Zweites Rettungspaket für Griechenland",
+    "Zweites Rettungspaket für Griechenland": {
         "EN-GB": "Second rescue package for Greece"
     },
-    {
-        "DE": "Pläne für ein Betreuungsgeld aufgeben",
+    "Pläne für ein Betreuungsgeld aufgeben": {
         "EN-GB": "Abandon plans for a childcare allowance"
     },
-    {
-        "DE": "Abbau der kalten Progression",
+    "Abbau der kalten Progression": {
         "EN-GB": "Reduction of cold progression"
     },
-    {
-        "DE": "Kürzungen der Solarförderungen",
+    "Kürzungen der Solarförderungen": {
         "EN-GB": "Cuts in solar subsidies"
     },
-    {
-        "DE": "Verbesserter Rechtsschutz in Wahlsachen (Art. 93 GG)",
+    "Verbesserter Rechtsschutz in Wahlsachen (Art. 93 GG)": {
         "EN-GB": "Improved legal protection in electoral matters (Art. 93 GG)"
     },
-    {
-        "DE": "Nachtragshaushalt 2012",
+    "Nachtragshaushalt 2012": {
         "EN-GB": "Supplementary budget 2012"
     },
-    {
-        "DE": "Fiskalpakt",
+    "Fiskalpakt": {
         "EN-GB": "Fiscal Compact"
     },
-    {
-        "DE": "Dauerhafter Euro-Rettungsschirm ESM",
+    "Dauerhafter Euro-Rettungsschirm ESM": {
         "EN-GB": "Permanent euro bailout fund ESM"
     },
-    {
-        "DE": "Recht auf Eheschließung für gleichgeschlechtliche Paare",
+    "Recht auf Eheschließung für gleichgeschlechtliche Paare": {
         "EN-GB": "Right to marriage for same-sex couples"
     },
-    {
-        "DE": "Fortsetzung des Libanon-Einsatzes",
+    "Fortsetzung des Libanon-Einsatzes": {
         "EN-GB": "Continuation of the Lebanon mission"
     },
-    {
-        "DE": "Neuausrichtung der Pflegeversicherung",
+    "Neuausrichtung der Pflegeversicherung": {
         "EN-GB": "Reorganisation of long-term care insurance"
     },
-    {
-        "DE": "Bankenhilfe für Spanien (EFSF)",
+    "Bankenhilfe für Spanien (EFSF)": {
         "EN-GB": "Bank aid for Spain (EFSF)"
     },
-    {
-        "DE": "Offenlegung von Nebeneinkünften auf Euro und Cent",
+    "Offenlegung von Nebeneinkünften auf Euro und Cent": {
         "EN-GB": "Disclosure of additional income in euros and cents"
     },
-    {
-        "DE": "Einführung eines Betreuungsgeldes",
+    "Einführung eines Betreuungsgeldes": {
         "EN-GB": "Introduction of a childcare allowance"
     },
-    {
-        "DE": "Finanzhilfe für Griechenland",
+    "Finanzhilfe für Griechenland": {
         "EN-GB": "Financial aid for Greece"
     },
-    {
-        "DE": "Beschneidung von Jungen aus religiösen Gründen",
+    "Beschneidung von Jungen aus religiösen Gründen": {
         "EN-GB": "Circumcision of boys for religious reasons"
     },
-    {
-        "DE": "Patriot-Einsatz in der Türkei",
+    "Patriot-Einsatz in der Türkei": {
         "EN-GB": "Patriot deployment in Turkey"
     },
-    {
-        "DE": "Mietrechtsreform",
+    "Mietrechtsreform": {
         "EN-GB": "Tenancy law reform"
     },
-    {
-        "DE": "Leistungsschutzrecht",
+    "Leistungsschutzrecht": {
         "EN-GB": "Ancillary copyright"
     },
-    {
-        "DE": "Mali-Einsatz (internationale Unterstützungsmission)",
+    "Mali-Einsatz (internationale Unterstützungsmission)": {
         "EN-GB": "Mali mission (international support mission)"
     },
-    {
-        "DE": "Mali-Einsatz (militärische Ausbildungsmission)",
+    "Mali-Einsatz (militärische Ausbildungsmission)": {
         "EN-GB": "Mali mission (military training mission)"
     },
-    {
-        "DE": "Privatisierung der Wasserversorgung verhindern (Linken-Antrag)",
+    "Privatisierung der Wasserversorgung verhindern (Linken-Antrag)": {
         "EN-GB": "Prevent privatisation of the water supply (Left Party motion)"
     },
-    {
-        "DE": "Privatisierung der Wasserversorgung verhindern (Grünen-Antrag)",
+    "Privatisierung der Wasserversorgung verhindern (Grünen-Antrag)": {
         "EN-GB": "Prevent privatisation of the water supply (Green motion)"
     },
-    {
-        "DE": "Frauenquote in Aufsichtsräten",
+    "Frauenquote in Aufsichtsräten": {
         "EN-GB": "Women's quota on supervisory boards"
     },
-    {
-        "DE": "Finanzhilfen für Zypern (ESM)",
+    "Finanzhilfen für Zypern (ESM)": {
         "EN-GB": "Financial aid for Cyprus (ESM)"
     },
-    {
-        "DE": "EU-Operation Atalanta",
+    "EU-Operation Atalanta": {
         "EN-GB": "EU-Operation Atalanta"
     },
-    {
-        "DE": "Schärfere Regeln gegen Abgeordnetenbestechung",
+    "Schärfere Regeln gegen Abgeordnetenbestechung": {
         "EN-GB": "Stricter rules against bribery of MPs"
     },
-    {
-        "DE": "Bundeswehr auch in Zukunft an Libanon-Einsatz UNIFIL beteiligt",
+    "Bundeswehr auch in Zukunft an Libanon-Einsatz UNIFIL beteiligt": {
         "EN-GB": "Bundeswehr to remain involved in UNIFIL mission in Lebanon"
     },
-    {
-        "DE": "Betreuungsgeld verhindern (Änderungsantrag)",
+    "Betreuungsgeld verhindern (Änderungsantrag)": {
         "EN-GB": "Prevent childcare allowance (amendment)"
     },
-    {
-        "DE": "Verlängerung des Bundeswehreinsatzes in Mali",
+    "Verlängerung des Bundeswehreinsatzes in Mali": {
         "EN-GB": "Extension of the Bundeswehr mission in Mali"
     },
-    {
-        "DE": "Verbot der NPD",
+    "Verbot der NPD": {
         "EN-GB": "Ban on the NPD"
     },
-    {
-        "DE": "Erhöhung der Mehrwertsteuer",
+    "Erhöhung der Mehrwertsteuer": {
         "EN-GB": "Increase in value added tax"
     },
-    {
-        "DE": "Verlängerung Kosovo-Einsatz",
+    "Verlängerung Kosovo-Einsatz": {
         "EN-GB": "Extension of Kosovo mission"
     },
-    {
-        "DE": "Antidiskriminierungsgesetz",
+    "Antidiskriminierungsgesetz": {
         "EN-GB": "Anti-discrimination law"
     },
-    {
-        "DE": "Föderalismusreform",
+    "Föderalismusreform": {
         "EN-GB": "Federalism reform"
     },
-    {
-        "DE": "Bundeswehreinsatz im Kongo",
+    "Bundeswehreinsatz im Kongo": {
         "EN-GB": "German Armed Forces mission in Congo"
     },
-    {
-        "DE": "Verlängerung des Anti-Terror-Einsatzes (OEF)",
+    "Verlängerung des Anti-Terror-Einsatzes (OEF)": {
         "EN-GB": "Extension of the anti-terror mission (OEF)"
     },
-    {
-        "DE": "Verlängerung des Afghanistan-Einsatzes (ISAF)",
+    "Verlängerung des Afghanistan-Einsatzes (ISAF)": {
         "EN-GB": "Extension of the Afghanistan mission (ISAF)"
     },
-    {
-        "DE": "EU-Beitritt Bulgariens und Rumäniens",
+    "EU-Beitritt Bulgariens und Rumäniens": {
         "EN-GB": "EU accession of Bulgaria and Romania"
     },
-    {
-        "DE": "Tornado-Einsatz",
+    "Tornado-Einsatz": {
         "EN-GB": "Tornado deployment"
     },
-    {
-        "DE": "Rente mit 67",
+    "Rente mit 67": {
         "EN-GB": "Retirement at 67"
     },
-    {
-        "DE": "Postmindestlohn",
+    "Postmindestlohn": {
         "EN-GB": "Minimum postal wage"
     },
-    {
-        "DE": "Mindestlöhne (Antrag Die Linke.)",
+    "Mindestlöhne (Antrag Die Linke.)": {
         "EN-GB": "Minimum wages (motion by Die Linke.)"
     },
-    {
-        "DE": "Unternehmenssteuerreform",
+    "Unternehmenssteuerreform": {
         "EN-GB": "Corporate tax reform"
     },
-    {
-        "DE": "Aufenthalts- und Asylrecht",
+    "Aufenthalts- und Asylrecht": {
         "EN-GB": "Residence and asylum law"
     },
-    {
-        "DE": "Emissionshandel",
+    "Emissionshandel": {
         "EN-GB": "Emissions trading"
     },
-    {
-        "DE": "Verlängerung Afghanistan-Einsatz (ISAF, Tornado)",
+    "Verlängerung Afghanistan-Einsatz (ISAF, Tornado)": {
         "EN-GB": "Extension of Afghanistan mission (ISAF, Tornado)"
     },
-    {
-        "DE": "Verlängerung Libanon-Einsatz",
+    "Verlängerung Libanon-Einsatz": {
         "EN-GB": "Extension of Lebanon mission"
     },
-    {
-        "DE": "Vorratsdatenspeicherung",
+    "Vorratsdatenspeicherung": {
         "EN-GB": "Data retention"
     },
-    {
-        "DE": "Diätenerhöhung",
+    "Diätenerhöhung": {
         "EN-GB": "Diet increase"
     },
-    {
-        "DE": "Änderung des Stammzellgesetzes",
+    "Änderung des Stammzellgesetzes": {
         "EN-GB": "Amendment of the Stem Cell Act"
     },
-    {
-        "DE": "EU-Vertrag von Lissabon",
+    "EU-Vertrag von Lissabon": {
         "EN-GB": "EU Treaty of Lisbon"
     },
-    {
-        "DE": "Bahnprivatisierung",
+    "Bahnprivatisierung": {
         "EN-GB": "Rail privatisation"
     },
-    {
-        "DE": "Fortsetzung des Darfur-Einsatzes",
+    "Fortsetzung des Darfur-Einsatzes": {
         "EN-GB": "Continuation of the Darfur mission"
     },
-    {
-        "DE": "Rückkehr zur alten Pendlerpauschale",
+    "Rückkehr zur alten Pendlerpauschale": {
         "EN-GB": "Return to the old commuter allowance"
     },
-    {
-        "DE": "Banken-Rettungspaket",
+    "Banken-Rettungspaket": {
         "EN-GB": "Bank rescue package"
     },
-    {
-        "DE": "BKA-Gesetz",
+    "BKA-Gesetz": {
         "EN-GB": "BKA law"
     },
-    {
-        "DE": "Erbschaftssteuerreform",
+    "Erbschaftssteuerreform": {
         "EN-GB": "Inheritance tax reform"
     },
-    {
-        "DE": "Haushalt 2009",
+    "Haushalt 2009": {
         "EN-GB": "Budget 2009"
     },
-    {
-        "DE": "Familienleistungsgesetz",
+    "Familienleistungsgesetz": {
         "EN-GB": "Family Benefits Act"
     },
-    {
-        "DE": "Kampf gegen Piraten",
+    "Kampf gegen Piraten": {
         "EN-GB": "Fight against pirates"
     },
-    {
-        "DE": "Mindestlohn für sechs weitere Branchen",
+    "Mindestlohn für sechs weitere Branchen": {
         "EN-GB": "Minimum wage for six more sectors"
     },
-    {
-        "DE": "Mindestarbeitsbedingungen",
+    "Mindestarbeitsbedingungen": {
         "EN-GB": "Minimum labour conditions"
     },
-    {
-        "DE": "Enteignung von Banken",
+    "Enteignung von Banken": {
         "EN-GB": "Expropriation of banks"
     },
-    {
-        "DE": "Beratungspflicht bei Spätabtreibungen",
+    "Beratungspflicht bei Spätabtreibungen": {
         "EN-GB": "Duty to provide counselling for late abortions"
     },
-    {
-        "DE": "Anbauverbot von Genmais",
+    "Anbauverbot von Genmais": {
         "EN-GB": "Ban on the cultivation of genetically modified maize"
     },
-    {
-        "DE": "Schuldenbremse",
+    "Schuldenbremse": {
         "EN-GB": "Debt brake"
     },
-    {
-        "DE": "Abgabe von künstlichem Heroin an Schwerstabhängige",
+    "Abgabe von künstlichem Heroin an Schwerstabhängige": {
         "EN-GB": "Supply of artificial heroin to severely addicted patients"
     },
-    {
-        "DE": "Internetsperren",
+    "Internetsperren": {
         "EN-GB": "Internet locks"
     },
-    {
-        "DE": "Patientenverfügung (Stünker-Antrag)",
+    "Patientenverfügung (Stünker-Antrag)": {
         "EN-GB": "Living will (Stünker application)"
     },
-    {
-        "DE": "Bundestagswahlrecht",
+    "Bundestagswahlrecht": {
         "EN-GB": "Bundestag electoral law"
     }
-]
+}
