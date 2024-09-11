@@ -183,9 +183,9 @@ def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
     fig.update_layout(
         title=dict(
             text=(
-                "<b>Die Fraktionen:</b> Wie hoch war der Grad der Abweichung in den Abstimmungen?<br>"
-                f"Hier für die Fraktion: {df.fraction.iloc[0]}"
-            )
+                t("<b>Die Fraktionen:</b> Wie hoch war der Grad der Abweichung in den Abstimmungen?<br>")
+                + t("Hier für die Fraktion: ") + df.fraction.iloc[0]
+            ),
         ),
         barmode="relative",
         # width=900,
@@ -258,6 +258,12 @@ def get_fig_dissenters(votes_plot, selected_vote_ids, language="de"):
 
     fig = go.Figure()
 
+    hovertemplate = (
+        "<b>%{customdata[0]}</b><br>"
+        + t("zur Abstimmung") + "<br>\"<i>%{customdata[1]}</i>\"<br>"
+        + t("Stimme: ") + "%{customdata[3]}<br>"
+        + t("Fraktionsmehrheit: ") + "%{customdata[2]}.<extra></extra>"
+    )
     fig.add_trace(
         go.Scatter(
             x=df_diss.x,
@@ -273,7 +279,7 @@ def get_fig_dissenters(votes_plot, selected_vote_ids, language="de"):
             selectedpoints=selected_votes_rownum,
             # customdata=df_diss.vote_id,
             customdata=df_diss[["name", "label", "party_line", "vote", "vote_id"]],
-            hovertemplate="<b>%{customdata[0]}</b> zur Abstimmung<br>„<i>%{customdata[1]}</i>“<br>Stimme: %{customdata[3]}<br>Fraktionsmehrheit: %{customdata[2]}.<extra></extra>",
+            hovertemplate=hovertemplate,
             showlegend=False,
         )
     )
@@ -281,8 +287,8 @@ def get_fig_dissenters(votes_plot, selected_vote_ids, language="de"):
     fig.update_layout(
         title=dict(
             text=(
-                "<b>Die Abgeordneten:</b> Wer hat bei welcher Frage abweichend gestimmt?<br>"
-                f"Hier für die Fraktion: {votes_plot.fraction.iloc[0]}:"
+                t("<b>Die Abgeordneten:</b> Wer hat bei welcher Frage abweichend gestimmt?<br>")
+                + t("Hier für die Fraktion: ") + votes_plot.fraction.iloc[0]
             ),
             x=0,
             xref="paper",

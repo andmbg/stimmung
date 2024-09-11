@@ -1690,5 +1690,23 @@
     },
     "Dissens": {
         "EN-GB": "Dissent"
+    },
+    "<b>Die Fraktionen:</b> Wie hoch war der Grad der Abweichung in den Abstimmungen?<br>": {
+        "EN-GB": "<b>The parliamentary groups:</b> What was the degree of deviation in the votes?<br>"
+    },
+    "zur Abstimmung": {
+        "EN-GB": "in the vote"
+    },
+    "Stimme: ": {
+        "EN-GB": "Vote:"
+    },
+    "Fraktionsmehrheit: ": {
+        "EN-GB": "Parliamentary group's majority opinion: "
+    },
+    "<b>Die Abgeordneten:</b> Wer hat bei welcher Frage abweichend gestimmt?<br>": {
+        "EN-GB": "<b>The MPs:</b> Who voted differently on which question?<br>"
+    },
+    "Hier für die Fraktion: ": {
+        "EN-GB": "Showing the parliamentary group of "
     }
 }
