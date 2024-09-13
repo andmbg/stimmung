@@ -33,10 +33,15 @@ def init_dashboard(flask_app, route):
     current_language = config.current_language
     language_context.set_language(current_language)
 
+    # we run >1 instances of the same app, which leads to conflict inside Dash
+    # due to bluepriint names; set app name explicitly:
+    app_name = f"bundestag_{current_language}"
+
     app = Dash(
-        __name__,
+        name=app_name,
         server=flask_app,
         routes_pathname_prefix=route,
+        assets_folder=dashapp_rootdir / "bundestag" / "assets",
         # relevant for standalone launch, not used by main flask app:
         external_stylesheets=[dbc.themes.FLATLY],
     )
