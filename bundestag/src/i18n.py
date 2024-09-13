@@ -31,9 +31,6 @@ def get_biling_dictionary(multiling_dictionary, language):
     }
 
 
-# global_biling_dictionary = get_biling_dictionary(multiling_dictionary, current_language)
-
-
 def get_translations(labels: pd.Series) -> None:
     """
     Check voting labels for presence of their 'tgt_lang' translation in our
@@ -172,7 +169,7 @@ def translate_series(series: pd.Series) -> pd.Series:
     Translate a series of strings into the current language.
     """
     current_language = language_context.get_language()
-    
+
     if current_language == "de":
         return series
     
@@ -185,7 +182,7 @@ def translate(text: str) -> str:
     """
     Return a previously-cached translation for the given German string. If the
     current language is "de", just return the input string unchanged. Else,
-    if no translation is found, [TODO] get it from DeepL and store it in both
+    if no translation is found, get it from DeepL and store it in both
     the bilingual and multilingual dictionaries.
 
     :param text: the string to translate

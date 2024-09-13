@@ -19,8 +19,8 @@ from .src.data.ensure_data import (
 )
 from .src.log_config import setup_logger
 from .config import cached_dataset
-from .src.language_context import language_context
 from .src.i18n import translate as t, translate_series
+from .src.language_context import language_context
 from .src.viz.visualize import get_fig_dissenters, get_fig_votes
 
 
@@ -30,9 +30,8 @@ logger = logging.getLogger(__name__)
 
 def init_dashboard(flask_app, route):
 
-    current_language = language_context.get_language()
-
-    logger.info(f"---init_dashboard()---: {current_language}")
+    current_language = config.current_language
+    language_context.set_language(current_language)
 
     app = Dash(
         __name__,
@@ -280,7 +279,7 @@ def init_callbacks(app, data, language):
                         [p["customdata"][4] for p in selected_data["points"]],
                     )
                 )
-        frac_fig = get_fig_votes(plot_data, selected_votes, language=language)
+        frac_fig = get_fig_votes(plot_data, selected_votes)
         diss_fig = get_fig_dissenters(plot_data, selected_votes)
 
         return (

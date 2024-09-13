@@ -7,13 +7,12 @@ import pandas as pd
 
 from bundestag.src.log_config import setup_logger
 from bundestag.src.i18n import translate as t
-from bundestag.src.language_context import language_context
 
 setup_logger()
 logger = logging.getLogger(__name__)
 
 
-def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
+def get_fig_votes(votes_plot, selected_vote_ids: list):
     """
     Per-fraction * per-legislature figure showing dissent poll-wise.
     """
@@ -26,9 +25,6 @@ def get_fig_votes(votes_plot, selected_vote_ids: list, language="de"):
     # logger.info(f"Received vote_ids: {selected_vote_ids}")
 
     df = votes_plot.copy()
-
-    current_language = language_context.get_language()
-    logger.info(f"get_fig_votes(): {current_language}")
 
     #
     # ranges and panel sizes:
