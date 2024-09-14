@@ -1,9 +1,5 @@
 from flask import Flask
 from . import init_dashboard
-from .src.language_context import language_context
-
-
-language_context.set_language("en")
 
 
 app = Flask(__name__, instance_relative_config=False)

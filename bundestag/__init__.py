@@ -1,11 +1,9 @@
 import sys
-from pathlib import Path
 import logging
-import json
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from flask import g
 import dash_bootstrap_components as dbc
 from dash import Dash, dcc, html, Input, Output
 

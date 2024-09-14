@@ -21,14 +21,14 @@ dictionary_path = dashapp_rootdir / "i18n" / "dictionary.json"
 multiling_dictionary = json.loads(dictionary_path.read_text())
 
 
-def get_biling_dictionary(multiling_dictionary, language):
-    """ """
-    logger.info(f"get_biling_dictionary(): {language}")
-    return {
-        str(entry["DE"]): str(entry[code[language]])
-        for entry in multiling_dictionary
-        if "DE" in entry and code[language] in entry
-    }
+# def get_biling_dictionary(multiling_dictionary, language):
+#     """ """
+#     logger.info(f"get_biling_dictionary(): {language}")
+#     return {
+#         str(entry["DE"]): str(entry[code[language]])
+#         for entry in multiling_dictionary
+#         if "DE" in entry and code[language] in entry
+#     }
 
 
 def get_translations(labels: pd.Series) -> None:
