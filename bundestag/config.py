@@ -6,7 +6,7 @@ language_codes = {
     "de": "DE",
     "en": "EN-GB",
 }
-current_language = "de"
+current_language = "en"
 
 awde_url = "https://www.abgeordnetenwatch.de/api/v2/"
 cached_dataset = dashapp_rootdir / "data" / "votes_bundestag.parquet"
